@@ -1,0 +1,490 @@
+###############################################################################
+#  Snakefile – bereinigte Version
+###############################################################################
+import os
+import glob
+
+# --------------------------------------------------------------------------- #
+# 1) Konfiguration
+# --------------------------------------------------------------------------- #
+configfile: "config.yaml"
+
+# --------------------------------------------------------------------------- #
+# 2) Dynamische Eingabedateien
+# --------------------------------------------------------------------------- #
+gpx_files      = glob.glob("data/*.gpx")
+gpx_basenames  = [os.path.splitext(os.path.basename(f))[0] for f in gpx_files]
+
+# --------------------------------------------------------------------------- #
+# 3) Finale Targets
+# --------------------------------------------------------------------------- #
+rule all:
+    input:
+        expand("output/11_{basename}_stage_summary_final.html", basename=gpx_basenames),
+        expand("output/11_{basename}_stage_summary_final.pdf",  basename=gpx_basenames),
+
+# --------------------------------------------------------------------------- #
+# 4) Workflow‑Schritte
+# --------------------------------------------------------------------------- #
+
+# --------------------------------------------------------------------------- #
+# Schritt 2 – GPX → CSV (volle Auflösung)
+# --------------------------------------------------------------------------- #
+rule parse_full_gpx:
+    input:
+        gpx="data/{basename}.gpx"
+    output:
+        csv="output/2_{basename}_track_data_full.csv"
+    log:
+        "logs/2_{basename}_parse_gpx_full.log"
+    shell:
+        """
+        python scripts/2_parse_gpx_full.py "{input.gpx}" "{output.csv}" > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 2b – vereinfacht → API‑Track
+# --------------------------------------------------------------------------- #
+rule create_api_optimized_track:
+    input:
+        gpx="data/{basename}.gpx"
+    output:
+        csv="output/2b_{basename}_track_data_api_optimized.csv"
+    params:
+        simplification_method=config.get("api_simplification_method", "rdp"),
+        epsilon=config.get("rdp_epsilon", 0.0001),
+    log:
+        "logs/2b_{basename}_simplify_track_api.log"
+    shell:
+        """
+        python scripts/2b_simplify_gpx_api.py \
+            --input "{input.gpx}" \
+            --output "{output.csv}" \
+            --method {params.simplification_method} \
+            --epsilon {params.epsilon} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 2c – Höhendaten ergänzen
+# --------------------------------------------------------------------------- #
+rule add_elevation_data:
+    input:
+        track_csv="output/2_{basename}_track_data_full.csv"
+    output:
+        track_with_elevation="output/2c_{basename}_track_data_full_with_elevation.csv"
+    params:
+        batch_size=config.get("elevation_batch_size", 100),
+    log:
+        "logs/2c_{basename}_add_elevation.log"
+    shell:
+        """
+        python scripts/2c_add_elevation.py \
+            --input-csv "{input.track_csv}" \
+            --output-csv "{output.track_with_elevation}" \
+            --batch-size {params.batch_size} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 2d – (optional) Ortsnamen geokodieren
+# --------------------------------------------------------------------------- #
+rule geocode_places:
+    input:
+        sorted_places="output/8_{basename}_places_sorted_optimized.csv"
+    output:
+        places_with_coords="output/8b_{basename}_places_with_coords.csv"
+    params:
+        country_context=config.get("geocoding_country_context", ""),
+    log:
+        "logs/8b_{basename}_geocode_places.log"
+    shell:
+        """
+        python scripts/8b_geocode_places.py \
+            --input-csv "{input.sorted_places}" \
+            --output-csv "{output.places_with_coords}" \
+            --context "{params.country_context}" \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# NEU: Schritt 8c - Orte anreichern und filtern
+# --------------------------------------------------------------------------- #
+rule enrich_and_filter_places:
+    input:
+        places_with_coords = "output/8b_{basename}_places_with_coords.csv",
+        full_track_csv     = "output/2c_{basename}_track_data_full_with_elevation.csv"
+    output:
+        relevant_places    = "output/8c_{basename}_places_relevant_enriched.csv"
+    params:
+        # Verwende -1 als Indikator für "nicht gesetzt"
+        max_dist_meters = config.get("place_filtering", {}).get("max_dist_center_to_route_m", -1.0),
+        min_occurrences = config.get("place_filtering", {}).get("min_occurrences", -1),
+    log:
+        "logs/8c_{basename}_enrich_filter_places.log"
+    shell:
+        """
+        python scripts/8c_enrich_filter_places.py \
+            --places-coords-csv "{input.places_with_coords}" \
+            --full-track-csv "{input.full_track_csv}" \
+            --output-csv "{output.relevant_places}" \
+            --max-dist {params.max_dist_meters} \
+            --min-occ {params.min_occurrences} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 3 – Peak‑Analyse & Profilplot
+# --------------------------------------------------------------------------- #
+rule analyze_peaks_and_plot:
+    input:
+        track_csv="output/2c_{basename}_track_data_full_with_elevation.csv",
+        places_coords="output/8c_{basename}_places_relevant_enriched.csv" 
+    output:
+        plot="output/3_{basename}_peak_analysis_profile.png",
+        peak_data="output/3_{basename}_peak_segment_data.csv",
+        stats="output/3_{basename}_overall_stats.csv"
+    params:
+        smooth_window=config.get("profile_analysis", {}).get("smooth_window", 11),
+        smooth_poly=config.get("profile_analysis", {}).get("smooth_poly", 2),
+        gain_threshold=config.get("profile_analysis", {}).get("gain_threshold", 30.0),
+        eps_height=config.get("profile_analysis", {}).get("eps_height", 0.3),
+        prominence=config.get("profile_analysis", {}).get("min_peak_prominence_m", 40.0),
+        peak_edge_km=config.get("profile_analysis", {}).get("peak_edge_km", 0.25),
+        plot_dpi=config.get("profile_analysis", {}).get("plot_dpi", 150),
+        plot_x_tick_major=config.get("profile_analysis", {}).get("plot_x_tick_major", 5.0),
+        plot_x_tick_minor=config.get("profile_analysis", {}).get("plot_x_tick_minor", 1.0),
+        pause_min_duration=config.get("profile_analysis", {}).get("pause_min_duration_s", 120.0),
+        pause_max_distance=config.get("profile_analysis", {}).get("pause_max_distance_m", 5.0),
+    log: "logs/3_{basename}_analyze_peaks_plot.log"
+    shell:
+        """
+        python scripts/3_analyze_peaks_plot.py \
+            --input-csv "{input.track_csv}" \
+            --output-plot "{output.plot}" \
+            --output-peak-csv "{output.peak_data}" \
+            --output-stats-csv "{output.stats}" \
+            --smooth-window {params.smooth_window} \
+            --smooth-poly {params.smooth_poly} \
+            --gain-threshold {params.gain_threshold} \
+            --eps-height {params.eps_height} \
+            --prominence {params.prominence} \
+            --peak-edge-km {params.peak_edge_km} \
+            --plot-dpi {params.plot_dpi} \
+            --plot-x-tick-major {params.plot_x_tick_major} \
+            --plot-x-tick-minor {params.plot_x_tick_minor} \
+            --pause-min-duration {params.pause_min_duration} \
+            --pause-max-distance {params.pause_max_distance} \
+            --places-coords-csv "{input.places_coords}" \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 3b – Geschwindigkeitsprofil (Platzhalter‑Skript)
+# --------------------------------------------------------------------------- #
+rule plot_speed_profile:
+    input:
+        track_csv="output/2c_{basename}_track_data_full_with_elevation.csv"
+    output:
+        plot="output/3b_{basename}_speed_profile.png"
+    params:
+        speed_smooth_window=config["speed_profile"]["smooth_window"],
+    log:
+        "logs/3b_{basename}_plot_speed_profile.log"
+    shell:
+        """
+        echo 'Speed‑profile placeholder' > "{output.plot}"
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 4 – Reverse Geocoding (optimierte Route)
+# --------------------------------------------------------------------------- #
+rule reverse_geocode:
+    input:
+        track_csv="output/2b_{basename}_track_data_api_optimized.csv"
+    output:
+        csv="output/4_{basename}_track_data_with_location_optimized.csv"
+    params:
+        sampling_distance_km=config["geocoding"]["sampling_distance_km"],
+    log:
+        "logs/4_{basename}_reverse_geocode_optimized.log"
+    shell:
+        """
+        python scripts/4_reverse_geocode.py \
+            --input-csv "{input.track_csv}" \
+            --output-csv "{output.csv}" \
+            --sampling-dist {params.sampling_distance_km} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 4b – Oberflächendaten (Platzhalter)
+# --------------------------------------------------------------------------- #
+
+rule fetch_surface_data:
+    input:
+        # NEU: Nimmt CSV mit Location-Info als Input
+        track_csv="output/4_{basename}_track_data_with_location_optimized.csv"
+    output:
+        # Output-Name bleibt gleich
+        csv="output/4b_{basename}_surface_data.csv"
+    params:
+        # Radius bleibt, Sampling wird entfernt
+        query_radius_m=config.get("surface_query", {}).get("query_radius_m", 20),
+    log:
+        "logs/4b_{basename}_fetch_surface_data.log" # Log-Name bleibt gleich
+    shell:
+        # NEU: Ruft das gruppierende Skript auf, ohne Sampling-Parameter
+        """
+        python scripts/4b_fetch_surface_grouped.py \
+            --input-csv "{input.track_csv}" \
+            --output-csv "{output.csv}" \
+            --radius {params.query_radius_m} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 5a – Service‑POIs
+# --------------------------------------------------------------------------- #
+rule fetch_pois_service:
+    input:
+        track_csv="output/4_{basename}_track_data_with_location_optimized.csv"
+    output:
+        csv="output/5a_{basename}_pois_service_raw.csv"
+    params:
+        radius_m=config.get("poi_radius_m", 500),
+        sampling_distance_km=config.get("poi_sampling_distance_km", 0.5),
+    log:
+        "logs/5a_{basename}_fetch_pois_service.log"
+    shell:
+        """
+        python scripts/5a_fetch_service_pois.py \
+            --input "{input.track_csv}" \
+            --output "{output.csv}" \
+            --radius {params.radius_m} \
+            --sampling {params.sampling_distance_km} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 5b – Peaks / Viewpoints via BBOX
+# --------------------------------------------------------------------------- #
+rule fetch_peaks_viewpoints_bbox:
+    input:
+        gpx="data/{basename}.gpx"
+    output:
+        json="output/5b_{basename}_peaks_viewpoints_bbox.json"
+    params:
+        buffer_degrees=config.get("peak_buffer_degrees", 0.05),
+    log:
+        "logs/5b_{basename}_fetch_peaks_viewpoints.log"
+    shell:
+        """
+        python scripts/5b_fetch_peaks_viewpoints_bbox.py \
+            --input-gpx "{input.gpx}" \
+            --output-json "{output.json}" \
+            --buffer {params.buffer_degrees} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 5c – POIs zusammenführen & filtern
+# --------------------------------------------------------------------------- #
+rule merge_and_filter_pois:
+    input:
+        service_pois="output/5a_{basename}_pois_service_raw.csv",
+        peak_pois="output/5b_{basename}_peaks_viewpoints_bbox.json",
+        full_track_csv="output/2c_{basename}_track_data_full_with_elevation.csv"
+    output:
+        csv="output/5c_{basename}_pois_relevant.csv"
+    params:
+        max_dist_service_km=config["poi"]["max_dist_service_km"],
+        max_dist_viewpoint_km=config["poi"]["max_dist_viewpoint_km"],
+    log:
+        "logs/5c_{basename}_merge_filter_pois.log"
+    shell:
+        """
+        python scripts/5c_merge_filter_pois.py \
+            --service-pois "{input.service_pois}" \
+            --peak-pois "{input.peak_pois}" \
+            --full-track "{input.full_track_csv}" \
+            --output "{output.csv}" \
+            --max-dist-service-km {params.max_dist_service_km} \
+            --max-dist-viewpoint-km {params.max_dist_viewpoint_km} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 6 – Interaktive Karte
+# --------------------------------------------------------------------------- #
+rule generate_map:
+    input:
+        track_csv="output/2_{basename}_track_data_full.csv",
+        pois_csv="output/5c_{basename}_pois_relevant.csv"
+    output:
+        map_html="output/6_{basename}_map_full.html"
+    log:
+        "logs/6_{basename}_generate_map_full.log"
+    shell:
+        """
+        python scripts/6_generate_map.py \
+            --track-csv "{input.track_csv}" \
+            --pois-csv "{input.pois_csv}" \
+            --output-html "{output.map_html}" \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 7 – Signifikante Orte extrahieren
+# --------------------------------------------------------------------------- #
+rule extract_significant_places:
+    input:
+        track_csv="output/4_{basename}_track_data_with_location_optimized.csv"
+    output:
+        summary_csv="output/7_{basename}_places_summary_optimized.csv"
+    log:
+        "logs/7_{basename}_extract_places_optimized.log"
+    shell:
+        """
+        python scripts/7_extract_significant_places.py \
+            --input-csv "{input.track_csv}" \
+            --output-csv "{output.summary_csv}" \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 8 – Orte entlang der Route sortieren
+# --------------------------------------------------------------------------- #
+rule sort_places_by_route:
+    input:
+        track_csv="output/4_{basename}_track_data_with_location_optimized.csv",
+        places_csv="output/7_{basename}_places_summary_optimized.csv"
+    output:
+        sorted_csv="output/8_{basename}_places_sorted_optimized.csv"
+    log:
+        "logs/8_{basename}_sort_places_optimized.log"
+    shell:
+        """
+        python scripts/8_sort_places_by_route.py \
+            --track-csv "{input.track_csv}" \
+            --places-csv "{input.places_csv}" \
+            --output-csv "{output.sorted_csv}" \
+            > "{log}" 2>&1
+        """
+
+
+# --------------------------------------------------------------------------- #
+# Schritt 9 – Gemini‑Beschreibung
+# --------------------------------------------------------------------------- #
+# ANPASSUNG Regel 9: query_gemini_places
+rule query_gemini_places:
+    input:
+        # *** NEUER Input für Orte ***
+        sorted_places_csv="output/8c_{basename}_places_relevant_enriched.csv" # <- Output von 8c
+    output:
+        markdown_file="output/9_{basename}_day_preview_places.md"
+    log:
+        "logs/9_{basename}_query_gemini_places.log"
+    params:
+        place_column_param=config.get("gemini_wiki", {}).get("place_column", ""),
+        country_context_param=config.get("gemini_wiki", {}).get("country_context", ""),
+        wiki_lang_param=config.get("gemini_wiki", {}).get("wiki_lang", "AUTO"),
+        max_wiki_chars_param=config.get("gemini_wiki", {}).get("max_wiki_chars", 500),
+    shell:
+        """
+        python scripts/9_query_gemini_with_wiki.py \
+            --input-csv "{input.sorted_places_csv}" \
+            --output-md "{output.markdown_file}" \
+            --place-column "{params.place_column_param}" \
+            --country-context "{params.country_context_param}" \
+            --wiki-lang "{params.wiki_lang_param}" \
+            --max-wiki-chars {params.max_wiki_chars_param} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 10 – Karten‑Screenshot
+# --------------------------------------------------------------------------- #
+rule screenshot_map:
+    input:
+        html_map="output/6_{basename}_map_full.html"
+    output:
+        png_map="output/6_{basename}_map_full.png"
+    params:
+        width = config.get("screenshot_width", 1200),
+        height = config.get("screenshot_height", 800),
+        delay = config.get("screenshot_delay", 5),
+    log:
+        "logs/10_{basename}_map_screenshot_full.log"
+    shell:
+        """
+        python scripts/10_generate_map_screenshot.py \
+            --input-html "{input.html_map}" \
+            --output-png "{output.png_map}" \
+            --width {params.width} \
+            --height {params.height} \
+            --delay {params.delay} \
+            > "{log}" 2>&1
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 10b – Leistung schätzen (Platzhalter)
+# --------------------------------------------------------------------------- #
+rule estimate_power:
+    input:
+        track_csv="output/2c_{basename}_track_data_full_with_elevation.csv",
+        surface_csv="output/4b_{basename}_surface_data.csv"
+    output:
+        power_csv="output/10b_{basename}_power_estimate.csv"
+    params:
+        mass_kg=config["power_estimation"]["total_mass_kg"],
+        cda=config["power_estimation"]["cda"],
+    log:
+        "logs/10b_{basename}_estimate_power.log"
+    shell:
+        """
+        echo 'Power‑estimate placeholder' > "{output.power_csv}"
+        """
+
+# --------------------------------------------------------------------------- #
+# Schritt 11 – Stage‑Summary (HTML + PDF)
+# --------------------------------------------------------------------------- #
+# ANPASSUNG Regel 11: generate_stage_summary
+rule generate_stage_summary:
+    input:
+        overall_stats = "output/3_{basename}_overall_stats.csv",
+        profile_png   = "output/3_{basename}_peak_analysis_profile.png",
+        peak_data     = "output/3_{basename}_peak_segment_data.csv",
+        map_html      = "output/6_{basename}_map_full.html",
+        map_png       = "output/6_{basename}_map_full.png",
+        markdown_text = "output/9_{basename}_day_preview_places.md",
+        # *** NEUER Input für Orte ***
+        sorted_places = "output/8c_{basename}_places_relevant_enriched.csv" # <- Output von 8c
+    output:
+        html_summary="output/11_{basename}_stage_summary_final.html",
+        pdf_summary="output/11_{basename}_stage_summary_final.pdf"
+    log:
+        "logs/11_{basename}_generate_stage_summary_final.log"
+    params:
+        basename="{basename}",
+    shell:
+        # Der Aufruf bleibt gleich, aber das Skript 11 muss intern
+        # mit den Spalten aus 8c (inkl. Distanz etc.) umgehen können.
+        """
+        python scripts/11_generate_stage_summary.py \
+            --basename "{params.basename}" \
+            --stats-csv "{input.overall_stats}" \
+            --profile-png "{input.profile_png}" \
+            --peak-csv "{input.peak_data}" \
+            --map-html "{input.map_html}" \
+            --map-png "{input.map_png}" \
+            --markdown-text "{input.markdown_text}" \
+            --sorted-places "{input.sorted_places}" \
+            --output-html "{output.html_summary}" \
+            --output-pdf "{output.pdf_summary}" \
+            > "{log}" 2>&1
+        """
+
+###############################################################################
+#  EOF – leere Zeile nach POSIX‑Konvention
+###############################################################################

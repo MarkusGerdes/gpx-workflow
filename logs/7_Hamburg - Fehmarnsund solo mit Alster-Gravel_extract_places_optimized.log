@@ -1,0 +1,3 @@
+[Info] Extracting significant places from: output/4_Hamburg - Fehmarnsund solo mit Alster-Gravel_track_data_with_location_optimized.csv
+[Warnung] Keine Distanzspalte gefunden. 'Strecke im Ort (km)' wird nicht berechnet.
+[OK] Ortszusammenfassung gespeichert (40 Orte): output/7_Hamburg - Fehmarnsund solo mit Alster-Gravel_places_summary_optimized.csv

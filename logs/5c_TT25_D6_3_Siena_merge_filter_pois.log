@@ -1,0 +1,11 @@
+C:\Users\marku\gpx_workflow_GEMINI\scripts\5c_merge_filter_pois.py:120: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  all_pois_df = pd.concat([service_df, peak_df], ignore_index=True)
+[Info] Merging and filtering POIs...
+[Info] Service POIs geladen: 290 
+[Info] Peak/Viewpoint POIs geladen: 870 
+[Info] Gesamt POIs nach Deduplizierung: 1160
+[Info] Volle Route geladen (1553 Punkte).
+[Info] Berechne Relevanz und Distanz für POIs...
+Filtering POIs:   0%|          | 0/1160 [00:00<?, ?it/s]Filtering POIs:  28%|##7       | 321/1160 [00:00<00:00, 3207.29it/s]Filtering POIs:  55%|#####5    | 642/1160 [00:00<00:00, 2201.08it/s]Filtering POIs:  76%|#######5  | 881/1160 [00:00<00:00, 2003.43it/s]Filtering POIs:  94%|#########4| 1091/1160 [00:00<00:00, 1906.17it/s]Filtering POIs: 100%|##########| 1160/1160 [00:00<00:00, 2018.61it/s]
+[Info] Relevante POIs nach Filterung: 282
+[OK] 282 relevante POIs gespeichert: output/5c_TT25_D6_3_Siena_pois_relevant.csv

@@ -1,0 +1,12 @@
+[Info] Generating final summary for: TT25_D6_1_Buriano
+[Info] Lade Daten...
+[Info] Verarbeite geocodierte Route für Straßenliste...
+[Info] Analysiere Straßenverlauf für 9 potentielle Ortsabschnitte...
+Processing Cities for Street List:   0%|          | 0/9 [00:00<?, ?it/s]Processing Cities for Street List:  22%|##2       | 2/9 [00:00<00:00, 15.89it/s]Processing Cities for Street List:  56%|#####5    | 5/9 [00:00<00:00, 20.90it/s]Processing Cities for Street List:  89%|########8 | 8/9 [00:00<00:00, 20.44it/s]Processing Cities for Street List: 100%|##########| 9/9 [00:00<00:00, 22.27it/s]
+[Info] Bereite Assets vor (Base64-Einbettung für PDF)...
+[Info] Erstelle HTML-Inhalt...
+[Warnung] bootstrap.min.css nicht gefunden. Verwende CDN Fallback (nur für HTML-Ansicht).
+[Info] Speichere HTML: output/11_TT25_D6_1_Buriano_stage_summary_final.html
+[OK] HTML-Datei gespeichert: output/11_TT25_D6_1_Buriano_stage_summary_final.html
+[Info] Generiere PDF: output/11_TT25_D6_1_Buriano_stage_summary_final.pdf
+[OK] PDF-Datei gespeichert: output/11_TT25_D6_1_Buriano_stage_summary_final.pdf

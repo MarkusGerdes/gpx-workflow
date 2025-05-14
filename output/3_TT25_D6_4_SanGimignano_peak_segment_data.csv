@@ -1,0 +1,14 @@
+item_type,peak_rank,peak_dist_km,peak_elev_m,segment_direction,segment_start_km,segment_end_km,segment_length_m,segment_gain_m,notes
+Peak,1,10.608,329.734,,,,,,
+Peak,2,21.097,274.724,,,,,,
+Valid Segment,1,,,forward,13.289,14.839,1549.598,49.754,
+Valid Segment,1,,,forward,18.431,20.177,1745.856,67.858,
+Valid Segment,1,,,forward,26.670,31.449,4778.763,46.807,
+Valid Segment,1,,,forward,39.363,41.558,2195.287,105.056,
+Valid Segment,1,,,forward,45.426,46.170,744.524,46.335,Ends@TrackEnd
+Valid Segment,1,,,backward,6.707,8.214,1506.855,52.458,
+Valid Segment,2,,,forward,26.670,31.449,4778.763,46.807,
+Valid Segment,2,,,forward,39.363,41.558,2195.287,105.056,
+Valid Segment,2,,,forward,45.426,46.170,744.524,46.335,Ends@TrackEnd
+Valid Segment,2,,,backward,14.954,15.763,809.462,68.345,
+Valid Segment,2,,,backward,10.608,11.780,1171.325,58.732,

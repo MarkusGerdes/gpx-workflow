@@ -1,0 +1,69 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                           count
+--------------------------  -------
+add_elevation_data                1
+all                               1
+analyze_peaks_and_plot            1
+extract_significant_places        1
+fetch_pois_service                1
+generate_map                      1
+generate_stage_summary            1
+geocode_places                    1
+merge_and_filter_pois             1
+query_gemini_places               1
+reverse_geocode                   1
+screenshot_map                    1
+sort_places_by_route              1
+total                            13
+
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May  4 14:11:35 2025]
+localrule add_elevation_data:
+    input: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    output: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    log: logs/2c_Hamburg - Fehmarnsund solo 2_add_elevation.log
+    jobid: 3
+    reason: Missing output files: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 81:
+Command 'python scripts/2c_add_elevation.py             --input-csv "output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv"             --output-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             --batch-size 100             > "logs/2c_Hamburg - Fehmarnsund solo 2_add_elevation.log" 2>&1' returned non-zero exit status 1.
+[Sun May  4 14:11:40 2025]
+Error in rule add_elevation_data:
+    message: None
+    jobid: 3
+    input: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    output: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    log: logs/2c_Hamburg - Fehmarnsund solo 2_add_elevation.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/2c_add_elevation.py             --input-csv "output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv"             --output-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             --batch-size 100             > "logs/2c_Hamburg - Fehmarnsund solo 2_add_elevation.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Sun May  4 14:11:40 2025]
+Error in rule add_elevation_data:
+    message: None
+    jobid: 3
+    input: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    output: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    log: logs/2c_Hamburg - Fehmarnsund solo 2_add_elevation.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/2c_add_elevation.py             --input-csv "output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv"             --output-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             --batch-size 100             > "logs/2c_Hamburg - Fehmarnsund solo 2_add_elevation.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-04T141134.610381.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

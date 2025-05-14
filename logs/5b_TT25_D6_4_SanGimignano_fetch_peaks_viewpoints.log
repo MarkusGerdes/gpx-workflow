@@ -1,0 +1,4 @@
+[Info] Fetching Peaks/Viewpoints for BBOX of: data/TT25_D6_4_SanGimignano.gpx
+[Info] Using BBOX (S,W,N,E): 43.26880000,10.98918500,43.52887200,11.38095500
+[Info] Overpass query successful, 1085 elements found in BBOX.
+[OK] 1085 Peaks/Viewpoints gespeichert: output/5b_TT25_D6_4_SanGimignano_peaks_viewpoints_bbox.json

@@ -1,0 +1,9 @@
+[Info] Gemini Model 'gemini-2.0-flash-001' initialisiert.
+[Info] Verwende Wikipedia-Sprache: de
+[Info] Lese Input CSV: output/8c_TT25_D6_5_Montecatini_places_relevant_enriched.csv
+[Info] Verwende Spalte 'Ort' für Ortsnamen.
+[Info] Verarbeite 2 Orte...
+Generiere Beschreibungen:   0%|          | 0/2 [00:00<?, ?it/s]Generiere Beschreibungen:  50%|#####     | 1/2 [00:04<00:04,  4.07s/it]Generiere Beschreibungen: 100%|##########| 2/2 [00:07<00:00,  3.96s/it]Generiere Beschreibungen: 100%|##########| 2/2 [00:07<00:00,  3.97s/it]
+
+[OK] Markdown gespeichert nach output/9_TT25_D6_5_Montecatini_day_preview_places.md
+     Erfolgreich verarbeitet: 2

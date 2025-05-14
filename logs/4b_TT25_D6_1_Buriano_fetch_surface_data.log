@@ -1,0 +1,268 @@
+[Info] Fetching grouped Surface Data for: output/4_TT25_D6_1_Buriano_track_data_with_location_optimized.csv
+  Query Radius: 20m
+[Info] Gruppiere Punkte nach Straßen-/Ortsblöcken...
+[Info] 63 repräsentative Punkte ausgewählt für 63 Blöcke.
+Querying Surface Data:   0%|          | 0/63 [00:00<?, ?it/s]Querying Surface Data:   2%|1         | 1/63 [00:19<20:05, 19.45s/it]Querying Surface Data:   3%|3         | 2/63 [00:39<19:51, 19.53s/it]Querying Surface Data:   5%|4         | 3/63 [00:58<19:35, 19.59s/it]Querying Surface Data:   6%|6         | 4/63 [01:18<19:09, 19.49s/it]Querying Surface Data:   8%|7         | 5/63 [01:37<18:47, 19.43s/it]Querying Surface Data:  10%|9         | 6/63 [01:56<18:25, 19.39s/it]Querying Surface Data:  11%|#1        | 7/63 [02:16<18:04, 19.37s/it]Querying Surface Data:  13%|#2        | 8/63 [02:35<17:45, 19.36s/it]Querying Surface Data:  14%|#4        | 9/63 [02:54<17:25, 19.36s/it]Querying Surface Data:  16%|#5        | 10/63 [03:14<17:05, 19.35s/it]Querying Surface Data:  17%|#7        | 11/63 [03:33<16:45, 19.34s/it]Querying Surface Data:  19%|#9        | 12/63 [03:52<16:25, 19.33s/it]Querying Surface Data:  21%|##        | 13/63 [04:12<16:06, 19.33s/it]Querying Surface Data:  22%|##2       | 14/63 [04:31<15:50, 19.40s/it]Querying Surface Data:  24%|##3       | 15/63 [04:51<15:33, 19.45s/it]Querying Surface Data:  25%|##5       | 16/63 [05:10<15:12, 19.41s/it]Querying Surface Data:  27%|##6       | 17/63 [05:29<14:51, 19.38s/it]-> Fehler Overpass Query Block 1 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 1 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 1 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 1 nach 3 Versuchen.
+-> Fehler Overpass Query Block 2 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 2 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 2 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 2 nach 3 Versuchen.
+-> Fehler Overpass Query Block 3 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 3 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 3 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 3 nach 3 Versuchen.
+-> Fehler Overpass Query Block 4 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 4 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 4 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 4 nach 3 Versuchen.
+-> Fehler Overpass Query Block 5 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 5 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 5 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 5 nach 3 Versuchen.
+-> Fehler Overpass Query Block 6 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 6 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 6 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 6 nach 3 Versuchen.
+-> Fehler Overpass Query Block 7 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 7 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 7 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 7 nach 3 Versuchen.
+-> Fehler Overpass Query Block 8 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 8 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 8 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 8 nach 3 Versuchen.
+-> Fehler Overpass Query Block 9 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 9 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 9 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 9 nach 3 Versuchen.
+-> Fehler Overpass Query Block 10 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 10 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 10 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 10 nach 3 Versuchen.
+-> Fehler Overpass Query Block 11 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 11 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 11 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 11 nach 3 Versuchen.
+-> Fehler Overpass Query Block 12 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 12 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 12 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 12 nach 3 Versuchen.
+-> Fehler Overpass Query Block 13 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 13 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 13 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 13 nach 3 Versuchen.
+-> Fehler Overpass Query Block 14 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 14 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 14 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 14 nach 3 Versuchen.
+-> Fehler Overpass Query Block 15 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 15 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 15 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 15 nach 3 Versuchen.
+-> Fehler Overpass Query Block 16 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 16 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 16 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 16 nach 3 Versuchen.
+-> Fehler Overpass Query Block 17 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 17 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 17 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 17 nach 3 Versuchen.
+-> Fehler Overpass Query Block 18 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 18 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; Querying Surface Data:  29%|##8       | 18/63 [05:49<14:34, 19.44s/it]Querying Surface Data:  30%|###       | 19/63 [06:08<14:13, 19.40s/it]Querying Surface Data:  32%|###1      | 20/63 [06:27<13:53, 19.37s/it]Querying Surface Data:  33%|###3      | 21/63 [06:47<13:32, 19.35s/it]Querying Surface Data:  35%|###4      | 22/63 [07:06<13:12, 19.34s/it]Querying Surface Data:  37%|###6      | 23/63 [07:25<12:53, 19.34s/it]Querying Surface Data:  38%|###8      | 24/63 [07:45<12:36, 19.40s/it]Querying Surface Data:  40%|###9      | 25/63 [08:05<12:19, 19.46s/it]Querying Surface Data:  41%|####1     | 26/63 [08:24<12:01, 19.50s/it]Querying Surface Data:  43%|####2     | 27/63 [08:44<11:42, 19.52s/it]Querying Surface Data:  44%|####4     | 28/63 [09:03<11:21, 19.46s/it]Querying Surface Data:  46%|####6     | 29/63 [09:22<11:00, 19.42s/it]Querying Surface Data:  48%|####7     | 30/63 [09:42<10:40, 19.40s/it]Querying Surface Data:  49%|####9     | 31/63 [10:01<10:20, 19.38s/it]Querying Surface Data:  51%|#####     | 32/63 [10:21<10:02, 19.44s/it]Querying Surface Data:  52%|#####2    | 33/63 [10:40<09:44, 19.48s/it]Querying Surface Data:  54%|#####3    | 34/63 [11:00<09:25, 19.50s/it]Querying Surface Data:  56%|#####5    | 35/63 [11:19<09:04, 19.45s/it]
+-> Fehler Overpass Query Block 18 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 18 nach 3 Versuchen.
+-> Fehler Overpass Query Block 19 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 19 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 19 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 19 nach 3 Versuchen.
+-> Fehler Overpass Query Block 20 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 20 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 20 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 20 nach 3 Versuchen.
+-> Fehler Overpass Query Block 21 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 21 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 21 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 21 nach 3 Versuchen.
+-> Fehler Overpass Query Block 22 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 22 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 22 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 22 nach 3 Versuchen.
+-> Fehler Overpass Query Block 23 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 23 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 23 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 23 nach 3 Versuchen.
+-> Fehler Overpass Query Block 24 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 24 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 24 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 24 nach 3 Versuchen.
+-> Fehler Overpass Query Block 25 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 25 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 25 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 25 nach 3 Versuchen.
+-> Fehler Overpass Query Block 26 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 26 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 26 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 26 nach 3 Versuchen.
+-> Fehler Overpass Query Block 27 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 27 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 27 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 27 nach 3 Versuchen.
+-> Fehler Overpass Query Block 28 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 28 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 28 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 28 nach 3 Versuchen.
+-> Fehler Overpass Query Block 29 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 29 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 29 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 29 nach 3 Versuchen.
+-> Fehler Overpass Query Block 30 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 30 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 30 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 30 nach 3 Versuchen.
+-> Fehler Overpass Query Block 31 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 31 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 31 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 31 nach 3 Versuchen.
+-> Fehler Overpass Query Block 32 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 32 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 32 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 32 nach 3 Versuchen.
+-> Fehler Overpass Query Block 33 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 33 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 33 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 33 nach 3 Versuchen.
+-> Fehler Overpass Query Block 34 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 34 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 34 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 34 nach 3 Versuchen.
+-> Fehler Overpass Query Block 35 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 35 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 35 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 35 nach 3 Versuchen.
+-> Fehler Overpass Query Block 36 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; Querying Surface Data:  57%|#####7    | 36/63 [11:38<08:44, 19.42s/it]Querying Surface Data:  59%|#####8    | 37/63 [11:58<08:26, 19.47s/it]Querying Surface Data:  60%|######    | 38/63 [12:18<08:07, 19.52s/it]Querying Surface Data:  62%|######1   | 39/63 [12:37<07:47, 19.46s/it]Querying Surface Data:  63%|######3   | 40/63 [12:56<07:26, 19.42s/it]Querying Surface Data:  65%|######5   | 41/63 [13:16<07:06, 19.39s/it]Querying Surface Data:  67%|######6   | 42/63 [13:35<06:46, 19.37s/it]Querying Surface Data:  68%|######8   | 43/63 [13:55<06:28, 19.43s/it]Querying Surface Data:  70%|######9   | 44/63 [14:14<06:09, 19.47s/it]Querying Surface Data:  71%|#######1  | 45/63 [14:34<05:51, 19.51s/it]Querying Surface Data:  73%|#######3  | 46/63 [14:53<05:30, 19.46s/it]Querying Surface Data:  75%|#######4  | 47/63 [15:12<05:10, 19.41s/it]Querying Surface Data:  76%|#######6  | 48/63 [15:32<04:50, 19.38s/it]Querying Surface Data:  78%|#######7  | 49/63 [15:51<04:31, 19.36s/it]Querying Surface Data:  79%|#######9  | 50/63 [16:11<04:12, 19.42s/it]Querying Surface Data:  81%|########  | 51/63 [16:30<03:53, 19.47s/it]Querying Surface Data:  83%|########2 | 52/63 [16:49<03:33, 19.43s/it]
+-> Fehler Overpass Query Block 36 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 36 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 36 nach 3 Versuchen.
+-> Fehler Overpass Query Block 37 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 37 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 37 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 37 nach 3 Versuchen.
+-> Fehler Overpass Query Block 38 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 38 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 38 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 38 nach 3 Versuchen.
+-> Fehler Overpass Query Block 39 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 39 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 39 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 39 nach 3 Versuchen.
+-> Fehler Overpass Query Block 40 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 40 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 40 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 40 nach 3 Versuchen.
+-> Fehler Overpass Query Block 41 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 41 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 41 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 41 nach 3 Versuchen.
+-> Fehler Overpass Query Block 42 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 42 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 42 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 42 nach 3 Versuchen.
+-> Fehler Overpass Query Block 43 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 43 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 43 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 43 nach 3 Versuchen.
+-> Fehler Overpass Query Block 44 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 44 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 44 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 44 nach 3 Versuchen.
+-> Fehler Overpass Query Block 45 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 45 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 45 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 45 nach 3 Versuchen.
+-> Fehler Overpass Query Block 46 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 46 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 46 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 46 nach 3 Versuchen.
+-> Fehler Overpass Query Block 47 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 47 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 47 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 47 nach 3 Versuchen.
+-> Fehler Overpass Query Block 48 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 48 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 48 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 48 nach 3 Versuchen.
+-> Fehler Overpass Query Block 49 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 49 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 49 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 49 nach 3 Versuchen.
+-> Fehler Overpass Query Block 50 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 50 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 50 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 50 nach 3 Versuchen.
+-> Fehler Overpass Query Block 51 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 51 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 51 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 51 nach 3 Versuchen.
+-> Fehler Overpass Query Block 52 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 52 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 52 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 52 nach 3 Versuchen.
+-> Fehler Overpass Query Block 53 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 53 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 53 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; Querying Surface Data:  84%|########4 | 53/63 [17:09<03:13, 19.39s/it]Querying Surface Data:  86%|########5 | 54/63 [17:28<02:55, 19.45s/it]Querying Surface Data:  87%|########7 | 55/63 [17:48<02:35, 19.41s/it]Querying Surface Data:  89%|########8 | 56/63 [18:07<02:15, 19.38s/it]Querying Surface Data:  90%|######### | 57/63 [18:26<01:56, 19.36s/it]Querying Surface Data:  92%|#########2| 58/63 [18:46<01:36, 19.35s/it]Querying Surface Data:  94%|#########3| 59/63 [19:05<01:17, 19.33s/it]Querying Surface Data:  95%|#########5| 60/63 [19:24<00:58, 19.34s/it]Querying Surface Data:  97%|#########6| 61/63 [19:44<00:38, 19.33s/it]Querying Surface Data:  98%|#########8| 62/63 [20:03<00:19, 19.34s/it]Querying Surface Data: 100%|##########| 63/63 [20:22<00:00, 19.34s/it]Querying Surface Data: 100%|##########| 63/63 [20:22<00:00, 19.41s/it]
+C:\Users\marku\gpx_workflow_GEMINI\scripts\4b_fetch_surface_grouped.py:187: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df_loc['Surface'].fillna(DEFAULT_SURFACE, inplace=True)
+
+-> FEHLER Abfrage Block 53 nach 3 Versuchen.
+-> Fehler Overpass Query Block 54 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 54 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 54 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 54 nach 3 Versuchen.
+-> Fehler Overpass Query Block 55 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 55 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 55 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 55 nach 3 Versuchen.
+-> Fehler Overpass Query Block 56 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 56 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 56 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 56 nach 3 Versuchen.
+-> Fehler Overpass Query Block 57 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 57 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 57 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 57 nach 3 Versuchen.
+-> Fehler Overpass Query Block 58 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 58 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 58 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 58 nach 3 Versuchen.
+-> Fehler Overpass Query Block 59 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 59 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 59 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 59 nach 3 Versuchen.
+-> Fehler Overpass Query Block 60 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 60 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 60 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 60 nach 3 Versuchen.
+-> Fehler Overpass Query Block 61 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 61 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 61 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 61 nach 3 Versuchen.
+-> Fehler Overpass Query Block 62 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 62 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 62 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 62 nach 3 Versuchen.
+-> Fehler Overpass Query Block 63 (Versuch 1): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 63 (Versuch 2): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> Fehler Overpass Query Block 63 (Versuch 3): Error: line 3: static error: Invalid regular expression: &quot;{HIGHWAY_QUERY_FILTER}&quot; 
+-> FEHLER Abfrage Block 63 nach 3 Versuchen.
+
+[Info] Overpass-Abfragen abgeschlossen. 0 Blöcke mit Daten (63 Fehler).
+[Info] Weise Oberflächenwerte den ursprünglichen Punkten zu...
+[OK] Gruppierte Oberflächendaten gespeichert: output/4b_TT25_D6_1_Buriano_surface_data.csv

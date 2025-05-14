@@ -1,0 +1,5 @@
+Ort,Vorkommen,Strecke im Ort (km),Latitude_Center,Longitude_Center,Nächster_Punkt_Index,Nächster_Punkt_Distanz_km,Nächster_Punkt_Hoehe_m,Distanz_Center_zu_Route_m
+Buriano,18,,42.845,10.989,18,0.767,46.000,716.500
+Castiglione d'Orcia,177,,43.007,11.616,1674,91.007,537.400,37.648
+Bagno Vignoni,10,,43.028,11.619,1835,95.801,268.300,540.555
+Pienza,56,,43.077,11.679,2032,105.606,492.000,7.962

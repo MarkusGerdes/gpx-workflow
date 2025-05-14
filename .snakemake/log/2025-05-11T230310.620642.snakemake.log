@@ -1,0 +1,207 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+analyze_peaks_and_plot        6
+generate_stage_summary        6
+total                        13
+
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 23:03:12 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_TT25_D6_2_Pienza_track_data_full_with_elevation.csv, output/8c_TT25_D6_2_Pienza_places_relevant_enriched.csv
+    output: output/3_TT25_D6_2_Pienza_peak_analysis_profile.png, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/3_TT25_D6_2_Pienza_overall_stats.csv
+    log: logs/3_TT25_D6_2_Pienza_analyze_peaks_plot.log
+    jobid: 18
+    reason: Missing output files: output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/3_TT25_D6_2_Pienza_overall_stats.csv, output/3_TT25_D6_2_Pienza_peak_analysis_profile.png; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 50.0,2.5 
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:03:25 2025]
+Finished jobid: 18 (Rule: analyze_peaks_and_plot)
+1 of 13 steps (8%) done
+Execute 1 jobs...
+[Sun May 11 23:03:25 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_2_Pienza_overall_stats.csv, output/3_TT25_D6_2_Pienza_peak_analysis_profile.png, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/4_TT25_D6_2_Pienza_track_data_with_location_optimized.csv, output/6_TT25_D6_2_Pienza_map_full.html, output/6_TT25_D6_2_Pienza_map_full.png, output/9_TT25_D6_2_Pienza_day_preview_places.md, output/8c_TT25_D6_2_Pienza_places_relevant_enriched.csv
+    output: output/11_TT25_D6_2_Pienza_stage_summary_final.html, output/11_TT25_D6_2_Pienza_stage_summary_final.pdf
+    log: logs/11_TT25_D6_2_Pienza_generate_stage_summary_final.log
+    jobid: 17
+    reason: Missing output files: output/11_TT25_D6_2_Pienza_stage_summary_final.pdf, output/11_TT25_D6_2_Pienza_stage_summary_final.html; Input files updated by another job: output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/3_TT25_D6_2_Pienza_overall_stats.csv, output/3_TT25_D6_2_Pienza_peak_analysis_profile.png
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:03:35 2025]
+Finished jobid: 17 (Rule: generate_stage_summary)
+2 of 13 steps (15%) done
+Execute 1 jobs...
+[Sun May 11 23:03:35 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_TT25_D6_1_Buriano_track_data_full_with_elevation.csv, output/8c_TT25_D6_1_Buriano_places_relevant_enriched.csv
+    output: output/3_TT25_D6_1_Buriano_peak_analysis_profile.png, output/3_TT25_D6_1_Buriano_peak_segment_data.csv, output/3_TT25_D6_1_Buriano_overall_stats.csv
+    log: logs/3_TT25_D6_1_Buriano_analyze_peaks_plot.log
+    jobid: 2
+    reason: Missing output files: output/3_TT25_D6_1_Buriano_peak_segment_data.csv, output/3_TT25_D6_1_Buriano_overall_stats.csv, output/3_TT25_D6_1_Buriano_peak_analysis_profile.png; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 50.0,2.5 
+    wildcards: basename=TT25_D6_1_Buriano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:03:46 2025]
+Finished jobid: 2 (Rule: analyze_peaks_and_plot)
+3 of 13 steps (23%) done
+Execute 1 jobs...
+[Sun May 11 23:03:46 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_1_Buriano_overall_stats.csv, output/3_TT25_D6_1_Buriano_peak_analysis_profile.png, output/3_TT25_D6_1_Buriano_peak_segment_data.csv, output/4_TT25_D6_1_Buriano_track_data_with_location_optimized.csv, output/6_TT25_D6_1_Buriano_map_full.html, output/6_TT25_D6_1_Buriano_map_full.png, output/9_TT25_D6_1_Buriano_day_preview_places.md, output/8c_TT25_D6_1_Buriano_places_relevant_enriched.csv
+    output: output/11_TT25_D6_1_Buriano_stage_summary_final.html, output/11_TT25_D6_1_Buriano_stage_summary_final.pdf
+    log: logs/11_TT25_D6_1_Buriano_generate_stage_summary_final.log
+    jobid: 1
+    reason: Missing output files: output/11_TT25_D6_1_Buriano_stage_summary_final.html, output/11_TT25_D6_1_Buriano_stage_summary_final.pdf; Input files updated by another job: output/3_TT25_D6_1_Buriano_peak_segment_data.csv, output/3_TT25_D6_1_Buriano_peak_analysis_profile.png, output/3_TT25_D6_1_Buriano_overall_stats.csv
+    wildcards: basename=TT25_D6_1_Buriano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:03:55 2025]
+Finished jobid: 1 (Rule: generate_stage_summary)
+4 of 13 steps (31%) done
+Execute 1 jobs...
+[Sun May 11 23:03:55 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_TT25_D6_6_Campiglia_Marittima_track_data_full_with_elevation.csv, output/8c_TT25_D6_6_Campiglia_Marittima_places_relevant_enriched.csv
+    output: output/3_TT25_D6_6_Campiglia_Marittima_peak_analysis_profile.png, output/3_TT25_D6_6_Campiglia_Marittima_peak_segment_data.csv, output/3_TT25_D6_6_Campiglia_Marittima_overall_stats.csv
+    log: logs/3_TT25_D6_6_Campiglia_Marittima_analyze_peaks_plot.log
+    jobid: 82
+    reason: Missing output files: output/3_TT25_D6_6_Campiglia_Marittima_overall_stats.csv, output/3_TT25_D6_6_Campiglia_Marittima_peak_segment_data.csv, output/3_TT25_D6_6_Campiglia_Marittima_peak_analysis_profile.png; Params have changed since last execution: Union of exclusive params before and now across all output: before: 120.0,10.0 now: 60.0,50.0,2.5 
+    wildcards: basename=TT25_D6_6_Campiglia_Marittima
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:04:09 2025]
+Finished jobid: 82 (Rule: analyze_peaks_and_plot)
+5 of 13 steps (38%) done
+Execute 1 jobs...
+[Sun May 11 23:04:09 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_6_Campiglia_Marittima_overall_stats.csv, output/3_TT25_D6_6_Campiglia_Marittima_peak_analysis_profile.png, output/3_TT25_D6_6_Campiglia_Marittima_peak_segment_data.csv, output/4_TT25_D6_6_Campiglia_Marittima_track_data_with_location_optimized.csv, output/6_TT25_D6_6_Campiglia_Marittima_map_full.html, output/6_TT25_D6_6_Campiglia_Marittima_map_full.png, output/9_TT25_D6_6_Campiglia_Marittima_day_preview_places.md, output/8c_TT25_D6_6_Campiglia_Marittima_places_relevant_enriched.csv
+    output: output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf
+    log: logs/11_TT25_D6_6_Campiglia_Marittima_generate_stage_summary_final.log
+    jobid: 81
+    reason: Missing output files: output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf; Input files updated by another job: output/3_TT25_D6_6_Campiglia_Marittima_overall_stats.csv, output/3_TT25_D6_6_Campiglia_Marittima_peak_segment_data.csv, output/3_TT25_D6_6_Campiglia_Marittima_peak_analysis_profile.png
+    wildcards: basename=TT25_D6_6_Campiglia_Marittima
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:04:18 2025]
+Finished jobid: 81 (Rule: generate_stage_summary)
+6 of 13 steps (46%) done
+Execute 1 jobs...
+[Sun May 11 23:04:18 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_TT25_D6_3_Siena_track_data_full_with_elevation.csv, output/8c_TT25_D6_3_Siena_places_relevant_enriched.csv
+    output: output/3_TT25_D6_3_Siena_peak_analysis_profile.png, output/3_TT25_D6_3_Siena_peak_segment_data.csv, output/3_TT25_D6_3_Siena_overall_stats.csv
+    log: logs/3_TT25_D6_3_Siena_analyze_peaks_plot.log
+    jobid: 34
+    reason: Missing output files: output/3_TT25_D6_3_Siena_peak_segment_data.csv, output/3_TT25_D6_3_Siena_peak_analysis_profile.png, output/3_TT25_D6_3_Siena_overall_stats.csv; Params have changed since last execution: Union of exclusive params before and now across all output: before: 120.0,10.0 now: 60.0,50.0,2.5 
+    wildcards: basename=TT25_D6_3_Siena
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:04:30 2025]
+Finished jobid: 34 (Rule: analyze_peaks_and_plot)
+7 of 13 steps (54%) done
+Execute 1 jobs...
+[Sun May 11 23:04:30 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_3_Siena_overall_stats.csv, output/3_TT25_D6_3_Siena_peak_analysis_profile.png, output/3_TT25_D6_3_Siena_peak_segment_data.csv, output/4_TT25_D6_3_Siena_track_data_with_location_optimized.csv, output/6_TT25_D6_3_Siena_map_full.html, output/6_TT25_D6_3_Siena_map_full.png, output/9_TT25_D6_3_Siena_day_preview_places.md, output/8c_TT25_D6_3_Siena_places_relevant_enriched.csv
+    output: output/11_TT25_D6_3_Siena_stage_summary_final.html, output/11_TT25_D6_3_Siena_stage_summary_final.pdf
+    log: logs/11_TT25_D6_3_Siena_generate_stage_summary_final.log
+    jobid: 33
+    reason: Missing output files: output/11_TT25_D6_3_Siena_stage_summary_final.html, output/11_TT25_D6_3_Siena_stage_summary_final.pdf; Input files updated by another job: output/3_TT25_D6_3_Siena_peak_segment_data.csv, output/3_TT25_D6_3_Siena_overall_stats.csv, output/3_TT25_D6_3_Siena_peak_analysis_profile.png
+    wildcards: basename=TT25_D6_3_Siena
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:04:41 2025]
+Finished jobid: 33 (Rule: generate_stage_summary)
+8 of 13 steps (62%) done
+Execute 1 jobs...
+[Sun May 11 23:04:41 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_TT25_D6_4_SanGimignano_track_data_full_with_elevation.csv, output/8c_TT25_D6_4_SanGimignano_places_relevant_enriched.csv
+    output: output/3_TT25_D6_4_SanGimignano_peak_analysis_profile.png, output/3_TT25_D6_4_SanGimignano_peak_segment_data.csv, output/3_TT25_D6_4_SanGimignano_overall_stats.csv
+    log: logs/3_TT25_D6_4_SanGimignano_analyze_peaks_plot.log
+    jobid: 50
+    reason: Missing output files: output/3_TT25_D6_4_SanGimignano_peak_segment_data.csv, output/3_TT25_D6_4_SanGimignano_peak_analysis_profile.png, output/3_TT25_D6_4_SanGimignano_overall_stats.csv; Params have changed since last execution: Union of exclusive params before and now across all output: before: 120.0,10.0 now: 60.0,50.0,2.5 
+    wildcards: basename=TT25_D6_4_SanGimignano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:04:54 2025]
+Finished jobid: 50 (Rule: analyze_peaks_and_plot)
+9 of 13 steps (69%) done
+Execute 1 jobs...
+[Sun May 11 23:04:54 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_4_SanGimignano_overall_stats.csv, output/3_TT25_D6_4_SanGimignano_peak_analysis_profile.png, output/3_TT25_D6_4_SanGimignano_peak_segment_data.csv, output/4_TT25_D6_4_SanGimignano_track_data_with_location_optimized.csv, output/6_TT25_D6_4_SanGimignano_map_full.html, output/6_TT25_D6_4_SanGimignano_map_full.png, output/9_TT25_D6_4_SanGimignano_day_preview_places.md, output/8c_TT25_D6_4_SanGimignano_places_relevant_enriched.csv
+    output: output/11_TT25_D6_4_SanGimignano_stage_summary_final.html, output/11_TT25_D6_4_SanGimignano_stage_summary_final.pdf
+    log: logs/11_TT25_D6_4_SanGimignano_generate_stage_summary_final.log
+    jobid: 49
+    reason: Missing output files: output/11_TT25_D6_4_SanGimignano_stage_summary_final.pdf, output/11_TT25_D6_4_SanGimignano_stage_summary_final.html; Input files updated by another job: output/3_TT25_D6_4_SanGimignano_peak_segment_data.csv, output/3_TT25_D6_4_SanGimignano_peak_analysis_profile.png, output/3_TT25_D6_4_SanGimignano_overall_stats.csv
+    wildcards: basename=TT25_D6_4_SanGimignano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 23:05:04 2025]
+Finished jobid: 49 (Rule: generate_stage_summary)
+10 of 13 steps (77%) done
+Execute 1 jobs...
+[Sun May 11 23:05:04 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_TT25_D6_5_Montecatini_track_data_full_with_elevation.csv, output/8c_TT25_D6_5_Montecatini_places_relevant_enriched.csv
+    output: output/3_TT25_D6_5_Montecatini_peak_analysis_profile.png, output/3_TT25_D6_5_Montecatini_peak_segment_data.csv, output/3_TT25_D6_5_Montecatini_overall_stats.csv
+    log: logs/3_TT25_D6_5_Montecatini_analyze_peaks_plot.log
+    jobid: 66
+    reason: Missing output files: output/3_TT25_D6_5_Montecatini_peak_analysis_profile.png, output/3_TT25_D6_5_Montecatini_peak_segment_data.csv, output/3_TT25_D6_5_Montecatini_overall_stats.csv; Params have changed since last execution: Union of exclusive params before and now across all output: before: 120.0,10.0 now: 60.0,50.0,2.5 
+    wildcards: basename=TT25_D6_5_Montecatini
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May 11 23:05:19 2025]
+Finished jobid: 66 (Rule: analyze_peaks_and_plot)
+11 of 13 steps (85%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 23:05:19 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_5_Montecatini_overall_stats.csv, output/3_TT25_D6_5_Montecatini_peak_analysis_profile.png, output/3_TT25_D6_5_Montecatini_peak_segment_data.csv, output/4_TT25_D6_5_Montecatini_track_data_with_location_optimized.csv, output/6_TT25_D6_5_Montecatini_map_full.html, output/6_TT25_D6_5_Montecatini_map_full.png, output/9_TT25_D6_5_Montecatini_day_preview_places.md, output/8c_TT25_D6_5_Montecatini_places_relevant_enriched.csv
+    output: output/11_TT25_D6_5_Montecatini_stage_summary_final.html, output/11_TT25_D6_5_Montecatini_stage_summary_final.pdf
+    log: logs/11_TT25_D6_5_Montecatini_generate_stage_summary_final.log
+    jobid: 65
+    reason: Missing output files: output/11_TT25_D6_5_Montecatini_stage_summary_final.pdf, output/11_TT25_D6_5_Montecatini_stage_summary_final.html; Input files updated by another job: output/3_TT25_D6_5_Montecatini_peak_analysis_profile.png, output/3_TT25_D6_5_Montecatini_peak_segment_data.csv, output/3_TT25_D6_5_Montecatini_overall_stats.csv
+    wildcards: basename=TT25_D6_5_Montecatini
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May 11 23:05:30 2025]
+Finished jobid: 65 (Rule: generate_stage_summary)
+12 of 13 steps (92%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 23:05:30 2025]
+localrule all:
+    input: output/11_TT25_D6_1_Buriano_stage_summary_final.html, output/11_TT25_D6_2_Pienza_stage_summary_final.html, output/11_TT25_D6_3_Siena_stage_summary_final.html, output/11_TT25_D6_4_SanGimignano_stage_summary_final.html, output/11_TT25_D6_5_Montecatini_stage_summary_final.html, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html, output/11_TT25_D6_1_Buriano_stage_summary_final.pdf, output/11_TT25_D6_2_Pienza_stage_summary_final.pdf, output/11_TT25_D6_3_Siena_stage_summary_final.pdf, output/11_TT25_D6_4_SanGimignano_stage_summary_final.pdf, output/11_TT25_D6_5_Montecatini_stage_summary_final.pdf, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf
+    jobid: 0
+    reason: Input files updated by another job: output/11_TT25_D6_5_Montecatini_stage_summary_final.pdf, output/11_TT25_D6_3_Siena_stage_summary_final.pdf, output/11_TT25_D6_4_SanGimignano_stage_summary_final.pdf, output/11_TT25_D6_4_SanGimignano_stage_summary_final.html, output/11_TT25_D6_2_Pienza_stage_summary_final.pdf, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html, output/11_TT25_D6_2_Pienza_stage_summary_final.html, output/11_TT25_D6_1_Buriano_stage_summary_final.html, output/11_TT25_D6_1_Buriano_stage_summary_final.pdf, output/11_TT25_D6_3_Siena_stage_summary_final.html, output/11_TT25_D6_5_Montecatini_stage_summary_final.html, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May 11 23:05:30 2025]
+Finished jobid: 0 (Rule: all)
+13 of 13 steps (100%) done
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-11T230310.620642.snakemake.log

@@ -1,0 +1,11 @@
+C:\Users\marku\gpx_workflow_GEMINI\scripts\5c_merge_filter_pois.py:120: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+  all_pois_df = pd.concat([service_df, peak_df], ignore_index=True)
+[Info] Merging and filtering POIs...
+[Info] Service POIs geladen: 518 
+[Info] Peak/Viewpoint POIs geladen: 4482 
+[Info] Gesamt POIs nach Deduplizierung: 4999
+[Info] Volle Route geladen (34490 Punkte).
+[Info] Berechne Relevanz und Distanz für POIs...
+Filtering POIs:   0%|          | 0/4999 [00:00<?, ?it/s]Filtering POIs:   6%|5         | 289/4999 [00:00<00:01, 2883.68it/s]Filtering POIs:  12%|#1        | 578/4999 [00:00<00:01, 2839.36it/s]Filtering POIs:  18%|#7        | 899/4999 [00:00<00:01, 3004.12it/s]Filtering POIs:  24%|##4       | 1218/4999 [00:00<00:01, 3074.43it/s]Filtering POIs:  31%|###1      | 1550/4999 [00:00<00:01, 3161.54it/s]Filtering POIs:  38%|###7      | 1898/4999 [00:00<00:00, 3269.00it/s]Filtering POIs:  45%|####4     | 2232/4999 [00:00<00:00, 3290.99it/s]Filtering POIs:  51%|#####1    | 2562/4999 [00:00<00:00, 3232.59it/s]Filtering POIs:  58%|#####7    | 2886/4999 [00:00<00:00, 3223.55it/s]Filtering POIs:  64%|######4   | 3209/4999 [00:01<00:00, 3179.72it/s]Filtering POIs:  71%|#######   | 3528/4999 [00:01<00:00, 3173.28it/s]Filtering POIs:  77%|#######7  | 3859/4999 [00:01<00:00, 3212.48it/s]Filtering POIs:  84%|########3 | 4194/4999 [00:01<00:00, 3251.59it/s]Filtering POIs:  90%|######### | 4520/4999 [00:01<00:00, 3237.18it/s]Filtering POIs:  97%|#########7| 4853/4999 [00:01<00:00, 3264.66it/s]Filtering POIs: 100%|##########| 4999/4999 [00:01<00:00, 3088.32it/s]
+[Info] Relevante POIs nach Filterung: 612
+[OK] 612 relevante POIs gespeichert: output/5c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_pois_relevant.csv

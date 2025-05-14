@@ -1,0 +1,4 @@
+[Info] Fetching Peaks/Viewpoints for BBOX of: data/Hamburg - Fehmarnsund solo 2.gpx
+[Info] Using BBOX (S,W,N,E): 53.50138000,9.97420000,54.45803000,11.17547000
+[Info] Overpass query successful, 27030 elements found in BBOX.
+[OK] 27030 Peaks/Viewpoints gespeichert: output/5b_Hamburg - Fehmarnsund solo 2_peaks_viewpoints_bbox.json

@@ -1,0 +1,6 @@
+Ort,Vorkommen,Strecke im Ort (km),Latitude_Center,Longitude_Center,Nächster_Punkt_Index,Nächster_Punkt_Distanz_km,Nächster_Punkt_Hoehe_m,Distanz_Center_zu_Route_m
+Pienza,79,,43.077,11.679,0,0.000,492.000,8.342
+Buonconvento,56,,43.138,11.482,726,31.818,146.900,167.957
+Monteroni d'Arbia,69,,43.231,11.421,1052,49.531,164.100,478.818
+Arbia,45,,43.294,11.410,1251,58.363,189.600,86.037
+Siena,76,,43.167,11.468,836,37.942,148.300,184.713

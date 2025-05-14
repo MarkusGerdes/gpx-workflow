@@ -1,0 +1,4 @@
+[Info] Fetching Peaks/Viewpoints for BBOX of: data/Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg.gpx
+[Info] Using BBOX (S,W,N,E): 52.64339000,7.22283500,53.64425000,10.00164900
+[Info] Overpass query successful, 60397 elements found in BBOX.
+[OK] 60397 Peaks/Viewpoints gespeichert: output/5b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peaks_viewpoints_bbox.json

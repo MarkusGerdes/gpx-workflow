@@ -1,0 +1,10 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+MissingInputException in rule create_api_optimized_track in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 48:
+Missing input files for rule create_api_optimized_track:
+    output: output/2b_TT25_D6_1_Buriano_track_data_api_optimized.csv
+    wildcards: basename=TT25_D6_1_Buriano
+    affected files:
+        data/TT25_D6_1_Buriano.gpx

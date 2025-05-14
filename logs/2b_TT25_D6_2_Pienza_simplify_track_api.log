@@ -1,0 +1,4 @@
+[Info] Simplifying GPX for API use: data/TT25_D6_2_Pienza.gpx
+[Info] Original number of points: 2034
+[Info] Simplified number of points (RDP, epsilon=0.0001): 681
+[OK] Vereinfachte API-Trackdaten gespeichert: output/2b_TT25_D6_2_Pienza_track_data_api_optimized.csv (681 Punkte)

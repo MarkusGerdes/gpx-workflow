@@ -1,0 +1,21 @@
+item_type,peak_rank,peak_dist_km,peak_elev_m,segment_direction,segment_start_km,segment_end_km,segment_length_m,segment_gain_m,notes
+Peak,1,14.276,603.829,,,,,,
+Peak,2,5.073,443.953,,,,,,
+Valid Segment,1,,,forward,33.684,34.334,650.291,42.695,
+Valid Segment,1,,,forward,35.360,37.619,2259.123,85.485,
+Valid Segment,1,,,forward,40.308,42.738,2429.848,125.537,
+Valid Segment,1,,,forward,43.061,45.513,2452.504,145.756,Ends@TrackEnd
+Valid Segment,1,,,backward,12.353,12.565,211.657,13.945,
+Valid Segment,1,,,backward,10.288,10.895,607.712,29.847,
+Valid Segment,1,,,backward,8.089,8.736,647.309,13.821,
+Valid Segment,1,,,backward,7.204,7.917,713.032,19.700,
+Valid Segment,1,,,backward,5.073,6.334,1260.885,76.149,
+Valid Segment,1,,,backward,0.000,0.586,586.097,24.100,Starts@TrackBegin
+Valid Segment,2,,,forward,6.382,7.204,821.443,62.979,
+Valid Segment,2,,,forward,8.736,9.302,566.413,18.259,
+Valid Segment,2,,,forward,10.895,11.545,650.087,46.151,
+Valid Segment,2,,,forward,12.597,14.276,1678.672,143.626,
+Valid Segment,2,,,forward,35.360,37.619,2259.123,85.485,
+Valid Segment,2,,,forward,40.308,42.738,2429.848,125.537,
+Valid Segment,2,,,forward,43.061,45.513,2452.504,145.756,Ends@TrackEnd
+Valid Segment,2,,,backward,0.000,0.586,586.097,24.100,Starts@TrackBegin

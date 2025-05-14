@@ -1,0 +1,45 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+generate_stage_summary        1
+query_gemini_places           1
+total                         3
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon May  5 00:01:02 2025]
+localrule query_gemini_places:
+    input: output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv
+    output: output/9_Hamburg - Fehmarnsund solo 2_day_preview_places.md
+    log: logs/9_Hamburg - Fehmarnsund solo 2_query_gemini_places.log
+    jobid: 15
+    reason: Missing output files: output/9_Hamburg - Fehmarnsund solo 2_day_preview_places.md
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 358:
+Command 'python scripts/9_query_gemini_with_wiki.py             --input-csv "output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv"             --output-md "output/9_Hamburg - Fehmarnsund solo 2_day_preview_places.md"             --place-column "Ort"             --country-context "DE"             --wiki-lang "AUTO"             --max-wiki-chars 1500             > "logs/9_Hamburg - Fehmarnsund solo 2_query_gemini_places.log" 2>&1' returned non-zero exit status 3221225786.
+[Mon May  5 00:02:53 2025]
+Error in rule query_gemini_places:
+    message: None
+    jobid: 15
+    input: output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv
+    output: output/9_Hamburg - Fehmarnsund solo 2_day_preview_places.md
+    log: logs/9_Hamburg - Fehmarnsund solo 2_query_gemini_places.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/9_query_gemini_with_wiki.py             --input-csv "output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv"             --output-md "output/9_Hamburg - Fehmarnsund solo 2_day_preview_places.md"             --place-column "Ort"             --country-context "DE"             --wiki-lang "AUTO"             --max-wiki-chars 1500             > "logs/9_Hamburg - Fehmarnsund solo 2_query_gemini_places.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Terminating processes on user request, this might take some time.
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-05T000100.584352.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

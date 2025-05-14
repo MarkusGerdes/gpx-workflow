@@ -1,0 +1,9 @@
+[Info] Gemini Model 'gemini-2.0-flash-001' initialisiert.
+[Info] Verwende Wikipedia-Sprache: de
+[Info] Lese Input CSV: output/8c_TT25_D6_2_Pienza_places_relevant_enriched.csv
+[Info] Verwende Spalte 'Ort' für Ortsnamen.
+[Info] Verarbeite 4 Orte...
+Generiere Beschreibungen:   0%|          | 0/4 [00:00<?, ?it/s]Generiere Beschreibungen:  25%|##5       | 1/4 [00:04<00:14,  4.75s/it]Generiere Beschreibungen:  50%|#####     | 2/4 [00:09<00:09,  4.65s/it]Generiere Beschreibungen:  75%|#######5  | 3/4 [00:13<00:04,  4.38s/it]Generiere Beschreibungen: 100%|##########| 4/4 [00:17<00:00,  4.37s/it]Generiere Beschreibungen: 100%|##########| 4/4 [00:17<00:00,  4.44s/it]
+
+[OK] Markdown gespeichert nach output/9_TT25_D6_2_Pienza_day_preview_places.md
+     Erfolgreich verarbeitet: 4

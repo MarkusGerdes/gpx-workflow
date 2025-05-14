@@ -1,0 +1,4 @@
+SyntaxError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 148:
+invalid syntax. Perhaps you forgot a comma?:
+    input:
+

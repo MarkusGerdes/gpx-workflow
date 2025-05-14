@@ -1,0 +1,60 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+analyze_peaks_and_plot          1
+enrich_and_filter_places        1
+generate_stage_summary          1
+query_gemini_places             1
+total                           5
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon May  5 22:52:57 2025]
+localrule enrich_and_filter_places:
+    input: output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv, output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    output: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    log: logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log
+    jobid: 5
+    reason: Missing output files: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 126:
+Command 'python scripts/8c_enrich_filter_places.py             --places-coords-csv "output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv"             --full-track-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             --output-csv "output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv"             --max-dist 1000             --min-occ 3             > "logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log" 2>&1' returned non-zero exit status 1.
+[Mon May  5 22:53:01 2025]
+Error in rule enrich_and_filter_places:
+    message: None
+    jobid: 5
+    input: output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv, output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    output: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    log: logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/8c_enrich_filter_places.py             --places-coords-csv "output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv"             --full-track-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             --output-csv "output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv"             --max-dist 1000             --min-occ 3             > "logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Mon May  5 22:53:01 2025]
+Error in rule enrich_and_filter_places:
+    message: None
+    jobid: 5
+    input: output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv, output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    output: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    log: logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/8c_enrich_filter_places.py             --places-coords-csv "output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv"             --full-track-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             --output-csv "output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv"             --max-dist 1000             --min-occ 3             > "logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-05T225256.820224.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -1,0 +1,5 @@
+[Info] Parsing GPX (flexibel): data/TT25_D6_3_Siena.gpx
+[Info] 1553 Punkte im GPX gefunden, 1553 Punkte mit gültigen Lat/Lon.
+[Info] Höhendaten gefunden.
+[Info] Zeitstempel gefunden.
+[OK] Parsing abgeschlossen (flexibel) und gespeichert: output/2_TT25_D6_3_Siena_track_data_full.csv

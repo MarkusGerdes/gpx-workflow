@@ -1,0 +1,116 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+generate_stage_summary        6
+total                         7
+
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 22:19:18 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_3_Siena_overall_stats.csv, output/3_TT25_D6_3_Siena_peak_analysis_profile.png, output/3_TT25_D6_3_Siena_peak_segment_data.csv, output/4_TT25_D6_3_Siena_track_data_with_location_optimized.csv, output/6_TT25_D6_3_Siena_map_full.html, output/6_TT25_D6_3_Siena_map_full.png, output/9_TT25_D6_3_Siena_day_preview_places.md, output/8c_TT25_D6_3_Siena_places_relevant_enriched.csv
+    output: output/11_TT25_D6_3_Siena_stage_summary_final.html, output/11_TT25_D6_3_Siena_stage_summary_final.pdf
+    log: logs/11_TT25_D6_3_Siena_generate_stage_summary_final.log
+    jobid: 33
+    reason: Missing output files: output/11_TT25_D6_3_Siena_stage_summary_final.pdf, output/11_TT25_D6_3_Siena_stage_summary_final.html
+    wildcards: basename=TT25_D6_3_Siena
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 22:19:36 2025]
+Finished jobid: 33 (Rule: generate_stage_summary)
+1 of 7 steps (14%) done
+Execute 1 jobs...
+[Sun May 11 22:19:36 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_1_Buriano_overall_stats.csv, output/3_TT25_D6_1_Buriano_peak_analysis_profile.png, output/3_TT25_D6_1_Buriano_peak_segment_data.csv, output/4_TT25_D6_1_Buriano_track_data_with_location_optimized.csv, output/6_TT25_D6_1_Buriano_map_full.html, output/6_TT25_D6_1_Buriano_map_full.png, output/9_TT25_D6_1_Buriano_day_preview_places.md, output/8c_TT25_D6_1_Buriano_places_relevant_enriched.csv
+    output: output/11_TT25_D6_1_Buriano_stage_summary_final.html, output/11_TT25_D6_1_Buriano_stage_summary_final.pdf
+    log: logs/11_TT25_D6_1_Buriano_generate_stage_summary_final.log
+    jobid: 1
+    reason: Missing output files: output/11_TT25_D6_1_Buriano_stage_summary_final.pdf, output/11_TT25_D6_1_Buriano_stage_summary_final.html
+    wildcards: basename=TT25_D6_1_Buriano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 22:19:47 2025]
+Finished jobid: 1 (Rule: generate_stage_summary)
+2 of 7 steps (29%) done
+Execute 1 jobs...
+[Sun May 11 22:19:47 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_2_Pienza_overall_stats.csv, output/3_TT25_D6_2_Pienza_peak_analysis_profile.png, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/4_TT25_D6_2_Pienza_track_data_with_location_optimized.csv, output/6_TT25_D6_2_Pienza_map_full.html, output/6_TT25_D6_2_Pienza_map_full.png, output/9_TT25_D6_2_Pienza_day_preview_places.md, output/8c_TT25_D6_2_Pienza_places_relevant_enriched.csv
+    output: output/11_TT25_D6_2_Pienza_stage_summary_final.html, output/11_TT25_D6_2_Pienza_stage_summary_final.pdf
+    log: logs/11_TT25_D6_2_Pienza_generate_stage_summary_final.log
+    jobid: 17
+    reason: Missing output files: output/11_TT25_D6_2_Pienza_stage_summary_final.html, output/11_TT25_D6_2_Pienza_stage_summary_final.pdf
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 22:19:59 2025]
+Finished jobid: 17 (Rule: generate_stage_summary)
+3 of 7 steps (43%) done
+Execute 1 jobs...
+[Sun May 11 22:19:59 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_4_SanGimignano_overall_stats.csv, output/3_TT25_D6_4_SanGimignano_peak_analysis_profile.png, output/3_TT25_D6_4_SanGimignano_peak_segment_data.csv, output/4_TT25_D6_4_SanGimignano_track_data_with_location_optimized.csv, output/6_TT25_D6_4_SanGimignano_map_full.html, output/6_TT25_D6_4_SanGimignano_map_full.png, output/9_TT25_D6_4_SanGimignano_day_preview_places.md, output/8c_TT25_D6_4_SanGimignano_places_relevant_enriched.csv
+    output: output/11_TT25_D6_4_SanGimignano_stage_summary_final.html, output/11_TT25_D6_4_SanGimignano_stage_summary_final.pdf
+    log: logs/11_TT25_D6_4_SanGimignano_generate_stage_summary_final.log
+    jobid: 49
+    reason: Missing output files: output/11_TT25_D6_4_SanGimignano_stage_summary_final.pdf, output/11_TT25_D6_4_SanGimignano_stage_summary_final.html
+    wildcards: basename=TT25_D6_4_SanGimignano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 22:20:08 2025]
+Finished jobid: 49 (Rule: generate_stage_summary)
+4 of 7 steps (57%) done
+Execute 1 jobs...
+[Sun May 11 22:20:08 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_6_Campiglia_Marittima_overall_stats.csv, output/3_TT25_D6_6_Campiglia_Marittima_peak_analysis_profile.png, output/3_TT25_D6_6_Campiglia_Marittima_peak_segment_data.csv, output/4_TT25_D6_6_Campiglia_Marittima_track_data_with_location_optimized.csv, output/6_TT25_D6_6_Campiglia_Marittima_map_full.html, output/6_TT25_D6_6_Campiglia_Marittima_map_full.png, output/9_TT25_D6_6_Campiglia_Marittima_day_preview_places.md, output/8c_TT25_D6_6_Campiglia_Marittima_places_relevant_enriched.csv
+    output: output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf
+    log: logs/11_TT25_D6_6_Campiglia_Marittima_generate_stage_summary_final.log
+    jobid: 81
+    reason: Missing output files: output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html
+    wildcards: basename=TT25_D6_6_Campiglia_Marittima
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 22:20:19 2025]
+Finished jobid: 81 (Rule: generate_stage_summary)
+5 of 7 steps (71%) done
+Execute 1 jobs...
+[Sun May 11 22:20:19 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_5_Montecatini_overall_stats.csv, output/3_TT25_D6_5_Montecatini_peak_analysis_profile.png, output/3_TT25_D6_5_Montecatini_peak_segment_data.csv, output/4_TT25_D6_5_Montecatini_track_data_with_location_optimized.csv, output/6_TT25_D6_5_Montecatini_map_full.html, output/6_TT25_D6_5_Montecatini_map_full.png, output/9_TT25_D6_5_Montecatini_day_preview_places.md, output/8c_TT25_D6_5_Montecatini_places_relevant_enriched.csv
+    output: output/11_TT25_D6_5_Montecatini_stage_summary_final.html, output/11_TT25_D6_5_Montecatini_stage_summary_final.pdf
+    log: logs/11_TT25_D6_5_Montecatini_generate_stage_summary_final.log
+    jobid: 65
+    reason: Missing output files: output/11_TT25_D6_5_Montecatini_stage_summary_final.html, output/11_TT25_D6_5_Montecatini_stage_summary_final.pdf
+    wildcards: basename=TT25_D6_5_Montecatini
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May 11 22:20:28 2025]
+Finished jobid: 65 (Rule: generate_stage_summary)
+6 of 7 steps (86%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 22:20:28 2025]
+localrule all:
+    input: output/11_TT25_D6_1_Buriano_stage_summary_final.html, output/11_TT25_D6_2_Pienza_stage_summary_final.html, output/11_TT25_D6_3_Siena_stage_summary_final.html, output/11_TT25_D6_4_SanGimignano_stage_summary_final.html, output/11_TT25_D6_5_Montecatini_stage_summary_final.html, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html, output/11_TT25_D6_1_Buriano_stage_summary_final.pdf, output/11_TT25_D6_2_Pienza_stage_summary_final.pdf, output/11_TT25_D6_3_Siena_stage_summary_final.pdf, output/11_TT25_D6_4_SanGimignano_stage_summary_final.pdf, output/11_TT25_D6_5_Montecatini_stage_summary_final.pdf, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf
+    jobid: 0
+    reason: Input files updated by another job: output/11_TT25_D6_2_Pienza_stage_summary_final.pdf, output/11_TT25_D6_2_Pienza_stage_summary_final.html, output/11_TT25_D6_5_Montecatini_stage_summary_final.html, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html, output/11_TT25_D6_4_SanGimignano_stage_summary_final.html, output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf, output/11_TT25_D6_3_Siena_stage_summary_final.html, output/11_TT25_D6_4_SanGimignano_stage_summary_final.pdf, output/11_TT25_D6_1_Buriano_stage_summary_final.pdf, output/11_TT25_D6_1_Buriano_stage_summary_final.html, output/11_TT25_D6_3_Siena_stage_summary_final.pdf, output/11_TT25_D6_5_Montecatini_stage_summary_final.pdf
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May 11 22:20:28 2025]
+Finished jobid: 0 (Rule: all)
+7 of 7 steps (100%) done
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-11T221913.584328.snakemake.log

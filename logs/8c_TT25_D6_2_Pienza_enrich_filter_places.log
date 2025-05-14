@@ -1,0 +1,10 @@
+[Info] Enriching and filtering places...
+  Input Places (8b): output/8b_TT25_D6_2_Pienza_places_with_coords.csv
+  Input Track (2c): output/2c_TT25_D6_2_Pienza_track_data_full_with_elevation.csv
+[Info] Berechne Distanzen und nächste Punkte...
+Enriching Places:   0%|          | 0/16 [00:00<?, ?it/s]Enriching Places: 100%|##########| 16/16 [00:00<00:00, 303.02it/s]
+[Info] Filtere Orte nach Relevanz...
+  -> Nach Distanzfilter (1000.0m): 4 Orte übrig.
+  -> Nach Vorkommenfilter (>=3): 4 Orte übrig.
+[Info] Filterung abgeschlossen. 4 von 16 Orten als relevant eingestuft.
+[OK] Angereicherte und gefilterte Orte gespeichert: output/8c_TT25_D6_2_Pienza_places_relevant_enriched.csv

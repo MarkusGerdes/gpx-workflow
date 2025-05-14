@@ -1,0 +1,28 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count
+------------------  -------
+fetch_surface_data        1
+total                     1
+
+Select jobs to execute...
+Execute 1 jobs...
+[Wed May  7 22:32:17 2025]
+localrule fetch_surface_data:
+    input: output/4_TT25_D6_1_Buriano_track_data_with_location_optimized.csv
+    output: output/4b_TT25_D6_1_Buriano_surface_data.csv
+    log: logs/4b_TT25_D6_1_Buriano_fetch_surface_data.log
+    jobid: 0
+    reason: Missing output files: output/4b_TT25_D6_1_Buriano_surface_data.csv
+    wildcards: basename=TT25_D6_1_Buriano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Wed May  7 22:52:41 2025]
+Finished jobid: 0 (Rule: fetch_surface_data)
+1 of 1 steps (100%) done
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-07T223217.069699.snakemake.log

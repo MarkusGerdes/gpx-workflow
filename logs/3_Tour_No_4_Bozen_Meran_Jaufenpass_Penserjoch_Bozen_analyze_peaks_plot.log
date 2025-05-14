@@ -1,0 +1,18 @@
+Starte Peak/Profil Analyse V5 (mit dynamischem Orts-Offset)...
+Verarbeite: output/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full_with_elevation.csv
+[Info] Ortsdaten für Annotation geladen: output/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_relevant_enriched.csv
+  -> 4 Peaks gefunden. Analysiere Top 2:
+  Analysiere Peak 1 (2192.0 m @ 106.53 km):
+    -> OK P1 Vorwärts: +14.6 m / 258 m
+    <- OK P1 Rückwärts: +625.1 m / 9299 m
+  -> Analysiere Peak 2...
+  Analysiere Peak 2 (2095.7 m @ 70.54 km):
+    -> OK P2 Vorwärts: +190.5 m / 6049 m
+    <- OK P2 Rückwärts: +14.2 m / 106 m
+[Info] Berechne Gesamtstatistiken...
+  -> Statistiken gespeichert: output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_overall_stats.csv
+  -> Peak/Segment Daten gespeichert: output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_segment_data.csv
+[Info] Erstelle Plot: output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_analysis_profile.png
+[Info] Füge Ortsmarker zum Plot hinzu...
+  -> Plot gespeichert: 'output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_analysis_profile.png'
+ Analyse abgeschlossen für: 2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_with_elevation

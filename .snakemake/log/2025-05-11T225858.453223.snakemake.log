@@ -1,0 +1,90 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+analyze_peaks_and_plot        6
+generate_stage_summary        6
+total                        13
+
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 22:59:00 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_TT25_D6_2_Pienza_track_data_full_with_elevation.csv, output/8c_TT25_D6_2_Pienza_places_relevant_enriched.csv
+    output: output/3_TT25_D6_2_Pienza_peak_analysis_profile.png, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/3_TT25_D6_2_Pienza_overall_stats.csv
+    log: logs/3_TT25_D6_2_Pienza_analyze_peaks_plot.log
+    jobid: 18
+    reason: Missing output files: output/3_TT25_D6_2_Pienza_overall_stats.csv, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/3_TT25_D6_2_Pienza_peak_analysis_profile.png; Params have changed since last execution: Union of exclusive params before and now across all output: before: 10.0,120.0 now: 60.0 
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 22:59:26 2025]
+Finished jobid: 18 (Rule: analyze_peaks_and_plot)
+1 of 13 steps (8%) done
+Execute 1 jobs...
+[Sun May 11 22:59:26 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_2_Pienza_overall_stats.csv, output/3_TT25_D6_2_Pienza_peak_analysis_profile.png, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/4_TT25_D6_2_Pienza_track_data_with_location_optimized.csv, output/6_TT25_D6_2_Pienza_map_full.html, output/6_TT25_D6_2_Pienza_map_full.png, output/9_TT25_D6_2_Pienza_day_preview_places.md, output/8c_TT25_D6_2_Pienza_places_relevant_enriched.csv
+    output: output/11_TT25_D6_2_Pienza_stage_summary_final.html, output/11_TT25_D6_2_Pienza_stage_summary_final.pdf
+    log: logs/11_TT25_D6_2_Pienza_generate_stage_summary_final.log
+    jobid: 17
+    reason: Missing output files: output/11_TT25_D6_2_Pienza_stage_summary_final.html, output/11_TT25_D6_2_Pienza_stage_summary_final.pdf; Input files updated by another job: output/3_TT25_D6_2_Pienza_overall_stats.csv, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/3_TT25_D6_2_Pienza_peak_analysis_profile.png
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 22:59:38 2025]
+Finished jobid: 17 (Rule: generate_stage_summary)
+2 of 13 steps (15%) done
+Execute 1 jobs...
+[Sun May 11 22:59:38 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_TT25_D6_1_Buriano_track_data_full_with_elevation.csv, output/8c_TT25_D6_1_Buriano_places_relevant_enriched.csv
+    output: output/3_TT25_D6_1_Buriano_peak_analysis_profile.png, output/3_TT25_D6_1_Buriano_peak_segment_data.csv, output/3_TT25_D6_1_Buriano_overall_stats.csv
+    log: logs/3_TT25_D6_1_Buriano_analyze_peaks_plot.log
+    jobid: 2
+    reason: Missing output files: output/3_TT25_D6_1_Buriano_peak_analysis_profile.png, output/3_TT25_D6_1_Buriano_overall_stats.csv, output/3_TT25_D6_1_Buriano_peak_segment_data.csv; Params have changed since last execution: Union of exclusive params before and now across all output: before: 10.0,120.0 now: 60.0 
+    wildcards: basename=TT25_D6_1_Buriano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May 11 22:59:52 2025]
+Finished jobid: 2 (Rule: analyze_peaks_and_plot)
+3 of 13 steps (23%) done
+Execute 1 jobs...
+[Sun May 11 22:59:52 2025]
+localrule generate_stage_summary:
+    input: output/3_TT25_D6_1_Buriano_overall_stats.csv, output/3_TT25_D6_1_Buriano_peak_analysis_profile.png, output/3_TT25_D6_1_Buriano_peak_segment_data.csv, output/4_TT25_D6_1_Buriano_track_data_with_location_optimized.csv, output/6_TT25_D6_1_Buriano_map_full.html, output/6_TT25_D6_1_Buriano_map_full.png, output/9_TT25_D6_1_Buriano_day_preview_places.md, output/8c_TT25_D6_1_Buriano_places_relevant_enriched.csv
+    output: output/11_TT25_D6_1_Buriano_stage_summary_final.html, output/11_TT25_D6_1_Buriano_stage_summary_final.pdf
+    log: logs/11_TT25_D6_1_Buriano_generate_stage_summary_final.log
+    jobid: 1
+    reason: Missing output files: output/11_TT25_D6_1_Buriano_stage_summary_final.pdf, output/11_TT25_D6_1_Buriano_stage_summary_final.html; Input files updated by another job: output/3_TT25_D6_1_Buriano_peak_analysis_profile.png, output/3_TT25_D6_1_Buriano_overall_stats.csv, output/3_TT25_D6_1_Buriano_peak_segment_data.csv
+    wildcards: basename=TT25_D6_1_Buriano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 476:
+Command 'python scripts/11_generate_stage_summary.py             --basename "TT25_D6_1_Buriano"             --stats-csv "output/3_TT25_D6_1_Buriano_overall_stats.csv"             --profile-png "output/3_TT25_D6_1_Buriano_peak_analysis_profile.png"             --peak-csv "output/3_TT25_D6_1_Buriano_peak_segment_data.csv"             --geocoded-opt-csv "output/4_TT25_D6_1_Buriano_track_data_with_location_optimized.csv"             --map-html "output/6_TT25_D6_1_Buriano_map_full.html"             --map-png "output/6_TT25_D6_1_Buriano_map_full.png"             --markdown-text "output/9_TT25_D6_1_Buriano_day_preview_places.md"             --sorted-places "output/8c_TT25_D6_1_Buriano_places_relevant_enriched.csv"             --output-html "output/11_TT25_D6_1_Buriano_stage_summary_final.html"             --output-pdf "output/11_TT25_D6_1_Buriano_stage_summary_final.pdf"             > "logs/11_TT25_D6_1_Buriano_generate_stage_summary_final.log" 2>&1' returned non-zero exit status 3221225786.
+[Sun May 11 22:59:52 2025]
+Error in rule generate_stage_summary:
+    message: None
+    jobid: 1
+    input: output/3_TT25_D6_1_Buriano_overall_stats.csv, output/3_TT25_D6_1_Buriano_peak_analysis_profile.png, output/3_TT25_D6_1_Buriano_peak_segment_data.csv, output/4_TT25_D6_1_Buriano_track_data_with_location_optimized.csv, output/6_TT25_D6_1_Buriano_map_full.html, output/6_TT25_D6_1_Buriano_map_full.png, output/9_TT25_D6_1_Buriano_day_preview_places.md, output/8c_TT25_D6_1_Buriano_places_relevant_enriched.csv
+    output: output/11_TT25_D6_1_Buriano_stage_summary_final.html, output/11_TT25_D6_1_Buriano_stage_summary_final.pdf
+    log: logs/11_TT25_D6_1_Buriano_generate_stage_summary_final.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/11_generate_stage_summary.py             --basename "TT25_D6_1_Buriano"             --stats-csv "output/3_TT25_D6_1_Buriano_overall_stats.csv"             --profile-png "output/3_TT25_D6_1_Buriano_peak_analysis_profile.png"             --peak-csv "output/3_TT25_D6_1_Buriano_peak_segment_data.csv"             --geocoded-opt-csv "output/4_TT25_D6_1_Buriano_track_data_with_location_optimized.csv"             --map-html "output/6_TT25_D6_1_Buriano_map_full.html"             --map-png "output/6_TT25_D6_1_Buriano_map_full.png"             --markdown-text "output/9_TT25_D6_1_Buriano_day_preview_places.md"             --sorted-places "output/8c_TT25_D6_1_Buriano_places_relevant_enriched.csv"             --output-html "output/11_TT25_D6_1_Buriano_stage_summary_final.html"             --output-pdf "output/11_TT25_D6_1_Buriano_stage_summary_final.pdf"             > "logs/11_TT25_D6_1_Buriano_generate_stage_summary_final.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Terminating processes on user request, this might take some time.
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-11T225858.453223.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

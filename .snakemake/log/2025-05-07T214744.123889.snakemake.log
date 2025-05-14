@@ -1,0 +1,44 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+add_elevation_data                 2
+all                                1
+analyze_peaks_and_plot             2
+create_api_optimized_track         2
+enrich_and_filter_places           2
+extract_significant_places         2
+fetch_peaks_viewpoints_bbox        2
+fetch_pois_service                 2
+generate_map                       2
+generate_stage_summary             2
+geocode_places                     2
+merge_and_filter_pois              2
+parse_full_gpx                     2
+query_gemini_places                2
+reverse_geocode                    2
+screenshot_map                     2
+sort_places_by_route               2
+total                             33
+
+Select jobs to execute...
+Execute 1 jobs...
+[Wed May  7 21:47:44 2025]
+localrule parse_full_gpx:
+    input: data/Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg.gpx
+    output: output/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full.csv
+    log: logs/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_parse_gpx_full.log
+    jobid: 4
+    reason: Missing output files: output/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Terminating processes on user request, this might take some time.
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-07T214744.123889.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

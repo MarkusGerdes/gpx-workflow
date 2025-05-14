@@ -1,0 +1,43 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                   count
+------------------  -------
+fetch_surface_data        1
+total                     1
+
+Select jobs to execute...
+Execute 1 jobs...
+[Wed May  7 21:47:58 2025]
+localrule fetch_surface_data:
+    input: output/2b_TT25_D6_1_Buriano_track_data_api_optimized.csv
+    output: output/4b_TT25_D6_1_Buriano_surface_data.csv
+    log: logs/4b_TT25_D6_1_Buriano_fetch_surface_data.log
+    jobid: 0
+    reason: Missing output files: output/4b_TT25_D6_1_Buriano_surface_data.csv
+    wildcards: basename=TT25_D6_1_Buriano
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 236:
+Command 'python scripts/4b_fetch_surface_data.py             --input-csv "output/2b_TT25_D6_1_Buriano_track_data_api_optimized.csv"             --output-csv "output/4b_TT25_D6_1_Buriano_surface_data.csv"             --radius 20             --sampling 0.2             > "logs/4b_TT25_D6_1_Buriano_fetch_surface_data.log" 2>&1' returned non-zero exit status 3221225786.
+[Wed May  7 22:15:39 2025]
+Error in rule fetch_surface_data:
+    message: None
+    jobid: 0
+    input: output/2b_TT25_D6_1_Buriano_track_data_api_optimized.csv
+    output: output/4b_TT25_D6_1_Buriano_surface_data.csv
+    log: logs/4b_TT25_D6_1_Buriano_fetch_surface_data.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/4b_fetch_surface_data.py             --input-csv "output/2b_TT25_D6_1_Buriano_track_data_api_optimized.csv"             --output-csv "output/4b_TT25_D6_1_Buriano_surface_data.csv"             --radius 20             --sampling 0.2             > "logs/4b_TT25_D6_1_Buriano_fetch_surface_data.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Terminating processes on user request, this might take some time.
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-07T214758.135469.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

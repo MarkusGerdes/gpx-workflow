@@ -1,0 +1,22 @@
+[Info] Geocoding places from: output/8_TT25_D6_2_Pienza_places_sorted_optimized.csv
+[Info] 16 eindeutige Orte zum Geocodieren gefunden.
+[Info] Starte Forward Geocoding (beachte API Limits!)...
+Geocoding Places:   0%|          | 0/16 [00:00<?, ?it/s]Geocoding Places:  12%|#2        | 2/16 [00:01<00:07,  1.85it/s]Geocoding Places:  19%|#8        | 3/16 [00:02<00:09,  1.34it/s]Geocoding Places:  25%|##5       | 4/16 [00:03<00:10,  1.20it/s]Geocoding Places:  31%|###1      | 5/16 [00:04<00:09,  1.12it/s]Geocoding Places:  38%|###7      | 6/16 [00:05<00:09,  1.08it/s]Geocoding Places:  44%|####3     | 7/16 [00:06<00:08,  1.05it/s]Geocoding Places:  50%|#####     | 8/16 [00:07<00:07,  1.02it/s]Geocoding Places:  56%|#####6    | 9/16 [00:08<00:06,  1.01it/s]Geocoding Places:  62%|######2   | 10/16 [00:09<00:05,  1.02it/s]Geocoding Places:  69%|######8   | 11/16 [00:10<00:04,  1.02it/s]Geocoding Places:  75%|#######5  | 12/16 [00:11<00:03,  1.01it/s]Geocoding Places:  81%|########1 | 13/16 [00:12<00:02,  1.00it/s]Geocoding Places:  88%|########7 | 14/16 [00:13<00:01,  1.00it/s]Geocoding Places:  94%|#########3| 15/16 [00:14<00:00,  1.01it/s]Geocoding Places: 100%|##########| 16/16 [00:15<00:00,  1.00it/s]Geocoding Places: 100%|##########| 16/16 [00:15<00:00,  1.06it/s]
+  -> Gefunden: Buriano -> (42.8452, 10.9886)
+  -> Gefunden: Castiglione della Pescaia -> (42.7639, 10.8791)
+  -> Gefunden: Gavorrano -> (42.9254, 10.9058)
+  -> Gefunden: Castellaccia -> (42.9231, 11.0257)
+  -> Gefunden: Giuncarico -> (42.9069, 10.9916)
+  -> Gefunden: Roccastrada -> (43.0099, 11.1665)
+  -> Gefunden: Paganico -> (43.1323, 13.1159)
+  -> Gefunden: Grosseto -> (42.7751, 11.2878)
+  -> Gefunden: Dogana -> (42.9729, 11.3177)
+  -> Gefunden: Cinigiano -> (42.8904, 11.3929)
+  -> Gefunden: Porrona -> (42.9105, 11.4080)
+  -> Gefunden: Castel del Piano -> (42.8932, 11.5384)
+  -> Gefunden: Montalcino -> (43.0576, 11.4903)
+  -> Gefunden: Castiglione d'Orcia -> (43.0071, 11.6155)
+  -> Gefunden: Bagno Vignoni -> (43.0281, 11.6187)
+  -> Gefunden: Pienza -> (43.0765, 11.6789)
+
+[OK] Geocoding-Ergebnisse gespeichert (16 Einträge): output/8b_TT25_D6_2_Pienza_places_with_coords.csv

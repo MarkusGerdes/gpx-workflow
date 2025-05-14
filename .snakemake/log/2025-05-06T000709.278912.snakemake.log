@@ -1,0 +1,21 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+generate_stage_summary        1
+query_gemini_places           1
+total                         3
+
+Select jobs to execute...
+Execute 1 jobs...
+RuleException in rule query_gemini_places in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 371:
+AttributeError: 'Params' object has no attribute 'country_context_param', when formatting the following:
+
+        python scripts/9_query_gemini_with_wiki.py             --input-csv "{input.sorted_places_csv}"             --output-md "{output.markdown_file}"             --place-column "{params.place_column_param}"             --country-context "{params.country_context_param}"             --wiki-lang "{params.wiki_lang_param}"             --max-wiki-chars {params.max_wiki_chars_param}             > "{log}" 2>&1
+        

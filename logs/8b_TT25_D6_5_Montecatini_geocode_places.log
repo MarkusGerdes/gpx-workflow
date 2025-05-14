@@ -1,0 +1,10 @@
+[Info] Geocoding places from: output/8_TT25_D6_5_Montecatini_places_sorted_optimized.csv
+[Info] 4 eindeutige Orte zum Geocodieren gefunden.
+[Info] Starte Forward Geocoding (beachte API Limits!)...
+Geocoding Places:   0%|          | 0/4 [00:00<?, ?it/s]Geocoding Places:  25%|##5       | 1/4 [00:00<00:00,  7.40it/s]Geocoding Places:  50%|#####     | 2/4 [00:01<00:01,  1.55it/s]Geocoding Places:  75%|#######5  | 3/4 [00:02<00:00,  1.24it/s]Geocoding Places: 100%|##########| 4/4 [00:03<00:00,  1.13it/s]Geocoding Places: 100%|##########| 4/4 [00:03<00:00,  1.27it/s]
+  -> Gefunden: San Gimignano -> (43.4678, 11.0432)
+  -> Gefunden: Volterra -> (43.4003, 10.8600)
+  -> Gefunden: Lajatico -> (43.4754, 10.7283)
+  -> Gefunden: Montecatini Val di Cecina -> (43.3928, 10.7491)
+
+[OK] Geocoding-Ergebnisse gespeichert (4 Einträge): output/8b_TT25_D6_5_Montecatini_places_with_coords.csv

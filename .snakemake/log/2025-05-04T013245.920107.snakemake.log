@@ -1,0 +1,68 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                           count
+--------------------------  -------
+all                               1
+analyze_peaks_and_plot            6
+extract_significant_places        6
+fetch_pois_service                6
+generate_map                      6
+generate_stage_summary            6
+geocode_places                    6
+merge_and_filter_pois             6
+query_gemini_places               6
+reverse_geocode                   5
+screenshot_map                    6
+sort_places_by_route              6
+total                            66
+
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May  4 01:32:47 2025]
+localrule fetch_pois_service:
+    input: output/4_TT25_D6_2_Pienza_track_data_with_location_optimized.csv
+    output: output/5a_TT25_D6_2_Pienza_pois_service_raw.csv
+    log: logs/5a_TT25_D6_2_Pienza_fetch_pois_service.log
+    jobid: 25
+    reason: Missing output files: output/5a_TT25_D6_2_Pienza_pois_service_raw.csv
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 217:
+Command 'python scripts/5a_fetch_service_pois.py             --input "output/4_TT25_D6_2_Pienza_track_data_with_location_optimized.csv"             --output "output/5a_TT25_D6_2_Pienza_pois_service_raw.csv"             --radius 500             --sampling 0.5             > "logs/5a_TT25_D6_2_Pienza_fetch_pois_service.log" 2>&1' returned non-zero exit status 1.
+[Sun May  4 01:32:52 2025]
+Error in rule fetch_pois_service:
+    message: None
+    jobid: 25
+    input: output/4_TT25_D6_2_Pienza_track_data_with_location_optimized.csv
+    output: output/5a_TT25_D6_2_Pienza_pois_service_raw.csv
+    log: logs/5a_TT25_D6_2_Pienza_fetch_pois_service.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/5a_fetch_service_pois.py             --input "output/4_TT25_D6_2_Pienza_track_data_with_location_optimized.csv"             --output "output/5a_TT25_D6_2_Pienza_pois_service_raw.csv"             --radius 500             --sampling 0.5             > "logs/5a_TT25_D6_2_Pienza_fetch_pois_service.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Sun May  4 01:32:52 2025]
+Error in rule fetch_pois_service:
+    message: None
+    jobid: 25
+    input: output/4_TT25_D6_2_Pienza_track_data_with_location_optimized.csv
+    output: output/5a_TT25_D6_2_Pienza_pois_service_raw.csv
+    log: logs/5a_TT25_D6_2_Pienza_fetch_pois_service.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/5a_fetch_service_pois.py             --input "output/4_TT25_D6_2_Pienza_track_data_with_location_optimized.csv"             --output "output/5a_TT25_D6_2_Pienza_pois_service_raw.csv"             --radius 500             --sampling 0.5             > "logs/5a_TT25_D6_2_Pienza_fetch_pois_service.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-04T013245.920107.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

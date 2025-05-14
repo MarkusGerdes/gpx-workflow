@@ -1,0 +1,12 @@
+[Info] Generating final summary for: TT25_D6_6_Campiglia_Marittima
+[Info] Lade Daten...
+[Info] Verarbeite geocodierte Route für Straßenliste...
+[Info] Analysiere Straßenverlauf für 7 potentielle Ortsabschnitte...
+Processing Cities for Street List:   0%|          | 0/7 [00:00<?, ?it/s]Processing Cities for Street List:  14%|#4        | 1/7 [00:00<00:00,  9.33it/s]Processing Cities for Street List:  43%|####2     | 3/7 [00:00<00:00, 15.29it/s]Processing Cities for Street List: 100%|##########| 7/7 [00:00<00:00, 24.21it/s]
+[Info] Bereite Assets vor (Base64-Einbettung für PDF)...
+[Info] Erstelle HTML-Inhalt...
+[Warnung] bootstrap.min.css nicht gefunden. Verwende CDN Fallback (nur für HTML-Ansicht).
+[Info] Speichere HTML: output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html
+[OK] HTML-Datei gespeichert: output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.html
+[Info] Generiere PDF: output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf
+[OK] PDF-Datei gespeichert: output/11_TT25_D6_6_Campiglia_Marittima_stage_summary_final.pdf

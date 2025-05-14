@@ -1,0 +1,4 @@
+python scripts/9_query_gemini_with_wiki.py \
+    --input-csv output/8_STAGE1_places_sorted_optimized.csv \
+    --output-md  output/9_STAGE1_day_preview_places.md \
+    --country-context IT

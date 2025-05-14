@@ -1,0 +1,30 @@
+[Info] Geocoding places from: output/8_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_sorted_optimized.csv
+[Info] 24 eindeutige Orte zum Geocodieren gefunden.
+[Info] Starte Forward Geocoding (beachte API Limits!)...
+Geocoding Places:   0%|          | 0/24 [00:00<?, ?it/s]Geocoding Places:   4%|4         | 1/24 [00:00<00:02,  8.52it/s]Geocoding Places:   8%|8         | 2/24 [00:01<00:13,  1.58it/s]Geocoding Places:  12%|#2        | 3/24 [00:02<00:16,  1.25it/s]Geocoding Places:  17%|#6        | 4/24 [00:03<00:17,  1.13it/s]Geocoding Places:  21%|##        | 5/24 [00:04<00:17,  1.08it/s]Geocoding Places:  25%|##5       | 6/24 [00:05<00:17,  1.04it/s]Geocoding Places:  29%|##9       | 7/24 [00:06<00:16,  1.03it/s]Geocoding Places:  33%|###3      | 8/24 [00:07<00:15,  1.01it/s]Geocoding Places:  38%|###7      | 9/24 [00:08<00:14,  1.02it/s]Geocoding Places:  42%|####1     | 10/24 [00:09<00:13,  1.02it/s]Geocoding Places:  46%|####5     | 11/24 [00:10<00:12,  1.02it/s]Geocoding Places:  50%|#####     | 12/24 [00:11<00:11,  1.00it/s]Geocoding Places:  54%|#####4    | 13/24 [00:12<00:10,  1.01it/s]Geocoding Places:  58%|#####8    | 14/24 [00:13<00:09,  1.01it/s]Geocoding Places:  62%|######2   | 15/24 [00:14<00:08,  1.01it/s]Geocoding Places:  67%|######6   | 16/24 [00:15<00:08,  1.01s/it]Geocoding Places:  71%|#######   | 17/24 [00:16<00:06,  1.00it/s]Geocoding Places:  75%|#######5  | 18/24 [00:17<00:06,  1.00s/it]Geocoding Places:  79%|#######9  | 19/24 [00:18<00:04,  1.00it/s]Geocoding Places:  83%|########3 | 20/24 [00:19<00:03,  1.00it/s]Geocoding Places:  88%|########7 | 21/24 [00:20<00:02,  1.00it/s]Geocoding Places:  92%|#########1| 22/24 [00:21<00:02,  1.00s/it]Geocoding Places:  96%|#########5| 23/24 [00:22<00:00,  1.00it/s]Geocoding Places: 100%|##########| 24/24 [00:23<00:00,  1.00it/s]Geocoding Places: 100%|##########| 24/24 [00:23<00:00,  1.04it/s]
+  -> Gefunden: Bozen -> (46.6559, 11.2302)
+  -> Gefunden: Siebeneich -> (46.5110, 11.2745)
+  -> Gefunden: Vilpian -> (46.5587, 11.2238)
+  -> Gefunden: Terlan -> (46.5293, 11.2487)
+  -> Gefunden: Gargazon -> (46.5848, 11.2027)
+  -> Gefunden: Burgstall -> (46.6076, 11.1933)
+  -> Gefunden: Meran -> (46.6696, 11.1594)
+  -> Gefunden: Tirol -> (47.2232, 11.5261)
+  -> Gefunden: Kuens -> (46.6995, 11.1695)
+  -> Gefunden: Riffian -> (46.7036, 11.1814)
+  -> Gefunden: Saltaus -> (46.7298, 11.2005)
+  -> Gefunden: Quellenhof -> (46.7451, 11.2044)
+  -> Gefunden: St. Martin in Passeier -> (46.7839, 11.2268)
+  -> Gefunden: St. Leonhard in Passeier -> (46.8119, 11.2471)
+  -> Gefunden: Walten -> (46.8257, 11.2887)
+  -> Gefunden: Ratschings -> (46.8801, 11.3761)
+  -> Gefunden: Pardaun -> (46.8802, 11.3654)
+  -> Gefunden: Stange -> (60.6244, 11.3831)
+  -> Gefunden: Gasteig -> (46.8824, 11.4056)
+  -> Gefunden: Sterzing -> (46.8963, 11.4319)
+  -> Gefunden: Freienfeld -> (46.8571, 11.5091)
+  -> Gefunden: Sarntal -> (46.6954, 11.3874)
+  -> Gefunden: Jenesien -> (46.5350, 11.3314)
+  -> Gefunden: Afing -> (46.5638, 11.3567)
+
+[OK] Geocoding-Ergebnisse gespeichert (24 Einträge): output/8b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_with_coords.csv

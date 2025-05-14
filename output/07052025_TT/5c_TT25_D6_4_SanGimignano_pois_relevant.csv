@@ -1,0 +1,336 @@
+Name,Typ,Adresse,Latitude,Longitude,Elevation,Entfernung_m
+Il Biondo,restaurant,"Vicolo del Rustichetto, 10, 53100, Siena",43.321527,11.329730,,22
+La Bottega Del Caffè,cafe,"Via Banchi di Sotto, 39, 53100, Siena",43.319254,11.332226,,145
+Bar Ristorante Rustichetto,restaurant,"Via Della Sapienza, 45, 53100, Siena",43.320362,11.327386,,283
+Trattoria La Torre,restaurant,"Via di Salicotto, 7, 53100, Siena",43.318315,11.332382,,172
+Caffe' Sandy,cafe,"Via di Salicotto, 21, 53100, Siena",43.318178,11.332672,,208
+Forno Delle Campane,bakery,"Via di Salicotto, 23, 53100, Siena",43.318145,11.332737,,216
+Panificio Il Magnifico,bakery,"Via dei Pellegrini, 27, 53100, Siena",43.318277,11.329815,,105
+Caffetteria Il Magnifico,cafe,"Piazza San Giovanni, 1, 53100, Siena",43.318270,11.329639,,119
+Il Battistero Bistrot,cafe,"Piazza San Giovanni, 2, 53100, Siena",43.318237,11.329588,,126
+Ristorante Mugolone,restaurant,"Via dei Pellegrini, 8;12, 53100, Siena",43.318392,11.330200,,71
+Il Masgalano,restaurant,"Via del Camporegio, 1, 53100, Siena",43.320328,11.327280,,293
+La Mossa,restaurant,"Il Campo, 29, 53100, Siena",43.318417,11.330778,,42
+La Taverna Del Capitano,restaurant,"Via del Capitano, 6;8, 53100, Siena",43.316518,11.329740,,277
+Drinking_water,drinking_water,Adresse unbekannt,43.318623,11.331387,,58
+Drinking_water,drinking_water,Adresse unbekannt,43.318701,11.331526,,68
+Quarto Bistrot,restaurant,"Vicolo del Campaccio, 2, 53100, Siena",43.320104,11.328622,,187
+Bar Nannini Conca d'Oro,cafe,"Banchi di Sopra, 24, 53100, Siena",43.319587,11.331430,,61
+Hosteria Il Carroccio,restaurant,"Via del Casato di Sotto, 32, Siena",43.317318,11.331410,,179
+Zest Ristorante e Wine Bar,restaurant,"Costa Sant' Antonio, 13, 53100, Siena",43.320147,11.328938,,155
+Osteria Il Grattacielo,restaurant,"Via dei Pontani, 8, 53100, Siena",43.320275,11.330721,,7
+Ristorante Pizzeria Spadaforte,restaurant,"Il Campo, 12-14, 53100, Siena",43.317904,11.331157,,108
+Bar Il Palio,cafe,"Il Campo, 47, 53100, Siena",43.318945,11.331454,,55
+Caffè Fonte Gaia,restaurant,"Il Campo, 21;23, 53100, Siena",43.318249,11.330941,,64
+Ristorante Vitti,restaurant,"Via dei Montanini, 16, 53100, Siena",43.321379,11.330313,,8
+Salumeria Il Cencio,restaurant,"Il Campo, 70;71, 53100, Siena",43.318629,11.332612,,186
+Osteria Da Trombicche,restaurant,"Via delle Terme, 66, 53100, Siena",43.320328,11.330262,,35
+Trattoria La Tellina,restaurant,"Via delle Terme, 52, 53100, Siena",43.320119,11.330338,,38
+Osteria Il Ghibellino,restaurant,"Via dei Pellegrini, 26, 53100, Siena",43.318353,11.329718,,106
+Il Kroeg,cafe,"Via Vallerozzi, 53100, Siena",43.322586,11.330943,,152
+Drinking_water,drinking_water,Adresse unbekannt,43.319777,11.329126,,165
+Osteria del Gusto,restaurant,"Via dei Fusari, 9, 53100, Siena",43.317780,11.328371,,264
+Osteria da Divo,restaurant,"Via Franciosa, 25;29, 53100, Siena",43.318008,11.328140,,275
+Ristorante Il Duomo,restaurant,"Via dei Fusari, 19, 53100, Siena",43.317509,11.328183,,298
+L'Osteria dei Rossi,restaurant,"Via dei Rossi, 79;81, 53100, Siena",43.321749,11.332192,,204
+La Nuova Pasticceria,bakery,"Via Giovanni Duprè, 12, 53100, Siena",43.317694,11.331780,,164
+Antico Tagliere,cafe,Adresse unbekannt,43.316613,11.330552,,243
+Chianti & Pizza,restaurant,"Via delle Terme, 94, 53100, Siena",43.320798,11.329815,,33
+Antica Trattoria Papei,restaurant,"Piazza del Mercato, 6, 53100, Siena",43.317038,11.332479,,269
+Taverna di Cecco,restaurant,"Via Cecco Angiolieri, 19, 53100, Siena",43.320009,11.331953,,123
+Pizzeria di Nonno Mede,restaurant,"Via Camporegio, 21, 53100, Siena",43.320191,11.328483,,195
+Il Pomodorino,restaurant,"Via del Camporegio, 13, 53100, Siena",43.320196,11.327975,,247
+La Vecchia Taverna di Bacco,restaurant,"Via di Beccheria, 11, 53100, Siena",43.318706,11.330247,,39
+Osteria Pizzeria Il Vicolo,restaurant,"Via del Porrione, 46, 53100, Siena",43.318342,11.333391,,278
+Osteria Le logge,restaurant,"Via del Porrione, 33, 53100, Siena",43.318489,11.333362,,271
+Archivo del Gusto,restaurant,"Via di Monna Agnese, 8, 53100, Siena",43.318001,11.329913,,125
+Prètto Prosciutteria e Convivio,restaurant,"Via dei Termini, 4, 53100, Siena",43.319191,11.330789,,6
+Consorzio Agrario di Siena,supermarket,"Via Giuseppe Pianigiani, 5, 53100, Siena",43.321211,11.329930,,30
+Menchetti,bakery,"Via Pianigiani, 5, 53100, Siena",43.321174,11.330053,,21
+Osteria La Chiacchera,restaurant,"Costa Sant'Antonio, 4, 53100, Siena",43.320120,11.328794,,169
+Gusti Continentali,cafe,"Via dei Rossi, 107, 53100, Siena",43.321908,11.332592,,252
+Liberamente Osteria,restaurant,"Il Campo, 27, 53100, Siena",43.318346,11.330856,,51
+Morbidi,cafe,"Banchi di Sopra, 75, 53100, Siena",43.320762,11.330694,,31
+Il Cavaliere Errante,restaurant,"Piazza Provenzano, 3, 53100, Siena",43.320483,11.332234,,168
+L'Osteria del Bigelli,restaurant,"Il Campo, 60, 53100, Siena",43.318962,11.332086,,125
+Du' Versi,restaurant,"Via dei Rossi, 82, 53100, Siena",43.321796,11.332670,,256
+Key Largo,cafe,"Via Rinaldini, 17, 53100, Siena",43.318804,11.332596,,182
+Caffetteria del Santa Maria Della Scala,cafe,"53100, Siena",43.316915,11.328796,,294
+La Casa del Caffè,cafe,"Via di Diacceto, 18;20, 53100, Siena",43.318904,11.329839,,64
+Bar osteria Il Bargello,restaurant,"Via di Città, 55, 53100, Siena",43.317906,11.330782,,99
+Osteria Permalico,restaurant,"Costa Larga, 4, 53100, Siena",43.316374,11.330035,,281
+Quattro Cantoni,cafe,"Via di Città, 134;137, 53100, Siena",43.316310,11.329990,,289
+La Finestra,restaurant,"Piazza del Mercato, 14, 53100, Siena",43.317417,11.332319,,226
+Osteria degli Svitati,restaurant,"Via della Galluzza, 34, 53100, Siena",43.319657,11.329280,,143
+Te Ke Voi?,restaurant,"Vicolo San Pietro, 4, 53100, Siena",43.318990,11.331263,,34
+Ai Fusari Bistrot,restaurant,"Via dei Fusari, 26, 53100, Siena",43.318034,11.328437,,244
+Ristorante Al Mangia,restaurant,"Il Campo, 43, 53100, Siena",43.318832,11.331253,,34
+Caffè L'Accademia,cafe,"Via di Città, 103, 53100, Siena",43.316844,11.330575,,218
+Drinking_water,drinking_water,Adresse unbekannt,43.317287,11.332640,,261
+Cor Magis,cafe,"Via del Porrione, 3, 53100, Siena",43.318610,11.332707,,197
+Il Bandierino,restaurant,"Il Campo, 64;66, 53100, Siena",43.318823,11.332406,,161
+Panificio Sclavi,bakery,"Il Campo, 56, 53100, Siena",43.319031,11.331893,,104
+Manganelli,restaurant,"Il Campo, 54, 53100, Siena",43.319010,11.331721,,85
+Il Campo,restaurant,"Il Campo, 50, 53100, Siena",43.318990,11.331588,,70
+Cuoricino,restaurant,"Il Campo, 37-38, 53100, Siena",43.318706,11.331040,,25
+Alla Speranza,restaurant,"Il Campo, 32-36, 53100, Siena",43.318654,11.330972,,26
+Caffè A. Nannini,cafe,"Il Campo, 33, 53100, Siena",43.318596,11.330929,,28
+Bibò,cafe,"Via Banchi di Sotto, 63, 53100, Siena",43.318978,11.333318,,262
+Trefilari Wine Bar,cafe,"Via Banchi di Sotto, 51, 53100, Siena",43.319203,11.332552,,179
+Il Cavallino Bianco,restaurant,"Via di Città, 20, 53100, Siena",43.318986,11.330982,,6
+Nuovo Caffè Greco,cafe,"Via di Città, 24, 53100, Siena",43.318932,11.330889,,4
+Caffetteria Torrefazione Fiorella,cafe,"Via di Città, 13, 53100, Siena",43.318787,11.330878,,8
+Caffe A. Nannini,cafe,"Il Campo, 57, 53100, Siena",43.318990,11.332007,,116
+Tre Cristi Enoteca Ristorante,restaurant,"Vicolo di Provenzano, 1, 53100, Siena",43.321541,11.332730,,256
+Osteria al Palchetto,restaurant,"53100, Siena",43.318544,11.333176,,250
+Caffè La Piazzetta,cafe,"Via dei Montanini, 52, 53100, Siena",43.321808,11.329748,,4
+Caffè del Corso,cafe,"Banchi di Sopra, 25, 53100, Siena",43.319601,11.331238,,40
+Pizzeria Alle Scalette,restaurant,"Viale Curtatone, 18, 53100, Siena",43.321424,11.328276,,129
+La Locanda dei Tintori,restaurant,"Via dei Pittori, 13, 53100, Siena",43.320151,11.329683,,94
+In Carrozza,restaurant,"Vicolo delle Carrozze, 1, 53100, Siena",43.318391,11.328569,,215
+Casa Tua,restaurant,"34, 53100, Siena",43.317620,11.332879,,258
+San Domenico,restaurant,"Via del Camporegio, 17, 53100, Siena",43.320197,11.328306,,213
+Compagnia dei Vinattieri,restaurant,"Via delle Terme, 79, 53100, Siena",43.320261,11.330137,,50
+Caffè 19zero3,cafe,"18;19;20, 53100, Siena",43.317636,11.332175,,197
+Osteria Le Sorelline,restaurant,"Via dei Rossi, 76, 53100, Siena",43.321736,11.332438,,230
+Tigella Emilia,restaurant,"Via dei Rossi, 65, 53100, Siena",43.321549,11.331889,,166
+Il Sasso,restaurant,"Via dei Rossi, 2, 53100, Siena",43.320706,11.331211,,76
+Forno Sclavi,bakery,"53100, Siena",43.316348,11.330014,,284
+Ri.Me.,restaurant,"Via Giovanni Duprè, 90, 53100, Siena",43.316346,11.331786,,294
+Sclavi 1949,cafe,Adresse unbekannt,43.319013,11.331944,,110
+savelli,restaurant,Adresse unbekannt,43.318850,11.332323,,152
+Piripi Pizza Urban Food,restaurant,"Via dei Rossi, 69, 53100, Siena",43.321631,11.332002,,180
+Conad City,supermarket,"Viale Curtatone, 16, 53100, Siena",43.321360,11.328214,,139
+La Favorita,restaurant,"32, 53100, Siena",43.321910,11.328628,,62
+Bruscello Bistrò,restaurant,"Via della Stufa Secca, 1, 53100, Siena",43.322154,11.329828,,40
+Vineria al Canape,restaurant,"Piazza Indipendenza, 1, 53100, Siena",43.319330,11.330287,,36
+Enoteca I Terzi,restaurant,"Via dei Termini, 7, 53100, Siena",43.319412,11.330778,,11
+Drinking_water,drinking_water,Adresse unbekannt,43.319293,11.330339,,29
+Ristorante Campo Cedro,restaurant,"Via Pian d'Ovile, 54, 53100, Siena",43.322215,11.330598,,96
+Drinking_water,drinking_water,Adresse unbekannt,43.323156,11.330716,,188
+Conad City,supermarket,"Via di Città, 99, 53100, Siena",43.316948,11.330671,,205
+TAZ,restaurant,"25, 53100, Siena",43.321330,11.328406,,128
+Bar Siena,cafe,"Via Malavolti, 4, 53100, Siena",43.322077,11.328742,,40
+Penny,supermarket,"17, 53100, Siena",43.320853,11.328827,,138
+Bar Pasticceria Nannini Posta,cafe,"28, 53100, Siena",43.321378,11.328354,,128
+Ristorante San Desiderio,restaurant,"2, 53100, Siena",43.318050,11.330177,,105
+Ristorante Osteria Bonelli,restaurant,"3;5, 53100, Siena",43.317965,11.330153,,114
+Ristorante Pier Pettinaio,restaurant,"Vicolo Beato Pier Pettinaio, 7, 53100, Siena",43.319584,11.331118,,27
+Caffe' Fiaschetteria Il Pulcino,restaurant,"Via dei Termini, 91, 53100, Siena",43.321157,11.329713,,44
+Bar San Domenico,cafe,"1, 53100, Siena",43.320559,11.327070,,288
+NaturHouse Siena Centro,supermarket,"Via Vallerozzi, 18, 53100, Siena",43.321890,11.330548,,66
+Filuse',restaurant,"Via Vallerozzi, 53100, Siena",43.322140,11.330830,,107
+Tuscany Food Experience,restaurant,"Vicolo della Manna, 1, 53100, Siena",43.317984,11.333040,,254
+Bar Porrione B&B,cafe,"Via del Porrione, 14, 53100, Siena",43.318505,11.332732,,202
+Restaurant,restaurant,"Via Rinaldini, 12, 53100, Siena",43.318869,11.332503,,171
+Un Tubo,cafe,"Vicolo del Luparello, 2, 53100, Siena",43.318078,11.333491,,296
+Giulia La Torre Restaurant,restaurant,"Via delle Terme, 5, 53100, Siena",43.318858,11.330547,,7
+Caffè Independenza,cafe,"9, 53100, Siena",43.318928,11.330428,,7
+Caffetteria Diacceto,restaurant,"Via di Diacceto, 14, 53100, Siena",43.318978,11.329942,,52
+Du' Cose da Berna,restaurant,"Via di Diacceto, 9;11, 53100, Siena",43.318817,11.329921,,58
+CiacciaCucina,restaurant,"Via delle Terme, 18, 53100, Siena",43.319386,11.330279,,41
+Ristorante Il Tufo,restaurant,"15, 53100, Siena",43.318138,11.331019,,78
+Ristorante Pizzeria Il Mulino,restaurant,"15, 53100, Siena",43.318039,11.331083,,91
+Le Campane,restaurant,"Via delle Campane, 6, 53100, Siena",43.317882,11.330489,,106
+ChigianArtCafè,cafe,"Via di Città, 89, 53100, Siena",43.317216,11.330892,,176
+Osteria da Salvini,restaurant,"Via di Città, 122, 53100, Siena",43.317095,11.330626,,189
+Ristorante Numero Unico,restaurant,"Via di Città, 125, 53100, Siena",43.316474,11.330155,,266
+Bar TERMINI,cafe,"Via dei Termini, 43, 53100, Siena",43.320175,11.330625,,7
+Òsteria Il Cancellino,restaurant,"Via dei Fusari, 10;16, 53100, Siena",43.318122,11.328666,,217
+Casato Ristorante Wine Bar,restaurant,"Casato di Sotto, 18;26, 53100, Siena",43.317622,11.331334,,145
+Osteria Il Carroccio,restaurant,"Casato di Sotto, 32, 53100, Siena",43.317497,11.331378,,159
+Antica Trattoria L'Aquila,restaurant,"Casato di Sotto, 58, 53100, Siena",43.316949,11.331261,,212
+Ristorante Shanghai,restaurant,"Via della Galluzza, 10, 53100, Siena",43.319271,11.329611,,92
+Grotta Santa Caterina da Bagoga,restaurant,"Via della Galluzza, 26, 53100, Siena",43.319322,11.329567,,99
+SchiacciaMangia,restaurant,"Via delle Donzelle, 1, 53100, Siena",43.319321,11.332228,,147
+Restaurant,restaurant,"Via di Calzoleria, 16, 53100, Siena",43.319530,11.331828,,103
+53100 Street Food & Wine,cafe,"Via Camollia, 170, 53100, Siena",43.326787,11.326066,,33
+New York Cafe',cafe,"Via Giuseppe Garibaldi, 2, 53100, Siena",43.323844,11.328053,,5
+Tia Loca,restaurant,"Via Ricasoli, 55, 53100, Siena",43.326862,11.323917,,138
+Fonte Giusta,restaurant,"Via di Camollia, 102, 53100, Siena",43.325649,11.327237,,68
+Osteria Pizzeria La Piana,restaurant,"Via Camollia, 122, 53100, Siena",43.326026,11.326729,,56
+Drinking_water,drinking_water,Adresse unbekannt,43.327468,11.325883,,10
+Drinking_water,drinking_water,Adresse unbekannt,43.323151,11.325612,,275
+Prosciutteria Al Peccatore,restaurant,"Via Camollia, 132, 53100, Siena",43.326152,11.326575,,48
+MadinItaly,restaurant,"Via Camollia, 138, 53100, Siena",43.326275,11.326463,,41
+Drinking_water,drinking_water,Adresse unbekannt,43.325862,11.326917,,66
+Berta,restaurant,"Via Camollia, 206, 53100, Siena",43.327351,11.325507,,19
+Bar Caracas,cafe,"Via Camollia, 67, 53100, Siena",43.324752,11.327574,,15
+Ristorante Il Salotto,restaurant,"Via Camollia, 34, 53100, Siena",43.324365,11.327897,,7
+Osteria Kamollia,restaurant,"Via di Camollia, 102, 53100, Siena",43.325802,11.327020,,68
+Nìu Pix Pokè Siena,restaurant,"Via Camollia, 71, 53100, Siena",43.324878,11.327518,,28
+Camulio Pinseria,restaurant,"Via Camollia, 92/94, 53100, Siena",43.325535,11.327356,,56
+Drinking_water,drinking_water,Adresse unbekannt,43.324270,11.328749,,93
+Caffetteria Mario Pasticceria,cafe,"Viale Giuseppe Mazzini, 53100, Siena",43.327203,11.329635,,245
+Drinking_water,drinking_water,Adresse unbekannt,43.325274,11.325565,,189
+Antico Bar La Lizza,cafe,"Via del Sasso di San Bernardino, 7, 53100, Siena",43.322955,11.328145,,34
+Selafino,restaurant,"Vicolo degli Umiliati, 1, 53100, Siena",43.324255,11.328220,,36
+Bonucci Boulangerie,restaurant,"La Lizza, 14/17, 53100, Siena",43.323203,11.327986,,33
+Ristorante da Enzo,restaurant,"Via Camollia, 49, 53100, Siena",43.324323,11.327754,,8
+Pizzeria L'Egiziano,restaurant,"Via Camollia, 59, 53100, Siena",43.324429,11.327711,,8
+Osteria Ficamaschia,restaurant,"Via Camollia, 101, 53100, Siena",43.325656,11.326991,,84
+Quel Che Antico Bistrot,restaurant,"Costa dei Paparoni, 2, 53100, Siena",43.326022,11.326885,,50
+Osteria Il Vinaio,restaurant,"Via Camollia, 167, 53100, Siena",43.326334,11.326222,,53
+Spaghetteria Pasta Mondo,restaurant,"Via Camollia, 173, 53100, Siena",43.326467,11.326121,,49
+Pizzeria da Carmine,restaurant,"Via Camollia, 192, 53100, Siena",43.327084,11.325869,,26
+Bakery,bakery,"1, 53100, Siena",43.327296,11.325573,,21
+Bar Pegaso,cafe,"Viale Giuseppe Mazzini, 81, 53100, Siena",43.327876,11.328723,,224
+Pam,supermarket,"21, 53100, Siena",43.330632,11.323316,,239
+Pasticceria Buti,cafe,"Viale Vittorio Emanuele Secondo, 53, 53100, Siena",43.328088,11.323770,,14
+Snack Bar,cafe,"Viale Vittorio Emanuele II, 64, 53100, Siena",43.328916,11.322036,,11
+Bar Perù,cafe,"Viale Vittorio Emanuele Secondo, 9, 53100, Siena",43.327772,11.324708,,15
+Drinking_water,drinking_water,Adresse unbekannt,43.328504,11.322559,,11
+Capricci di Pizza,restaurant,"Viale Vittorio Emanuele Secondo, 5, 53100, Siena",43.327694,11.324955,,14
+Ravioli Wang,restaurant,"Viale Vittorio Emanuele Secondo, 38, 53100, Siena",43.328486,11.323263,,10
+Bar Impero,cafe,"Viale Vittorio Emanuele Secondo, 10, 53100, Siena",43.328264,11.324008,,12
+I Gabellieri,restaurant,"Viale Vittorio Emanuele Secondo, 75, 53100, Siena",43.328689,11.321627,,31
+Komori Sushi,restaurant,"Viale Vittorio Emanuele Secondo, 30, 53100, Siena",43.328368,11.323663,,11
+S. Rosalia,bakery,"Viale Vittorio Emanuele Secondo, 53100, Siena",43.327829,11.324536,,15
+Nannini,cafe,"Viale Vittorio Emanuele Secondo, 9, 53100, Siena",43.327722,11.324862,,15
+Anima Toscana Bike Tours,bicycle,"Viale Vittorio Emanuele Secondo, 67, 53100, Siena",43.328590,11.321958,,24
+POKE INN,restaurant,"Viale Vittorio Emanuele Secondo, 69, 53100, Siena",43.328633,11.321831,,26
+Pizzeria Antiporto,restaurant,"Viale Camillo Benso di Cavour, 27, 53100, Siena",43.329251,11.320582,,13
+All'Osteria,restaurant,"Viale Camillo Benso di Cavour, 7, 53100, Siena",43.329094,11.320913,,15
+Siena Bike Shop,bicycle,"Via Nino Bixio, 30, 53100, Siena",43.328474,11.327785,,221
+Bar Pegaso,cafe,"Viale Giuseppe Mazzini, 129, 53100, Siena",43.329083,11.327134,,235
+Conad City,supermarket,"Viale Goffredo Mameli, 60;62, 53100, Siena",43.329884,11.317645,,91
+Charlie Mixology Bar,cafe,"Viale Camillo Benso di Cavour, 58, 53100, Siena",43.330133,11.319218,,9
+Bar Ciompi,cafe,"Via Mentana, 88, 53100, Siena",43.330900,11.314219,,136
+Bar Eden,cafe,"Viale Camillo Benso di Cavour, 202, 53100, Siena",43.332097,11.314916,,8
+Bar CEcco,cafe,"Viale Camillo Benso di Cavour, 248, 53100, Siena",43.332356,11.313472,,15
+La Piccola Osteria,restaurant,"Viale Camillo Benso di Cavour, 81, 53100, Siena",43.329910,11.319169,,14
+Bar Mens Sana,cafe,"53100, Siena",43.333609,11.313214,,149
+Capricci di Pizza,restaurant,"Viale Camillo Benso di Cavour, 236, 53100, Siena",43.332339,11.313621,,15
+E-Bike Travel Siena,bicycle,"Via Mentana, 38, 53100, Siena",43.330957,11.313938,,133
+Ristorante La Limonaia,restaurant,"Via Custoza, 2, 53100, Siena",43.330039,11.311534,,268
+Willy's,restaurant,"Viale Achille Sclavo, 33, 53100, Siena",43.334033,11.310456,,45
+Ristorante Pizzeria Il Jolly,restaurant,"Via Fiorentina, 13, 53100, Siena",43.334817,11.308878,,17
+La Strana Coppia,restaurant,"Via Celso Cittadini, 6, 53100, Siena",43.336175,11.306831,,111
+Coop.fi,supermarket,"Via Celso Cittadini, 64, 53100, Siena",43.337141,11.305865,,148
+Drinking_water,drinking_water,Adresse unbekannt,43.341393,11.305221,,85
+Il Mestolo,restaurant,"Via Fiorentina, 81, 53100, Siena",43.339711,11.305718,,14
+Bottega di Rosaria,restaurant,"Via Fiorentina, 151, 53100, Siena",43.342392,11.305820,,15
+Pizzeria Poppi,restaurant,"Via Fiorentina, 105, 53100, Siena",43.341081,11.305827,,15
+Drinking_water,drinking_water,Adresse unbekannt,43.344594,11.300202,,7
+Osteria Alimentari Tanaliberatutti,restaurant,"Via Uopini, 1, 53035, Siena",43.344600,11.299965,,6
+Casa dell'Acqua,drinking_water,Adresse unbekannt,43.344309,11.285209,,23
+Drinking_water,drinking_water,Adresse unbekannt,43.373272,11.235698,,2
+XXXI Canto,cafe,Adresse unbekannt,43.389788,11.223964,,12
+Antico Travaglio,restaurant,"Piazza Dante Alighieri, 6/a, 53035",43.389719,11.223796,,9
+La Bottega del Castello,cafe,Adresse unbekannt,43.389773,11.223643,,3
+Il Tagliere Medievale,restaurant,Adresse unbekannt,43.389780,11.223607,,3
+Bar dell'Orso,restaurant,"Via Cassia, 23, 53035, Monteriggioni",43.392789,11.218830,,14
+Drinking_water,drinking_water,Adresse unbekannt,43.392954,11.218939,,33
+Drinking_water,drinking_water,Adresse unbekannt,43.389982,11.223233,,1
+Drinking_water,drinking_water,Adresse unbekannt,43.390058,11.222672,,11
+Drinking_water,drinking_water,Adresse unbekannt,43.390342,11.222376,,4
+Bar Ristorante Il Feudo,restaurant,Adresse unbekannt,43.389910,11.223261,,7
+Ristorante da Remo,restaurant,"Via 1 Maggio, 2, 53035, Monteriggioni",43.390168,11.223337,,18
+Drinking_water,drinking_water,Adresse unbekannt,43.390618,11.224252,,84
+Drinking_water,drinking_water,Adresse unbekannt,43.390109,11.223468,,11
+Pit Stop 17,cafe,Adresse unbekannt,43.390305,11.222650,,13
+Ristorante Le Torri,restaurant,"Piazza Roma,, 20, 53035, Monteriggioni",43.390110,11.223271,,13
+Drinking_water,drinking_water,Adresse unbekannt,43.390269,11.223629,,36
+Drinking_water,drinking_water,Adresse unbekannt,43.387959,11.194819,,9
+Futura Osteria di Abbadia Isola,restaurant,Adresse unbekannt,43.387563,11.195324,,78
+Cafe,cafe,Adresse unbekannt,43.387598,11.195103,,60
+Circolo ARCI,cafe,Adresse unbekannt,43.387867,11.194374,,14
+Drinking_water,drinking_water,Adresse unbekannt,43.383835,11.186761,,147
+Drinking_water,drinking_water,Adresse unbekannt,43.377529,11.170359,,197
+Bar Pizzeria Ristorante Alimentari Locanda di Strove,restaurant,Adresse unbekannt,43.378247,11.172076,,21
+Casalta ristorante & winebar,restaurant,Adresse unbekannt,43.379391,11.171976,,14
+Drinking_water,drinking_water,Adresse unbekannt,43.379143,11.171843,,6
+Drinking_water,drinking_water,Adresse unbekannt,43.394168,11.161278,,11
+Profuma di Pane,bakery,"53034, Colle di Val d'Elsa",43.400811,11.133743,,297
+Indios,restaurant,Adresse unbekannt,43.404709,11.133800,,29
+PlayGame,cafe,Adresse unbekannt,43.404600,11.133843,,31
+Cafe,cafe,Colle di Val d'Elsa,43.407537,11.124703,,216
+Drinking_water,drinking_water,Adresse unbekannt,43.408846,11.099479,,7
+Bar Campiglia,cafe,Adresse unbekannt,43.414644,11.079996,,98
+Restaurant,restaurant,Adresse unbekannt,43.415497,11.078150,,189
+Punto di Ristoro sulla Via Francigena,cafe,Strada Provinciale di Grotti,43.432667,11.067844,,44
+Drinking_water,drinking_water,Adresse unbekannt,43.469915,11.040992,,218
+Bar Piazetta,cafe,Adresse unbekannt,43.469617,11.041233,,260
+Echoes Bruschetteria,restaurant,"vicolo Mainardi, 10, 53037, San Gimignano",43.469423,11.040937,,267
+Ristorante Fuoriluogo,restaurant,"Via Niccolò Cannicci, 2/a, 53037, San Gimignano",43.470681,11.040260,,111
+Magnino,restaurant,Adresse unbekannt,43.469681,11.041190,,251
+Ristorante il Pino,restaurant,Adresse unbekannt,43.470055,11.041455,,232
+LaVecchia Nicchia,restaurant,Adresse unbekannt,43.469850,11.041716,,268
+Il Trovatore,restaurant,Adresse unbekannt,43.469196,11.040391,,273
+Osteria Delle Catene,restaurant,"Via Mainardi, 18, 53037, San Gimignano",43.469268,11.041063,,288
+Osteria delle Catene,restaurant,Adresse unbekannt,43.469333,11.041141,,284
+Cum Quibus,restaurant,Adresse unbekannt,43.469917,11.041700,,261
+San Martino 26,restaurant,Adresse unbekannt,43.469959,11.041916,,274
+Locanda di Sant'Agostino,restaurant,Adresse unbekannt,43.470552,11.041955,,236
+La Rocca,viewpoint,N/A,43.468155,11.041151,,408
+,viewpoint,N/A,43.466973,11.044401,,704
+,viewpoint,N/A,43.317360,11.329833,,190
+,viewpoint,N/A,43.421999,11.118828,,1521
+Poggio del Comune,peak,N/A,43.452062,11.001137,602.000000,4737
+Poggio del Comune,peak,N/A,43.461451,10.998492,625.000000,4649
+Montemaggio,peak,N/A,43.359758,11.205709,672.000000,2694
+Monte Morio,peak,N/A,43.348099,11.215238,500.000000,3596
+Poggiali,peak,N/A,43.343480,11.269060,301.800000,882
+Il Poggione,peak,N/A,43.309276,11.256606,402.000000,4721
+,viewpoint,N/A,43.319845,11.327411,,320
+,viewpoint,N/A,43.315364,11.337960,,872
+,viewpoint,N/A,43.423117,11.123630,,1800
+Poggio Marcello,peak,N/A,43.439604,11.101639,210.000000,1786
+Poggio Santo Chiodo,peak,N/A,43.449781,11.099350,201.000000,1222
+Poggio alla Staffa,peak,N/A,43.444896,11.093637,215.000000,864
+Poggio della Cava,peak,N/A,43.441953,11.096749,223.000000,1205
+Poggio Casaglia,peak,N/A,43.466934,11.095776,236.000000,963
+Poggio Oriolo,peak,N/A,43.463455,11.098936,145.000000,859
+Poggio Rotondo,peak,N/A,43.476320,11.081061,200.000000,1756
+Poggio del Doccio,peak,N/A,43.465501,11.092821,192.000000,743
+Poggio Marzino,peak,N/A,43.365101,11.236267,442.000000,759
+Poggio di Chele,peak,N/A,43.335531,11.268447,296.000000,1692
+,viewpoint,N/A,43.468162,11.041347,,414
+,viewpoint,N/A,43.331459,11.305321,,558
+Poggio di Certino,peak,N/A,43.373864,11.193311,333.000000,1326
+,viewpoint,N/A,43.369900,11.218247,,1617
+,viewpoint,N/A,43.370407,11.213719,,1448
+,viewpoint,N/A,43.318646,11.329700,,89
+Poggio al Fumo,peak,N/A,43.372744,11.222400,381.000000,1389
+,viewpoint,N/A,43.390119,11.224301,,30
+,viewpoint,N/A,43.390399,11.222303,,9
+,viewpoint,N/A,43.329048,11.321958,,20
+,viewpoint,N/A,43.318214,11.327064,,382
+,viewpoint,N/A,43.327432,11.326109,,19
+Via Bruno Bonci Viewpoint,viewpoint,N/A,43.320394,11.324084,,566
+,viewpoint,N/A,43.313694,11.333003,,618
+,viewpoint,N/A,43.314939,11.331426,,434
+,viewpoint,N/A,43.316968,11.333193,,330
+,viewpoint,N/A,43.463813,11.042575,,915
+,viewpoint,N/A,43.468098,11.043149,,519
+Monte Quegna,peak,N/A,43.338435,11.173241,514.000000,4440
+,viewpoint,N/A,43.461947,11.049044,,1464
+,viewpoint,N/A,43.332978,11.339515,,1515
+,viewpoint,N/A,43.296351,11.344435,,2917
+,viewpoint,N/A,43.386047,11.218945,,514
+,viewpoint,N/A,43.314448,11.332942,,539
+,viewpoint,N/A,43.311313,11.327986,,886
+,viewpoint,N/A,43.311402,11.328253,,867
+Vista su Monteriggioni,viewpoint,N/A,43.386328,11.192989,,4
+,viewpoint,N/A,43.320083,11.328449,,204
+Vista su San Gimignano,viewpoint,N/A,43.428202,11.076232,,683
+,viewpoint,N/A,43.457854,11.044192,,1600
+,viewpoint,N/A,43.383187,11.225649,,279
+,viewpoint,N/A,43.471210,11.040909,,99
+,viewpoint,N/A,43.423527,11.133143,,2073
+,viewpoint,N/A,43.390554,11.222197,,4
+,viewpoint,N/A,43.305331,11.330811,,1495
+,viewpoint,N/A,43.311633,11.324889,,1023
+,viewpoint,N/A,43.420876,11.116143,,1375
+,viewpoint,N/A,43.404635,11.136121,,177
+Bastione di Santa Caterina Viewpoint,viewpoint,N/A,43.320760,11.323776,,570
+,viewpoint,N/A,43.467469,11.041528,,493
+,viewpoint,N/A,43.478647,11.047189,,1
+,viewpoint,N/A,43.316809,11.334688,,476
+,viewpoint,N/A,43.320033,11.327083,,332
+,viewpoint,N/A,43.337434,11.321864,,867
+,viewpoint,N/A,43.321476,11.322415,,669
+,viewpoint,N/A,43.463305,11.069850,,4
+,viewpoint,N/A,43.458470,11.072128,,406
+,viewpoint,N/A,43.324856,11.351211,,2327
+Viewpoint of Monteriggioni,viewpoint,N/A,43.389809,11.217678,,180

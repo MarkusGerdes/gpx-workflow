@@ -1,0 +1,73 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+generate_map                  1
+generate_stage_summary        1
+screenshot_map                1
+total                         4
+
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 18:40:44 2025]
+localrule generate_map:
+    input: output/2_Hamburg - Fehmarnsund solo mit Alster-Gravel_track_data_full.csv, output/5c_Hamburg - Fehmarnsund solo mit Alster-Gravel_pois_relevant.csv, output/2b_Hamburg - Fehmarnsund solo mit Alster-Gravel_track_data_api_optimized.csv
+    output: output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.html
+    log: logs/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_generate_map_full.log
+    jobid: 11
+    reason: Missing output files: output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.html; Set of input files has changed since last execution; Code has changed since last execution
+    wildcards: basename=Hamburg - Fehmarnsund solo mit Alster-Gravel
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May 11 18:40:53 2025]
+Finished jobid: 11 (Rule: generate_map)
+1 of 4 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 18:40:53 2025]
+localrule screenshot_map:
+    input: output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.html
+    output: output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.png
+    log: logs/10_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_screenshot_full.log
+    jobid: 15
+    reason: Missing output files: output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.png; Input files updated by another job: output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.html
+    wildcards: basename=Hamburg - Fehmarnsund solo mit Alster-Gravel
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May 11 18:41:20 2025]
+Finished jobid: 15 (Rule: screenshot_map)
+2 of 4 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 18:41:20 2025]
+localrule generate_stage_summary:
+    input: output/3_Hamburg - Fehmarnsund solo mit Alster-Gravel_overall_stats.csv, output/3_Hamburg - Fehmarnsund solo mit Alster-Gravel_peak_analysis_profile.png, output/3_Hamburg - Fehmarnsund solo mit Alster-Gravel_peak_segment_data.csv, output/4_Hamburg - Fehmarnsund solo mit Alster-Gravel_track_data_with_location_optimized.csv, output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.html, output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.png, output/9_Hamburg - Fehmarnsund solo mit Alster-Gravel_day_preview_places.md, output/8c_Hamburg - Fehmarnsund solo mit Alster-Gravel_places_relevant_enriched.csv
+    output: output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.html, output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.pdf
+    log: logs/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_generate_stage_summary_final.log
+    jobid: 1
+    reason: Missing output files: output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.pdf, output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.html; Input files updated by another job: output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.html, output/6_Hamburg - Fehmarnsund solo mit Alster-Gravel_map_full.png
+    wildcards: basename=Hamburg - Fehmarnsund solo mit Alster-Gravel
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May 11 18:41:32 2025]
+Finished jobid: 1 (Rule: generate_stage_summary)
+3 of 4 steps (75%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May 11 18:41:32 2025]
+localrule all:
+    input: output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.html, output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.pdf
+    jobid: 0
+    reason: Input files updated by another job: output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.pdf, output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.html
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May 11 18:41:32 2025]
+Finished jobid: 0 (Rule: all)
+4 of 4 steps (100%) done
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-11T184043.744042.snakemake.log

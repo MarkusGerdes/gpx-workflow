@@ -1,0 +1,18 @@
+Starte Peak/Profil Analyse V5 (mit dynamischem Orts-Offset)...
+Verarbeite: output/2c_TT25_D6_3_Siena_track_data_full_with_elevation.csv
+[Info] Ortsdaten für Annotation geladen: output/8c_TT25_D6_3_Siena_places_relevant_enriched.csv
+  -> 4 Peaks gefunden. Analysiere Top 2:
+  Analysiere Peak 1 (415.5 m @ 6.40 km):
+    -> OK P1 Vorwärts: +42.2 m / 1014 m
+    <- OK P1 Rückwärts: +136.9 m / 2865 m
+  -> Analysiere Peak 2...
+  Analysiere Peak 2 (329.2 m @ 22.68 km):
+    -> OK P2 Vorwärts: +87.2 m / 2444 m
+    <- OK P2 Rückwärts: +127.4 m / 3053 m
+[Info] Berechne Gesamtstatistiken...
+  -> Statistiken gespeichert: output/3_TT25_D6_3_Siena_overall_stats.csv
+  -> Peak/Segment Daten gespeichert: output/3_TT25_D6_3_Siena_peak_segment_data.csv
+[Info] Erstelle Plot: output/3_TT25_D6_3_Siena_peak_analysis_profile.png
+[Info] Füge Ortsmarker zum Plot hinzu...
+  -> Plot gespeichert: 'output/3_TT25_D6_3_Siena_peak_analysis_profile.png'
+ Analyse abgeschlossen für: 2c_TT25_D6_3_Siena_with_elevation

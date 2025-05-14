@@ -1,0 +1,12 @@
+[Info] Generating final summary for: Hamburg - Fehmarnsund solo mit Alster-Gravel
+[Info] Lade Daten...
+[Info] Verarbeite geocodierte Route für Straßenliste...
+[Info] Analysiere 131 Straßen-/Ortsblöcke (PLZ-Änderungen ignoriert)...
+Calculating Street Distances:   0%|          | 0/131 [00:00<?, ?it/s]Calculating Street Distances:  10%|9         | 13/131 [00:00<00:01, 114.30it/s]Calculating Street Distances:  19%|#9        | 25/131 [00:00<00:01, 105.41it/s]Calculating Street Distances:  28%|##8       | 37/131 [00:00<00:00, 109.84it/s]Calculating Street Distances:  37%|###7      | 49/131 [00:00<00:00, 87.87it/s] Calculating Street Distances:  47%|####6     | 61/131 [00:00<00:00, 95.87it/s]Calculating Street Distances:  56%|#####5    | 73/131 [00:00<00:00, 100.02it/s]Calculating Street Distances:  65%|######4   | 85/131 [00:00<00:00, 105.71it/s]Calculating Street Distances:  76%|#######6  | 100/131 [00:00<00:00, 117.67it/s]Calculating Street Distances:  86%|########6 | 113/131 [00:01<00:00, 116.10it/s]Calculating Street Distances:  95%|#########5| 125/131 [00:01<00:00, 114.03it/s]Calculating Street Distances: 100%|##########| 131/131 [00:01<00:00, 107.64it/s]
+[Info] Bereite Assets vor (Base64-Einbettung für PDF)...
+[Info] Erstelle HTML-Inhalt...
+[Warnung] bootstrap.min.css nicht gefunden. Verwende CDN Fallback (nur für HTML-Ansicht).
+[Info] Speichere HTML: output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.html
+[OK] HTML-Datei gespeichert: output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.html
+[Info] Generiere PDF: output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.pdf
+[OK] PDF-Datei gespeichert: output/11_Hamburg - Fehmarnsund solo mit Alster-Gravel_stage_summary_final.pdf

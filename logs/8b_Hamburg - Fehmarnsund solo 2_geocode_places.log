@@ -1,0 +1,47 @@
+[Info] Geocoding places from: output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv
+[Info] 41 eindeutige Orte zum Geocodieren gefunden.
+[Info] Starte Forward Geocoding (beachte API Limits!)...
+Geocoding Places:   0%|          | 0/41 [00:00<?, ?it/s]Geocoding Places:   2%|2         | 1/41 [00:00<00:15,  2.53it/s]Geocoding Places:   5%|4         | 2/41 [00:01<00:23,  1.69it/s]Geocoding Places:   7%|7         | 3/41 [00:02<00:29,  1.29it/s]Geocoding Places:  10%|9         | 4/41 [00:03<00:32,  1.15it/s]Geocoding Places:  12%|#2        | 5/41 [00:04<00:32,  1.10it/s]Geocoding Places:  15%|#4        | 6/41 [00:05<00:33,  1.06it/s]Geocoding Places:  17%|#7        | 7/41 [00:06<00:32,  1.04it/s]Geocoding Places:  20%|#9        | 8/41 [00:07<00:32,  1.03it/s]Geocoding Places:  22%|##1       | 9/41 [00:08<00:31,  1.01it/s]Geocoding Places:  24%|##4       | 10/41 [00:09<00:30,  1.02it/s]Geocoding Places:  27%|##6       | 11/41 [00:10<00:29,  1.01it/s]Geocoding Places:  29%|##9       | 12/41 [00:11<00:28,  1.01it/s]Geocoding Places:  32%|###1      | 13/41 [00:12<00:28,  1.00s/it]Geocoding Places:  34%|###4      | 14/41 [00:13<00:26,  1.00it/s]Geocoding Places:  37%|###6      | 15/41 [00:14<00:25,  1.00it/s]Geocoding Places:  39%|###9      | 16/41 [00:15<00:24,  1.00it/s]Geocoding Places:  41%|####1     | 17/41 [00:16<00:24,  1.00s/it]Geocoding Places:  44%|####3     | 18/41 [00:17<00:22,  1.00it/s]Geocoding Places:  46%|####6     | 19/41 [00:18<00:22,  1.00s/it]Geocoding Places:  49%|####8     | 20/41 [00:19<00:20,  1.00it/s]Geocoding Places:  51%|#####1    | 21/41 [00:20<00:19,  1.00it/s]Geocoding Places:  54%|#####3    | 22/41 [00:21<00:19,  1.00s/it]Geocoding Places:  56%|#####6    | 23/41 [00:22<00:17,  1.00it/s]Geocoding Places:  59%|#####8    | 24/41 [00:23<00:16,  1.00it/s]Geocoding Places:  61%|######    | 25/41 [00:24<00:15,  1.00it/s]Geocoding Places:  63%|######3   | 26/41 [00:25<00:15,  1.01s/it]Geocoding Places:  66%|######5   | 27/41 [00:26<00:13,  1.00it/s]Geocoding Places:  68%|######8   | 28/41 [00:27<00:13,  1.00s/it]Geocoding Places:  71%|#######   | 29/41 [00:28<00:11,  1.00it/s]Geocoding Places:  73%|#######3  | 30/41 [00:29<00:10,  1.00it/s]Geocoding Places:  76%|#######5  | 31/41 [00:30<00:09,  1.00it/s]Geocoding Places:  78%|#######8  | 32/41 [00:31<00:09,  1.01s/it]Geocoding Places:  80%|########  | 33/41 [00:32<00:07,  1.00it/s]Geocoding Places:  83%|########2 | 34/41 [00:33<00:07,  1.00s/it]Geocoding Places:  85%|########5 | 35/41 [00:34<00:05,  1.00it/s]Geocoding Places:  88%|########7 | 36/41 [00:35<00:04,  1.00it/s]Geocoding Places:  90%|######### | 37/41 [00:36<00:04,  1.00s/it]Geocoding Places:  93%|#########2| 38/41 [00:37<00:03,  1.01s/it]Geocoding Places:  95%|#########5| 39/41 [00:38<00:01,  1.00it/s]Geocoding Places:  98%|#########7| 40/41 [00:39<00:00,  1.00it/s]Geocoding Places: 100%|##########| 41/41 [00:40<00:00,  1.00it/s]Geocoding Places: 100%|##########| 41/41 [00:40<00:00,  1.02it/s]
+  -> Gefunden: Hamburg -> (53.5503, 10.0007)
+  -> Gefunden: Wiemerskamp -> (53.7356, 10.1539)
+  -> Gefunden: Bargfeld-Stegen -> (53.7667, 10.2000)
+  -> Gefunden: Nienwohld -> (53.7859, 10.1938)
+  -> Gefunden: Sülfeld -> (53.8003, 10.2312)
+  -> Gefunden: Grabau -> (53.5138, 10.5212)
+  -> Gefunden: Travenbrück -> (53.8418, 10.3130)
+  -> Gefunden: Neversdorf -> (53.8629, 10.2858)
+  -> Gefunden: Bebensee -> (53.8770, 10.3024)
+  -> Gefunden: Schwissel -> (53.8964, 10.2939)
+  -> Gefunden: Traventhal -> (53.9000, 10.3167)
+  -> Gefunden: Klein Gladebrügge -> (53.9163, 10.3204)
+  -> Gefunden: Bad Segeberg -> (53.9423, 10.3138)
+  -> Gefunden: Stipsdorf -> (53.9418, 10.3354)
+  -> Gefunden: Quaal -> (53.9621, 10.3737)
+  -> Gefunden: Wardersee -> (53.9835, 10.3745)
+  -> Gefunden: Wensin -> (53.9938, 10.4195)
+  -> Gefunden: Gnissau -> (53.9990, 10.4823)
+  -> Gefunden: Ahrensbök -> (54.0130, 10.5753)
+  -> Gefunden: Heuerstubben -> (54.0144, 10.5012)
+  -> Gefunden: Barghorst -> (54.0239, 10.5646)
+  -> Gefunden: Holstendorf -> (53.7561, 10.7193)
+  -> Gefunden: Scharbeutz -> (54.0266, 10.7559)
+  -> Gefunden: Haffkrug -> (54.0519, 10.7497)
+  -> Gefunden: Sierksdorf -> (54.0668, 10.7694)
+  -> Gefunden: Roge -> (40.8529, -8.3572)
+  -> Gefunden: Neustadt in Holstein -> (54.1030, 10.8187)
+  -> Gefunden: Merkendorf -> (49.2037, 10.7018)
+  -> Gefunden: Logeberg -> (54.1356, 10.8494)
+  -> Gefunden: Groß Schlamin -> (54.1660, 10.8651)
+  -> Gefunden: Beschendorf -> (54.1835, 10.8751)
+  -> Gefunden: Lensahn -> (54.2209, 10.8860)
+  -> Gefunden: Oldenburg in Holstein -> (54.2923, 10.8810)
+  -> Gefunden: Giddendorf -> (54.3103, 10.9282)
+  -> Gefunden: Gremersdorf -> (54.1104, 12.8708)
+  -> Gefunden: Meeschendorf -> (54.4240, 11.2498)
+  -> Gefunden: Neukirchen -> (54.8687, 8.7340)
+  -> Gefunden: Ölendorf -> (54.3246, 11.0398)
+  -> Gefunden: Lütjenbrode -> (54.3607, 11.0348)
+  -> Gefunden: Großenbrode -> (54.3616, 11.0838)
+  -> Gefunden: Fehmarn -> (54.4687, 11.1341)
+
+[OK] Geocoding-Ergebnisse gespeichert (41 Einträge): output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv

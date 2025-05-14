@@ -1,0 +1,9 @@
+[Info] Generating final summary for: Hamburg - Fehmarnsund solo 2
+[Info] Lade Daten...
+[Info] Bereite Assets vor (Base64-Einbettung für PDF)...
+[Info] Erstelle HTML-Inhalt...
+[Warnung] bootstrap.min.css nicht gefunden. Verwende CDN Fallback (nur für HTML-Ansicht).
+[Info] Speichere HTML: output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.html
+[OK] HTML-Datei gespeichert: output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.html
+[Info] Generiere PDF: output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.pdf
+[OK] PDF-Datei gespeichert: output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.pdf

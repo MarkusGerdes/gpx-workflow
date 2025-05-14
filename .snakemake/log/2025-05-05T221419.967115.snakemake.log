@@ -1,0 +1,252 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+add_elevation_data                 1
+all                                1
+analyze_peaks_and_plot             1
+create_api_optimized_track         1
+enrich_and_filter_places           1
+extract_significant_places         1
+fetch_peaks_viewpoints_bbox        1
+fetch_pois_service                 1
+generate_map                       1
+generate_stage_summary             1
+geocode_places                     1
+merge_and_filter_pois              1
+parse_full_gpx                     1
+query_gemini_places                1
+reverse_geocode                    1
+screenshot_map                     1
+sort_places_by_route               1
+total                             17
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon May  5 22:14:22 2025]
+localrule parse_full_gpx:
+    input: data/Hamburg - Fehmarnsund solo 2.gpx
+    output: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    log: logs/2_Hamburg - Fehmarnsund solo 2_parse_gpx_full.log
+    jobid: 4
+    reason: Missing output files: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Mon May  5 22:14:23 2025]
+Finished jobid: 4 (Rule: parse_full_gpx)
+1 of 17 steps (6%) done
+Execute 1 jobs...
+[Mon May  5 22:14:23 2025]
+localrule fetch_peaks_viewpoints_bbox:
+    input: data/Hamburg - Fehmarnsund solo 2.gpx
+    output: output/5b_Hamburg - Fehmarnsund solo 2_peaks_viewpoints_bbox.json
+    log: logs/5b_Hamburg - Fehmarnsund solo 2_fetch_peaks_viewpoints.log
+    jobid: 14
+    reason: Missing output files: output/5b_Hamburg - Fehmarnsund solo 2_peaks_viewpoints_bbox.json
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Mon May  5 22:14:39 2025]
+Finished jobid: 14 (Rule: fetch_peaks_viewpoints_bbox)
+2 of 17 steps (12%) done
+Execute 1 jobs...
+[Mon May  5 22:14:39 2025]
+localrule create_api_optimized_track:
+    input: data/Hamburg - Fehmarnsund solo 2.gpx
+    output: output/2b_Hamburg - Fehmarnsund solo 2_track_data_api_optimized.csv
+    log: logs/2b_Hamburg - Fehmarnsund solo 2_simplify_track_api.log
+    jobid: 9
+    reason: Missing output files: output/2b_Hamburg - Fehmarnsund solo 2_track_data_api_optimized.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Mon May  5 22:14:40 2025]
+Finished jobid: 9 (Rule: create_api_optimized_track)
+3 of 17 steps (18%) done
+Execute 1 jobs...
+[Mon May  5 22:14:40 2025]
+localrule add_elevation_data:
+    input: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    output: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    log: logs/2c_Hamburg - Fehmarnsund solo 2_add_elevation.log
+    jobid: 3
+    reason: Missing output files: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv; Input files updated by another job: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Mon May  5 22:14:41 2025]
+Finished jobid: 3 (Rule: add_elevation_data)
+4 of 17 steps (24%) done
+Execute 1 jobs...
+[Mon May  5 22:14:41 2025]
+localrule reverse_geocode:
+    input: output/2b_Hamburg - Fehmarnsund solo 2_track_data_api_optimized.csv
+    output: output/4_Hamburg - Fehmarnsund solo 2_track_data_with_location_optimized.csv
+    log: logs/4_Hamburg - Fehmarnsund solo 2_reverse_geocode_optimized.log
+    jobid: 8
+    reason: Missing output files: output/4_Hamburg - Fehmarnsund solo 2_track_data_with_location_optimized.csv; Input files updated by another job: output/2b_Hamburg - Fehmarnsund solo 2_track_data_api_optimized.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Mon May  5 22:18:26 2025]
+Finished jobid: 8 (Rule: reverse_geocode)
+5 of 17 steps (29%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon May  5 22:18:26 2025]
+localrule extract_significant_places:
+    input: output/4_Hamburg - Fehmarnsund solo 2_track_data_with_location_optimized.csv
+    output: output/7_Hamburg - Fehmarnsund solo 2_places_summary_optimized.csv
+    log: logs/7_Hamburg - Fehmarnsund solo 2_extract_places_optimized.log
+    jobid: 10
+    reason: Missing output files: output/7_Hamburg - Fehmarnsund solo 2_places_summary_optimized.csv; Input files updated by another job: output/4_Hamburg - Fehmarnsund solo 2_track_data_with_location_optimized.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Mon May  5 22:18:26 2025]
+Finished jobid: 10 (Rule: extract_significant_places)
+6 of 17 steps (35%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon May  5 22:18:26 2025]
+localrule sort_places_by_route:
+    input: output/4_Hamburg - Fehmarnsund solo 2_track_data_with_location_optimized.csv, output/7_Hamburg - Fehmarnsund solo 2_places_summary_optimized.csv
+    output: output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv
+    log: logs/8_Hamburg - Fehmarnsund solo 2_sort_places_optimized.log
+    jobid: 7
+    reason: Missing output files: output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv; Input files updated by another job: output/7_Hamburg - Fehmarnsund solo 2_places_summary_optimized.csv, output/4_Hamburg - Fehmarnsund solo 2_track_data_with_location_optimized.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Mon May  5 22:18:27 2025]
+Finished jobid: 7 (Rule: sort_places_by_route)
+7 of 17 steps (41%) done
+Execute 1 jobs...
+[Mon May  5 22:18:27 2025]
+localrule fetch_pois_service:
+    input: output/4_Hamburg - Fehmarnsund solo 2_track_data_with_location_optimized.csv
+    output: output/5a_Hamburg - Fehmarnsund solo 2_pois_service_raw.csv
+    log: logs/5a_Hamburg - Fehmarnsund solo 2_fetch_pois_service.log
+    jobid: 13
+    reason: Missing output files: output/5a_Hamburg - Fehmarnsund solo 2_pois_service_raw.csv; Input files updated by another job: output/4_Hamburg - Fehmarnsund solo 2_track_data_with_location_optimized.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Mon May  5 22:23:24 2025]
+Finished jobid: 13 (Rule: fetch_pois_service)
+8 of 17 steps (47%) done
+Execute 1 jobs...
+[Mon May  5 22:23:24 2025]
+localrule merge_and_filter_pois:
+    input: output/5a_Hamburg - Fehmarnsund solo 2_pois_service_raw.csv, output/5b_Hamburg - Fehmarnsund solo 2_peaks_viewpoints_bbox.json, output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    output: output/5c_Hamburg - Fehmarnsund solo 2_pois_relevant.csv
+    log: logs/5c_Hamburg - Fehmarnsund solo 2_merge_filter_pois.log
+    jobid: 12
+    reason: Missing output files: output/5c_Hamburg - Fehmarnsund solo 2_pois_relevant.csv; Input files updated by another job: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv, output/5b_Hamburg - Fehmarnsund solo 2_peaks_viewpoints_bbox.json, output/5a_Hamburg - Fehmarnsund solo 2_pois_service_raw.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Mon May  5 22:23:28 2025]
+Finished jobid: 12 (Rule: merge_and_filter_pois)
+9 of 17 steps (53%) done
+Execute 1 jobs...
+[Mon May  5 22:23:28 2025]
+localrule generate_map:
+    input: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv, output/5c_Hamburg - Fehmarnsund solo 2_pois_relevant.csv
+    output: output/6_Hamburg - Fehmarnsund solo 2_map_full.html
+    log: logs/6_Hamburg - Fehmarnsund solo 2_generate_map_full.log
+    jobid: 11
+    reason: Missing output files: output/6_Hamburg - Fehmarnsund solo 2_map_full.html; Input files updated by another job: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv, output/5c_Hamburg - Fehmarnsund solo 2_pois_relevant.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Mon May  5 22:23:30 2025]
+Finished jobid: 11 (Rule: generate_map)
+10 of 17 steps (59%) done
+Execute 1 jobs...
+[Mon May  5 22:23:30 2025]
+localrule screenshot_map:
+    input: output/6_Hamburg - Fehmarnsund solo 2_map_full.html
+    output: output/6_Hamburg - Fehmarnsund solo 2_map_full.png
+    log: logs/10_Hamburg - Fehmarnsund solo 2_map_screenshot_full.log
+    jobid: 15
+    reason: Missing output files: output/6_Hamburg - Fehmarnsund solo 2_map_full.png; Input files updated by another job: output/6_Hamburg - Fehmarnsund solo 2_map_full.html
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Mon May  5 22:23:42 2025]
+Finished jobid: 15 (Rule: screenshot_map)
+11 of 17 steps (65%) done
+Execute 1 jobs...
+[Mon May  5 22:23:42 2025]
+localrule geocode_places:
+    input: output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv
+    output: output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv
+    log: logs/8b_Hamburg - Fehmarnsund solo 2_geocode_places.log
+    jobid: 6
+    reason: Missing output files: output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv; Input files updated by another job: output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Mon May  5 22:24:24 2025]
+Finished jobid: 6 (Rule: geocode_places)
+12 of 17 steps (71%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon May  5 22:24:24 2025]
+localrule enrich_and_filter_places:
+    input: output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv, output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    output: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    log: logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log
+    jobid: 5
+    reason: Missing output files: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv; Input files updated by another job: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv, output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 124:
+Command 'python scripts/8c_enrich_filter_places.py             --places-coords-csv "output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv"             --full-track-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             --output-csv "output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv"             $( [[ ! -z "1000" ]] && echo '--max-dist 1000' )             $( [[ ! -z "3" ]] && echo '--min-occ 3' )             > "logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log" 2>&1' returned non-zero exit status 1.
+[Mon May  5 22:24:24 2025]
+Error in rule enrich_and_filter_places:
+    message: None
+    jobid: 5
+    input: output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv, output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    output: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    log: logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/8c_enrich_filter_places.py             --places-coords-csv "output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv"             --full-track-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             --output-csv "output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv"             $( [[ ! -z "1000" ]] && echo '--max-dist 1000' )             $( [[ ! -z "3" ]] && echo '--min-occ 3' )             > "logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Mon May  5 22:24:24 2025]
+Error in rule enrich_and_filter_places:
+    message: None
+    jobid: 5
+    input: output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv, output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    output: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    log: logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/8c_enrich_filter_places.py             --places-coords-csv "output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv"             --full-track-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             --output-csv "output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv"             $( [[ ! -z "1000" ]] && echo '--max-dist 1000' )             $( [[ ! -z "3" ]] && echo '--min-occ 3' )             > "logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-05T221419.967115.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

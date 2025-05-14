@@ -1,0 +1,24 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+analyze_peaks_and_plot        1
+generate_stage_summary        1
+query_gemini_places           1
+total                         4
+
+Select jobs to execute...
+Execute 1 jobs...
+RuleException in rule analyze_peaks_and_plot in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 139:
+AttributeError: 'Params' object has no attribute 'pause_max_distance', when formatting the following:
+
+        python scripts/3_analyze_peaks_plot.py             --input-csv "{input.track_csv}"             # ... (alle anderen Argumente für Skript 3) ...
+            --pause-max-distance {params.pause_max_distance}             --places-coords-csv "{input.places_coords}" \ # Skript 3 muss dies lesen
+            > "{log}" 2>&1
+        

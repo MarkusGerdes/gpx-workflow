@@ -1,0 +1,3 @@
+[Info] Extracting significant places from: output/4_TT25_D6_1_Buriano_track_data_with_location_optimized.csv
+[Warnung] Keine Distanzspalte gefunden. 'Strecke im Ort (km)' wird nicht berechnet.
+[OK] Ortszusammenfassung gespeichert (9 Orte): output/7_TT25_D6_1_Buriano_places_summary_optimized.csv

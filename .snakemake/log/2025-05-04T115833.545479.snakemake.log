@@ -1,0 +1,58 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+analyze_peaks_and_plot        6
+generate_stage_summary        6
+total                        13
+
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May  4 11:58:42 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2_TT25_D6_2_Pienza_track_data_full.csv, output/8b_TT25_D6_2_Pienza_places_with_coords.csv
+    output: output/3_TT25_D6_2_Pienza_peak_analysis_profile.png, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/3_TT25_D6_2_Pienza_overall_stats.csv
+    log: logs/3_TT25_D6_2_Pienza_analyze_peaks_plot.log
+    jobid: 16
+    reason: Missing output files: output/3_TT25_D6_2_Pienza_peak_analysis_profile.png; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: <nothing exclusive> now: 0.3 
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 108:
+Command 'python scripts/3_analyze_peaks_plot.py             --input-csv "output/2_TT25_D6_2_Pienza_track_data_full.csv"             --output-plot "output/3_TT25_D6_2_Pienza_peak_analysis_profile.png"             --output-peak-csv "output/3_TT25_D6_2_Pienza_peak_segment_data.csv"             --output-stats-csv "output/3_TT25_D6_2_Pienza_overall_stats.csv"             --smooth-window 11             --smooth-poly 2             --gain-threshold 30.0             --eps-height 0.3             --prominence 40.0             --peak-edge-km 0.25             --plot-dpi 150             --plot-x-tick-major 5.0             --plot-x-tick-minor 1.0             --pause-min-duration 120.0             --pause-max-distance 5.0             --places-coords-csv "output/8b_TT25_D6_2_Pienza_places_with_coords.csv"             > "logs/3_TT25_D6_2_Pienza_analyze_peaks_plot.log" 2>&1' returned non-zero exit status 1.
+[Sun May  4 11:58:43 2025]
+Error in rule analyze_peaks_and_plot:
+    message: None
+    jobid: 16
+    input: output/2_TT25_D6_2_Pienza_track_data_full.csv, output/8b_TT25_D6_2_Pienza_places_with_coords.csv
+    output: output/3_TT25_D6_2_Pienza_peak_analysis_profile.png, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/3_TT25_D6_2_Pienza_overall_stats.csv
+    log: logs/3_TT25_D6_2_Pienza_analyze_peaks_plot.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/3_analyze_peaks_plot.py             --input-csv "output/2_TT25_D6_2_Pienza_track_data_full.csv"             --output-plot "output/3_TT25_D6_2_Pienza_peak_analysis_profile.png"             --output-peak-csv "output/3_TT25_D6_2_Pienza_peak_segment_data.csv"             --output-stats-csv "output/3_TT25_D6_2_Pienza_overall_stats.csv"             --smooth-window 11             --smooth-poly 2             --gain-threshold 30.0             --eps-height 0.3             --prominence 40.0             --peak-edge-km 0.25             --plot-dpi 150             --plot-x-tick-major 5.0             --plot-x-tick-minor 1.0             --pause-min-duration 120.0             --pause-max-distance 5.0             --places-coords-csv "output/8b_TT25_D6_2_Pienza_places_with_coords.csv"             > "logs/3_TT25_D6_2_Pienza_analyze_peaks_plot.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Sun May  4 11:58:43 2025]
+Error in rule analyze_peaks_and_plot:
+    message: None
+    jobid: 16
+    input: output/2_TT25_D6_2_Pienza_track_data_full.csv, output/8b_TT25_D6_2_Pienza_places_with_coords.csv
+    output: output/3_TT25_D6_2_Pienza_peak_analysis_profile.png, output/3_TT25_D6_2_Pienza_peak_segment_data.csv, output/3_TT25_D6_2_Pienza_overall_stats.csv
+    log: logs/3_TT25_D6_2_Pienza_analyze_peaks_plot.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/3_analyze_peaks_plot.py             --input-csv "output/2_TT25_D6_2_Pienza_track_data_full.csv"             --output-plot "output/3_TT25_D6_2_Pienza_peak_analysis_profile.png"             --output-peak-csv "output/3_TT25_D6_2_Pienza_peak_segment_data.csv"             --output-stats-csv "output/3_TT25_D6_2_Pienza_overall_stats.csv"             --smooth-window 11             --smooth-poly 2             --gain-threshold 30.0             --eps-height 0.3             --prominence 40.0             --peak-edge-km 0.25             --plot-dpi 150             --plot-x-tick-major 5.0             --plot-x-tick-minor 1.0             --pause-min-duration 120.0             --pause-max-distance 5.0             --places-coords-csv "output/8b_TT25_D6_2_Pienza_places_with_coords.csv"             > "logs/3_TT25_D6_2_Pienza_analyze_peaks_plot.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-04T115833.545479.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

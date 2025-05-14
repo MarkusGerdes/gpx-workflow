@@ -1,0 +1,105 @@
+# config.yaml - Konfiguration für den erweiterten GPX Analyse Workflow (V2)
+
+# --- 1. Datenvereinfachung für API-Nutzung (Schritt 2b) ---
+api_simplification:
+  # Methode zur Vereinfachung: "rdp" (Ramer-Douglas-Peucker) oder "winkel" (dein Ansatz)
+  method: "rdp"
+  # Epsilon-Wert für RDP in Grad (kleinere Werte = mehr Punkte, 0.0001 ≈ 11m)
+  rdp_epsilon: 0.0001
+  # Falls method: "winkel", hier Parameter für deinen Ansatz eintragen:
+  # window_size: 6
+  # min_angle_threshold: 75
+  # min_vector_length: 30
+  # max_cluster_distance: 150 # Beispielwert für Gruppierung
+
+# --- 2. Peak/Profil Analyse & Plotting (Schritt 3) ---
+profile_analysis:
+  # Savitzky-Golay Glättung
+  smooth_window: 11      # Fenstergröße (ungerade empfohlen)
+  smooth_poly: 2         # Polynomordnung
+  # Segmenterkennung
+  gain_threshold: 30.0   # [m] Mindestgewinn für valides Segment
+  eps_height: 0.3        # [m] Höhen-Toleranz für flache Abschnitte
+  # Peak-Erkennung
+  min_peak_prominence_m: 50.0 # [m] Mindestprominenz für Peaks
+  peak_edge_km: 0.25     # [km] Toleranz für Peaks nahe Start/Ende
+  # Plotting (Farben etc. sind aktuell im Skript, könnten hierher verlagert werden)
+  plot_dpi: 250
+  plot_x_tick_major: 2.5 # [km] Haupt-Ticks X-Achse
+  plot_x_tick_minor: 1.0 # [km] Neben-Ticks X-Achse
+  # --- HINZUGEFÜGT: Parameter für Pausenerkennung ---
+  pause_min_duration_s: 60.0 # Min Dauer in Sekunden für eine Pause
+  pause_max_distance_m: 5.0   # Max Distanz in Metern während einer Pause
+
+# --- 3. Geschwindigkeitsprofil Plotting (Schritt 3b - PLATZHALTER) ---
+speed_profile:
+  # Fenstergröße für gleitenden Durchschnitt der Geschwindigkeit (optional)
+  smooth_window: 5
+
+# --- 4. Reverse Geocoding (Schritt 4) ---
+geocoding:
+  # Nur jeden x-ten Kilometer einen Punkt an Nominatim senden
+  sampling_distance_km: 0.5
+
+# --- 4b. Oberflächenabfrage (Schritt 4b - PLATZHALTER) ---
+surface_query:
+  # Intervall für Overpass-Abfragen entlang der Route
+  query_interval_km: 0.2
+
+# --- 5. POI-Suche & Filterung ---
+poi:
+  # Parameter für Service-POI-Suche (Schritt 5a)
+  service_radius_m: 150        # Suchradius um API-optimierte Punkte
+  service_sampling_distance_km: 0.5 # Abfrageintervall entlang API-optimierter Route
+
+  # Parameter für Peak/Viewpoint BBOX-Suche (Schritt 5b)
+  peak_buffer_degrees: 0.05    # Puffer um die Bounding Box der Gesamtroute
+
+  # Parameter für POI-Relevanzfilterung (Schritt 5c)
+  max_dist_service_km: 0.3     # Max. Distanz Service-POI zur *vollen* Route
+  max_dist_viewpoint_km: 3.0   # Max. Distanz Viewpoint zur *vollen* Route
+  # Ggf. Parameter für Peak-Relevanz (Höhe vs. Distanz zur vollen Route)
+  peak_relevance_filter: # Beispielstruktur
+    - { max_dist_km: 1, min_elev_m: 100 }
+    - { max_dist_km: 2, min_elev_m: 200 }
+    - { max_dist_km: 3, min_elev_m: 300 }
+    - { max_dist_km: 5, min_elev_m: 400 }
+
+# --- 8c. Ortsfilterung ---
+place_filtering:
+  # Orte ignorieren, deren Zentrum weiter als dieser Wert (in Metern) von der Route entfernt ist
+  max_dist_center_to_route_m: 1000
+  # Orte ignorieren, die weniger als diese Anzahl Punkte im Reverse Geocoding hatten
+  min_occurrences: 3
+  # Optional: Mindeststrecke im Ort (aus Schritt 7, Annäherung!)
+  # min_dist_in_place_km: 0.1
+
+# --- 9. Gemini API (Schritt 9) ---
+gemini_wiki:
+  # Name der Spalte mit den Orten in der 8...csv Datei.
+  # Wenn nicht gesetzt (None oder auskommentiert), versucht das Skript 'Ort' oder 'name' etc. zu finden.
+  place_column: Ort
+  # ISO Ländercode für automatische Wiki-Sprachwahl (wenn wiki_lang = AUTO)
+  country_context: "DE"  # Beispiel: Italienisch bevorzugen
+  # Explizite Wikipedia-Sprache ("de", "en", "it"...) oder "AUTO" für automatische Wahl via country_context
+  wiki_lang: AUTO
+  # Maximale Zeichenlänge für den Wikipedia-Auszug
+  max_wiki_chars: 1500
+  # Optional: Welches Gemini-Modell soll verwendet werden? (Standard im Skript ist "gemini-pro")
+  # model_name: "gemini-2.0-flash-exp"
+
+
+# --- 10b. Watt-Schätzung (Schritt 10b - PLATZHALTER) ---
+power_estimation:
+  # Annahmen für die Berechnung (Pflichtfelder, wenn Schritt 10b aktiviert wird!)
+  total_mass_kg: 74.0      # [kg] Fahrer + Fahrrad + Ausrüstung (Beispielwert)
+  cda: 0.35                # [m^2] Luftwiderstandsfläche (Stirnfläche * Cw - Beispielwert)
+  # Optional: Rollwiderstandskoeffizienten (Crr) für verschiedene Oberflächen
+  # crr_values:
+  #   asphalt: 0.005
+  #   gravel: 0.012
+  #   unpaved: 0.020
+  #   default: 0.010
+
+# --- 11. Finale Zusammenfassung ---
+# Keine spezifischen Parameter hier, steuert sich über die Inputs der Regel.

@@ -1,0 +1,5 @@
+[Info] Parsing GPX (flexibel): data/TT25_D6_2_Pienza.gpx
+[Info] 2034 Punkte im GPX gefunden, 2034 Punkte mit gültigen Lat/Lon.
+[Info] Höhendaten gefunden.
+[Info] Zeitstempel gefunden.
+[OK] Parsing abgeschlossen (flexibel) und gespeichert: output/2_TT25_D6_2_Pienza_track_data_full.csv

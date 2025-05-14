@@ -1,0 +1,103 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+add_elevation_data                 6
+all                                1
+analyze_peaks_and_plot             6
+create_api_optimized_track         6
+enrich_and_filter_places           6
+extract_significant_places         6
+fetch_peaks_viewpoints_bbox        6
+fetch_pois_service                 6
+generate_map                       6
+generate_stage_summary             6
+geocode_places                     6
+merge_and_filter_pois              6
+parse_full_gpx                     6
+query_gemini_places                6
+reverse_geocode                    6
+screenshot_map                     6
+sort_places_by_route               6
+total                             97
+
+Select jobs to execute...
+Execute 1 jobs...
+[Wed May  7 20:18:24 2025]
+localrule parse_full_gpx:
+    input: data/TT25_D6_2_Pienza.gpx
+    output: output/2_TT25_D6_2_Pienza_track_data_full.csv
+    log: logs/2_TT25_D6_2_Pienza_parse_gpx_full.log
+    jobid: 20
+    reason: Missing output files: output/2_TT25_D6_2_Pienza_track_data_full.csv
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 20:18:25 2025]
+Finished jobid: 20 (Rule: parse_full_gpx)
+1 of 97 steps (1%) done
+Execute 1 jobs...
+[Wed May  7 20:18:25 2025]
+localrule create_api_optimized_track:
+    input: data/TT25_D6_2_Pienza.gpx
+    output: output/2b_TT25_D6_2_Pienza_track_data_api_optimized.csv
+    log: logs/2b_TT25_D6_2_Pienza_simplify_track_api.log
+    jobid: 25
+    reason: Missing output files: output/2b_TT25_D6_2_Pienza_track_data_api_optimized.csv
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 20:18:26 2025]
+Finished jobid: 25 (Rule: create_api_optimized_track)
+2 of 97 steps (2%) done
+Execute 1 jobs...
+[Wed May  7 20:18:26 2025]
+localrule fetch_peaks_viewpoints_bbox:
+    input: data/TT25_D6_2_Pienza.gpx
+    output: output/5b_TT25_D6_2_Pienza_peaks_viewpoints_bbox.json
+    log: logs/5b_TT25_D6_2_Pienza_fetch_peaks_viewpoints.log
+    jobid: 30
+    reason: Missing output files: output/5b_TT25_D6_2_Pienza_peaks_viewpoints_bbox.json
+    wildcards: basename=TT25_D6_2_Pienza
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 273:
+Command 'python scripts/5b_fetch_peaks_viewpoints_bbox.py             --input-gpx "data/TT25_D6_2_Pienza.gpx"             --output-json "output/5b_TT25_D6_2_Pienza_peaks_viewpoints_bbox.json"             --buffer 0.05             > "logs/5b_TT25_D6_2_Pienza_fetch_peaks_viewpoints.log" 2>&1' returned non-zero exit status 2.
+[Wed May  7 20:18:26 2025]
+Error in rule fetch_peaks_viewpoints_bbox:
+    message: None
+    jobid: 30
+    input: data/TT25_D6_2_Pienza.gpx
+    output: output/5b_TT25_D6_2_Pienza_peaks_viewpoints_bbox.json
+    log: logs/5b_TT25_D6_2_Pienza_fetch_peaks_viewpoints.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/5b_fetch_peaks_viewpoints_bbox.py             --input-gpx "data/TT25_D6_2_Pienza.gpx"             --output-json "output/5b_TT25_D6_2_Pienza_peaks_viewpoints_bbox.json"             --buffer 0.05             > "logs/5b_TT25_D6_2_Pienza_fetch_peaks_viewpoints.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Wed May  7 20:18:27 2025]
+Error in rule fetch_peaks_viewpoints_bbox:
+    message: None
+    jobid: 30
+    input: data/TT25_D6_2_Pienza.gpx
+    output: output/5b_TT25_D6_2_Pienza_peaks_viewpoints_bbox.json
+    log: logs/5b_TT25_D6_2_Pienza_fetch_peaks_viewpoints.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/5b_fetch_peaks_viewpoints_bbox.py             --input-gpx "data/TT25_D6_2_Pienza.gpx"             --output-json "output/5b_TT25_D6_2_Pienza_peaks_viewpoints_bbox.json"             --buffer 0.05             > "logs/5b_TT25_D6_2_Pienza_fetch_peaks_viewpoints.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-07T201821.025364.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

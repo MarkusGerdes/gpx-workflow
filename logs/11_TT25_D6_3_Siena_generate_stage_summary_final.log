@@ -1,0 +1,12 @@
+[Info] Generating final summary for: TT25_D6_3_Siena
+[Info] Lade Daten...
+[Info] Verarbeite geocodierte Route für Straßenliste...
+[Info] Analysiere Straßenverlauf für 9 potentielle Ortsabschnitte...
+Processing Cities for Street List:   0%|          | 0/9 [00:00<?, ?it/s]Processing Cities for Street List:  44%|####4     | 4/9 [00:00<00:00, 29.53it/s]Processing Cities for Street List:  78%|#######7  | 7/9 [00:00<00:00, 25.10it/s]Processing Cities for Street List: 100%|##########| 9/9 [00:00<00:00, 23.87it/s]
+[Info] Bereite Assets vor (Base64-Einbettung für PDF)...
+[Info] Erstelle HTML-Inhalt...
+[Warnung] bootstrap.min.css nicht gefunden. Verwende CDN Fallback (nur für HTML-Ansicht).
+[Info] Speichere HTML: output/11_TT25_D6_3_Siena_stage_summary_final.html
+[OK] HTML-Datei gespeichert: output/11_TT25_D6_3_Siena_stage_summary_final.html
+[Info] Generiere PDF: output/11_TT25_D6_3_Siena_stage_summary_final.pdf
+[OK] PDF-Datei gespeichert: output/11_TT25_D6_3_Siena_stage_summary_final.pdf

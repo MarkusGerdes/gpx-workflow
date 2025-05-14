@@ -1,0 +1,82 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+analyze_peaks_and_plot          1
+enrich_and_filter_places        1
+generate_stage_summary          1
+query_gemini_places             1
+total                           5
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon May  5 22:54:33 2025]
+localrule enrich_and_filter_places:
+    input: output/8b_Hamburg - Fehmarnsund solo 2_places_with_coords.csv, output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv
+    output: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    log: logs/8c_Hamburg - Fehmarnsund solo 2_enrich_filter_places.log
+    jobid: 5
+    reason: Missing output files: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Mon May  5 22:54:35 2025]
+Finished jobid: 5 (Rule: enrich_and_filter_places)
+1 of 5 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon May  5 22:54:35 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv, output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    output: output/3_Hamburg - Fehmarnsund solo 2_peak_analysis_profile.png, output/3_Hamburg - Fehmarnsund solo 2_peak_segment_data.csv, output/3_Hamburg - Fehmarnsund solo 2_overall_stats.csv
+    log: logs/3_Hamburg - Fehmarnsund solo 2_analyze_peaks_plot.log
+    jobid: 2
+    reason: Missing output files: output/3_Hamburg - Fehmarnsund solo 2_peak_segment_data.csv, output/3_Hamburg - Fehmarnsund solo 2_overall_stats.csv, output/3_Hamburg - Fehmarnsund solo 2_peak_analysis_profile.png; Input files updated by another job: output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv; Set of input files has changed since last execution; Code has changed since last execution; Params have changed since last execution: Union of exclusive params before and now across all output: before: 0.3,30.0,0.25,10.0,120.0,2,1.0,250 now: <nothing exclusive> 
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 155:
+Command 'python scripts/3_analyze_peaks_plot.py             --input-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             # ... (alle anderen Argumente für Skript 3) ...
+            --pause-max-distance 5.0             --places-coords-csv "output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv" \ # Skript 3 muss dies lesen
+            > "logs/3_Hamburg - Fehmarnsund solo 2_analyze_peaks_plot.log" 2>&1' returned non-zero exit status 1.
+[Mon May  5 22:54:40 2025]
+Error in rule analyze_peaks_and_plot:
+    message: None
+    jobid: 2
+    input: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv, output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    output: output/3_Hamburg - Fehmarnsund solo 2_peak_analysis_profile.png, output/3_Hamburg - Fehmarnsund solo 2_peak_segment_data.csv, output/3_Hamburg - Fehmarnsund solo 2_overall_stats.csv
+    log: logs/3_Hamburg - Fehmarnsund solo 2_analyze_peaks_plot.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/3_analyze_peaks_plot.py             --input-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             # ... (alle anderen Argumente für Skript 3) ...
+            --pause-max-distance 5.0             --places-coords-csv "output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv" \ # Skript 3 muss dies lesen
+            > "logs/3_Hamburg - Fehmarnsund solo 2_analyze_peaks_plot.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Mon May  5 22:54:40 2025]
+Error in rule analyze_peaks_and_plot:
+    message: None
+    jobid: 2
+    input: output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv, output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv
+    output: output/3_Hamburg - Fehmarnsund solo 2_peak_analysis_profile.png, output/3_Hamburg - Fehmarnsund solo 2_peak_segment_data.csv, output/3_Hamburg - Fehmarnsund solo 2_overall_stats.csv
+    log: logs/3_Hamburg - Fehmarnsund solo 2_analyze_peaks_plot.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/3_analyze_peaks_plot.py             --input-csv "output/2c_Hamburg - Fehmarnsund solo 2_track_data_full_with_elevation.csv"             # ... (alle anderen Argumente für Skript 3) ...
+            --pause-max-distance 5.0             --places-coords-csv "output/8c_Hamburg - Fehmarnsund solo 2_places_relevant_enriched.csv" \ # Skript 3 muss dies lesen
+            > "logs/3_Hamburg - Fehmarnsund solo 2_analyze_peaks_plot.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-05T225433.541335.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

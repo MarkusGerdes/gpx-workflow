@@ -1,0 +1,4 @@
+[Info] Fetching Peaks/Viewpoints for BBOX of: data/Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen.gpx
+[Info] Using BBOX (S,W,N,E): 46.43492500,11.11385000,46.94812200,11.53881700
+[Info] Overpass query successful, 4482 elements found in BBOX.
+[OK] 4482 Peaks/Viewpoints gespeichert: output/5b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peaks_viewpoints_bbox.json

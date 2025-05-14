@@ -1,0 +1,5 @@
+[Info] Parsing GPX (flexibel): data/Hamburg - Fehmarnsund solo 2.gpx
+[Info] 2708 Punkte im GPX gefunden, 2708 Punkte mit gültigen Lat/Lon.
+[Info] Höhendaten gefunden.
+[Warnung] Keine oder ungültige Zeitstempel im GPX gefunden.
+[OK] Parsing abgeschlossen (flexibel) und gespeichert: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv

@@ -1,0 +1,101 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+all                                1
+analyze_peaks_and_plot             1
+create_api_optimized_track         1
+extract_significant_places         1
+fetch_peaks_viewpoints_bbox        1
+fetch_pois_service                 1
+generate_map                       1
+generate_stage_summary             1
+geocode_places                     1
+merge_and_filter_pois              1
+parse_full_gpx                     1
+query_gemini_places                1
+reverse_geocode                    1
+screenshot_map                     1
+sort_places_by_route               1
+total                             15
+
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May  4 12:28:20 2025]
+localrule create_api_optimized_track:
+    input: data/Hamburg - Fehmarnsund solo 2.gpx
+    output: output/2b_Hamburg - Fehmarnsund solo 2_track_data_api_optimized.csv
+    log: logs/2b_Hamburg - Fehmarnsund solo 2_simplify_track_api.log
+    jobid: 7
+    reason: Missing output files: output/2b_Hamburg - Fehmarnsund solo 2_track_data_api_optimized.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May  4 12:28:27 2025]
+Finished jobid: 7 (Rule: create_api_optimized_track)
+1 of 15 steps (7%) done
+Execute 1 jobs...
+[Sun May  4 12:28:27 2025]
+localrule fetch_peaks_viewpoints_bbox:
+    input: data/Hamburg - Fehmarnsund solo 2.gpx
+    output: output/5b_Hamburg - Fehmarnsund solo 2_peaks_viewpoints_bbox.json
+    log: logs/5b_Hamburg - Fehmarnsund solo 2_fetch_peaks_viewpoints.log
+    jobid: 12
+    reason: Missing output files: output/5b_Hamburg - Fehmarnsund solo 2_peaks_viewpoints_bbox.json
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Sun May  4 12:28:47 2025]
+Finished jobid: 12 (Rule: fetch_peaks_viewpoints_bbox)
+2 of 15 steps (13%) done
+Execute 1 jobs...
+[Sun May  4 12:28:47 2025]
+localrule parse_full_gpx:
+    input: data/Hamburg - Fehmarnsund solo 2.gpx
+    output: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    log: logs/2_Hamburg - Fehmarnsund solo 2_parse_gpx_full.log
+    jobid: 3
+    reason: Missing output files: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+RuleException:
+CalledProcessError in file "C:\Users\marku\gpx_workflow_GEMINI\Snakefile", line 32:
+Command 'python scripts/2_parse_gpx_full.py "data/Hamburg - Fehmarnsund solo 2.gpx" "output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv" > "logs/2_Hamburg - Fehmarnsund solo 2_parse_gpx_full.log" 2>&1' returned non-zero exit status 1.
+[Sun May  4 12:28:54 2025]
+Error in rule parse_full_gpx:
+    message: None
+    jobid: 3
+    input: data/Hamburg - Fehmarnsund solo 2.gpx
+    output: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    log: logs/2_Hamburg - Fehmarnsund solo 2_parse_gpx_full.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/2_parse_gpx_full.py "data/Hamburg - Fehmarnsund solo 2.gpx" "output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv" > "logs/2_Hamburg - Fehmarnsund solo 2_parse_gpx_full.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Sun May  4 12:28:54 2025]
+Error in rule parse_full_gpx:
+    message: None
+    jobid: 3
+    input: data/Hamburg - Fehmarnsund solo 2.gpx
+    output: output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv
+    log: logs/2_Hamburg - Fehmarnsund solo 2_parse_gpx_full.log (check log file(s) for error details)
+    shell:
+        
+        python scripts/2_parse_gpx_full.py "data/Hamburg - Fehmarnsund solo 2.gpx" "output/2_Hamburg - Fehmarnsund solo 2_track_data_full.csv" > "logs/2_Hamburg - Fehmarnsund solo 2_parse_gpx_full.log" 2>&1
+        
+        (command exited with non-zero exit code)
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-04T122819.802660.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

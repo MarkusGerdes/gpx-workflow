@@ -1,0 +1,57 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                       count
+----------------------  -------
+all                           1
+generate_stage_summary        1
+query_gemini_places           1
+total                         3
+
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May  4 23:09:12 2025]
+localrule query_gemini_places:
+    input: output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv
+    output: output/9_Hamburg - Fehmarnsund solo 2_day_preview_places.md
+    log: logs/9_Hamburg - Fehmarnsund solo 2_query_gemini_places.log
+    jobid: 15
+    reason: Missing output files: output/9_Hamburg - Fehmarnsund solo 2_day_preview_places.md
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May  4 23:11:37 2025]
+Finished jobid: 15 (Rule: query_gemini_places)
+1 of 3 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May  4 23:11:37 2025]
+localrule generate_stage_summary:
+    input: output/3_Hamburg - Fehmarnsund solo 2_overall_stats.csv, output/3_Hamburg - Fehmarnsund solo 2_peak_analysis_profile.png, output/3_Hamburg - Fehmarnsund solo 2_peak_segment_data.csv, output/6_Hamburg - Fehmarnsund solo 2_map_full.html, output/6_Hamburg - Fehmarnsund solo 2_map_full.png, output/9_Hamburg - Fehmarnsund solo 2_day_preview_places.md, output/8_Hamburg - Fehmarnsund solo 2_places_sorted_optimized.csv
+    output: output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.html, output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.pdf
+    log: logs/11_Hamburg - Fehmarnsund solo 2_generate_stage_summary_final.log
+    jobid: 1
+    reason: Missing output files: output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.pdf, output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.html; Input files updated by another job: output/9_Hamburg - Fehmarnsund solo 2_day_preview_places.md
+    wildcards: basename=Hamburg - Fehmarnsund solo 2
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May  4 23:12:02 2025]
+Finished jobid: 1 (Rule: generate_stage_summary)
+2 of 3 steps (67%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Sun May  4 23:12:02 2025]
+localrule all:
+    input: output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.html, output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.pdf
+    jobid: 0
+    reason: Input files updated by another job: output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.pdf, output/11_Hamburg - Fehmarnsund solo 2_stage_summary_final.html
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Sun May  4 23:12:02 2025]
+Finished jobid: 0 (Rule: all)
+3 of 3 steps (100%) done
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-04T230909.047189.snakemake.log

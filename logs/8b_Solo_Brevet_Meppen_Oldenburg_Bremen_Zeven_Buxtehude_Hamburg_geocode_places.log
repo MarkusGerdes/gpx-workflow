@@ -1,0 +1,46 @@
+[Info] Geocoding places from: output/8_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_sorted_optimized.csv
+[Info] 40 eindeutige Orte zum Geocodieren gefunden.
+[Info] Starte Forward Geocoding (beachte API Limits!)...
+Geocoding Places:   0%|          | 0/40 [00:00<?, ?it/s]Geocoding Places:   2%|2         | 1/40 [00:00<00:04,  8.07it/s]Geocoding Places:   5%|5         | 2/40 [00:01<00:24,  1.57it/s]Geocoding Places:   8%|7         | 3/40 [00:02<00:29,  1.25it/s]Geocoding Places:  10%|#         | 4/40 [00:03<00:31,  1.14it/s]Geocoding Places:  12%|#2        | 5/40 [00:04<00:33,  1.04it/s]Geocoding Places:  15%|#5        | 6/40 [00:05<00:32,  1.06it/s]Geocoding Places:  18%|#7        | 7/40 [00:06<00:31,  1.05it/s]Geocoding Places:  20%|##        | 8/40 [00:07<00:31,  1.03it/s]Geocoding Places:  22%|##2       | 9/40 [00:08<00:30,  1.02it/s]Geocoding Places:  25%|##5       | 10/40 [00:09<00:29,  1.01it/s]Geocoding Places:  28%|##7       | 11/40 [00:10<00:28,  1.01it/s]Geocoding Places:  30%|###       | 12/40 [00:11<00:29,  1.04s/it]Geocoding Places:  32%|###2      | 13/40 [00:12<00:26,  1.02it/s]Geocoding Places:  35%|###5      | 14/40 [00:13<00:26,  1.01s/it]Geocoding Places:  38%|###7      | 15/40 [00:14<00:24,  1.02it/s]Geocoding Places:  40%|####      | 16/40 [00:15<00:24,  1.03s/it]Geocoding Places:  42%|####2     | 17/40 [00:16<00:22,  1.00it/s]Geocoding Places:  45%|####5     | 18/40 [00:17<00:21,  1.01it/s]Geocoding Places:  48%|####7     | 19/40 [00:18<00:20,  1.02it/s]Geocoding Places:  50%|#####     | 20/40 [00:19<00:19,  1.01it/s]Geocoding Places:  52%|#####2    | 21/40 [00:20<00:18,  1.00it/s]Geocoding Places:  55%|#####5    | 22/40 [00:21<00:17,  1.01it/s]Geocoding Places:  57%|#####7    | 23/40 [00:22<00:16,  1.01it/s]Geocoding Places:  60%|######    | 24/40 [00:23<00:15,  1.00it/s]Geocoding Places:  62%|######2   | 25/40 [00:24<00:15,  1.00s/it]Geocoding Places:  65%|######5   | 26/40 [00:25<00:13,  1.00it/s]Geocoding Places:  68%|######7   | 27/40 [00:26<00:12,  1.00it/s]Geocoding Places:  70%|#######   | 28/40 [00:27<00:11,  1.00it/s]Geocoding Places:  72%|#######2  | 29/40 [00:28<00:11,  1.00s/it]Geocoding Places:  75%|#######5  | 30/40 [00:29<00:10,  1.01s/it]Geocoding Places:  78%|#######7  | 31/40 [00:30<00:08,  1.01it/s]Geocoding Places:  80%|########  | 32/40 [00:31<00:07,  1.00it/s]Geocoding Places:  82%|########2 | 33/40 [00:32<00:06,  1.01it/s]Geocoding Places:  85%|########5 | 34/40 [00:33<00:05,  1.00it/s]Geocoding Places:  88%|########7 | 35/40 [00:34<00:04,  1.00it/s]Geocoding Places:  90%|######### | 36/40 [00:35<00:03,  1.00it/s]Geocoding Places:  92%|#########2| 37/40 [00:36<00:02,  1.00it/s]Geocoding Places:  95%|#########5| 38/40 [00:37<00:02,  1.00s/it]Geocoding Places:  98%|#########7| 39/40 [00:38<00:00,  1.00it/s]Geocoding Places: 100%|##########| 40/40 [00:39<00:00,  1.07s/it]Geocoding Places: 100%|##########| 40/40 [00:39<00:00,  1.02it/s]
+  -> Gefunden: Meppen -> (52.6947, 7.2910)
+  -> Gefunden: Wolkenburg -> (50.6686, 7.2139)
+  -> Gefunden: Groß Berßen -> (52.7746, 7.4941)
+  -> Gefunden: Hüven -> (52.7864, 7.5497)
+  -> Gefunden: Lahn -> (50.5514, 8.3363)
+  -> Gefunden: Werlte -> (52.8519, 7.6764)
+  -> Gefunden: Vrees -> (52.8865, 7.7731)
+  -> Gefunden: Molbergen -> (52.8587, 7.9220)
+  -> Gefunden: Friesoythe -> (53.0206, 7.8592)
+  -> Gefunden: Bösel -> (53.0052, 7.9557)
+  -> Gefunden: Wardenburg -> (53.0655, 8.1945)
+  -> Gefunden: Oldenburg -> (53.1390, 8.2146)
+  -> Gefunden: Hude (Oldenburg) -> (53.1132, 8.4561)
+  -> Gefunden: Berne -> (46.9485, 7.4522)
+  -> Gefunden: Lemwerder -> (53.1617, 8.6082)
+  -> Gefunden: Bremen -> (53.0758, 8.8072)
+  -> Gefunden: Lilienthal -> (53.1414, 8.9068)
+  -> Gefunden: Grasberg -> (53.1833, 8.9833)
+  -> Gefunden: Wilstedt -> (53.1956, 9.0906)
+  -> Gefunden: Tarmstedt -> (53.2261, 9.0820)
+  -> Gefunden: Westertimke -> (53.2398, 9.1331)
+  -> Gefunden: Kirchtimke -> (53.2519, 9.1508)
+  -> Gefunden: Ostertimke -> (53.2585, 9.1834)
+  -> Gefunden: Zeven -> (53.2993, 9.2804)
+  -> Gefunden: Wiersdorf -> (50.0074, 6.4515)
+  -> Gefunden: Heeslingen -> (53.3166, 9.3374)
+  -> Gefunden: Boitzen -> (53.1371, 9.3145)
+  -> Gefunden: Steddorf -> (53.3450, 9.3991)
+  -> Gefunden: Wangersen -> (53.3644, 9.4252)
+  -> Gefunden: Bokel -> (54.2158, 9.7941)
+  -> Gefunden: Ahrenswohlde -> (53.3789, 9.4660)
+  -> Gefunden: Ahrensmoor West -> (53.3956, 9.4883)
+  -> Gefunden: Ahrensmoor Nord -> (53.4044, 9.5029)
+  -> Gefunden: Harsefeld -> (53.4532, 9.5027)
+  -> Gefunden: Revenahe -> (53.4103, 9.5498)
+  -> Gefunden: Kammerbusch -> (53.4157, 9.5515)
+  -> Gefunden: Apensen -> (53.4353, 9.6163)
+  -> Gefunden: Buxtehude -> (53.4767, 9.7004)
+  -> Gefunden: Neu Wulmstorf -> (53.4682, 9.7917)
+  -> Gefunden: Hamburg -> (53.5503, 10.0007)
+
+[OK] Geocoding-Ergebnisse gespeichert (40 Einträge): output/8b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_with_coords.csv

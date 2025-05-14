@@ -1,0 +1,521 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: GALAXYpb360-MWG
+Building DAG of jobs...
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+add_elevation_data                 2
+all                                1
+analyze_peaks_and_plot             2
+create_api_optimized_track         2
+enrich_and_filter_places           2
+extract_significant_places         2
+fetch_peaks_viewpoints_bbox        2
+fetch_pois_service                 2
+generate_map                       2
+generate_stage_summary             2
+geocode_places                     2
+merge_and_filter_pois              2
+parse_full_gpx                     2
+query_gemini_places                2
+reverse_geocode                    2
+screenshot_map                     2
+sort_places_by_route               2
+total                             33
+
+Select jobs to execute...
+Execute 1 jobs...
+[Wed May  7 21:00:14 2025]
+localrule parse_full_gpx:
+    input: data/Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg.gpx
+    output: output/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full.csv
+    log: logs/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_parse_gpx_full.log
+    jobid: 4
+    reason: Missing output files: output/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:00:22 2025]
+Finished jobid: 4 (Rule: parse_full_gpx)
+1 of 33 steps (3%) done
+Execute 1 jobs...
+[Wed May  7 21:00:22 2025]
+localrule fetch_peaks_viewpoints_bbox:
+    input: data/Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg.gpx
+    output: output/5b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peaks_viewpoints_bbox.json
+    log: logs/5b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_fetch_peaks_viewpoints.log
+    jobid: 14
+    reason: Missing output files: output/5b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peaks_viewpoints_bbox.json
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:01:00 2025]
+Finished jobid: 14 (Rule: fetch_peaks_viewpoints_bbox)
+2 of 33 steps (6%) done
+Execute 1 jobs...
+[Wed May  7 21:01:00 2025]
+localrule create_api_optimized_track:
+    input: data/Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg.gpx
+    output: output/2b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_api_optimized.csv
+    log: logs/2b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_simplify_track_api.log
+    jobid: 9
+    reason: Missing output files: output/2b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_api_optimized.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:01:02 2025]
+Finished jobid: 9 (Rule: create_api_optimized_track)
+3 of 33 steps (9%) done
+Execute 1 jobs...
+[Wed May  7 21:01:02 2025]
+localrule parse_full_gpx:
+    input: data/Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen.gpx
+    output: output/2_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full.csv
+    log: logs/2_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_parse_gpx_full.log
+    jobid: 20
+    reason: Missing output files: output/2_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:01:09 2025]
+Finished jobid: 20 (Rule: parse_full_gpx)
+4 of 33 steps (12%) done
+Execute 1 jobs...
+[Wed May  7 21:01:09 2025]
+localrule fetch_peaks_viewpoints_bbox:
+    input: data/Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen.gpx
+    output: output/5b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peaks_viewpoints_bbox.json
+    log: logs/5b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_fetch_peaks_viewpoints.log
+    jobid: 30
+    reason: Missing output files: output/5b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peaks_viewpoints_bbox.json
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:01:15 2025]
+Finished jobid: 30 (Rule: fetch_peaks_viewpoints_bbox)
+5 of 33 steps (15%) done
+Execute 1 jobs...
+[Wed May  7 21:01:15 2025]
+localrule create_api_optimized_track:
+    input: data/Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen.gpx
+    output: output/2b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_api_optimized.csv
+    log: logs/2b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_simplify_track_api.log
+    jobid: 25
+    reason: Missing output files: output/2b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_api_optimized.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:01:17 2025]
+Finished jobid: 25 (Rule: create_api_optimized_track)
+6 of 33 steps (18%) done
+Execute 1 jobs...
+[Wed May  7 21:01:17 2025]
+localrule add_elevation_data:
+    input: output/2_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full.csv
+    output: output/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full_with_elevation.csv
+    log: logs/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_add_elevation.log
+    jobid: 19
+    reason: Missing output files: output/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full_with_elevation.csv; Input files updated by another job: output/2_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:01:19 2025]
+Finished jobid: 19 (Rule: add_elevation_data)
+7 of 33 steps (21%) done
+Execute 1 jobs...
+[Wed May  7 21:01:19 2025]
+localrule add_elevation_data:
+    input: output/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full.csv
+    output: output/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full_with_elevation.csv
+    log: logs/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_add_elevation.log
+    jobid: 3
+    reason: Missing output files: output/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full_with_elevation.csv; Input files updated by another job: output/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:01:20 2025]
+Finished jobid: 3 (Rule: add_elevation_data)
+8 of 33 steps (24%) done
+Execute 1 jobs...
+[Wed May  7 21:01:20 2025]
+localrule reverse_geocode:
+    input: output/2b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_api_optimized.csv
+    output: output/4_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_with_location_optimized.csv
+    log: logs/4_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_reverse_geocode_optimized.log
+    jobid: 24
+    reason: Missing output files: output/4_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_with_location_optimized.csv; Input files updated by another job: output/2b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_api_optimized.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:05:25 2025]
+Finished jobid: 24 (Rule: reverse_geocode)
+9 of 33 steps (27%) done
+Execute 1 jobs...
+[Wed May  7 21:05:25 2025]
+localrule extract_significant_places:
+    input: output/4_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_with_location_optimized.csv
+    output: output/7_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_summary_optimized.csv
+    log: logs/7_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_extract_places_optimized.log
+    jobid: 26
+    reason: Missing output files: output/7_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_summary_optimized.csv; Input files updated by another job: output/4_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_with_location_optimized.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:05:26 2025]
+Finished jobid: 26 (Rule: extract_significant_places)
+10 of 33 steps (30%) done
+Execute 1 jobs...
+[Wed May  7 21:05:26 2025]
+localrule sort_places_by_route:
+    input: output/4_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_with_location_optimized.csv, output/7_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_summary_optimized.csv
+    output: output/8_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_sorted_optimized.csv
+    log: logs/8_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_sort_places_optimized.log
+    jobid: 23
+    reason: Missing output files: output/8_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_sorted_optimized.csv; Input files updated by another job: output/4_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_with_location_optimized.csv, output/7_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_summary_optimized.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:05:27 2025]
+Finished jobid: 23 (Rule: sort_places_by_route)
+11 of 33 steps (33%) done
+Execute 1 jobs...
+[Wed May  7 21:05:27 2025]
+localrule fetch_pois_service:
+    input: output/4_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_with_location_optimized.csv
+    output: output/5a_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_pois_service_raw.csv
+    log: logs/5a_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_fetch_pois_service.log
+    jobid: 29
+    reason: Missing output files: output/5a_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_pois_service_raw.csv; Input files updated by another job: output/4_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_with_location_optimized.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:12:30 2025]
+Finished jobid: 29 (Rule: fetch_pois_service)
+12 of 33 steps (36%) done
+Execute 1 jobs...
+[Wed May  7 21:12:30 2025]
+localrule merge_and_filter_pois:
+    input: output/5a_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_pois_service_raw.csv, output/5b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peaks_viewpoints_bbox.json, output/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full_with_elevation.csv
+    output: output/5c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_pois_relevant.csv
+    log: logs/5c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_merge_filter_pois.log
+    jobid: 28
+    reason: Missing output files: output/5c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_pois_relevant.csv; Input files updated by another job: output/5a_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_pois_service_raw.csv, output/5b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peaks_viewpoints_bbox.json, output/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full_with_elevation.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:12:33 2025]
+Finished jobid: 28 (Rule: merge_and_filter_pois)
+13 of 33 steps (39%) done
+Execute 1 jobs...
+[Wed May  7 21:12:33 2025]
+localrule generate_map:
+    input: output/2_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full.csv, output/5c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_pois_relevant.csv
+    output: output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.html
+    log: logs/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_generate_map_full.log
+    jobid: 27
+    reason: Missing output files: output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.html; Input files updated by another job: output/5c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_pois_relevant.csv, output/2_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:12:35 2025]
+Finished jobid: 27 (Rule: generate_map)
+14 of 33 steps (42%) done
+Execute 1 jobs...
+[Wed May  7 21:12:35 2025]
+localrule screenshot_map:
+    input: output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.html
+    output: output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.png
+    log: logs/10_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_screenshot_full.log
+    jobid: 31
+    reason: Missing output files: output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.png; Input files updated by another job: output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.html
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:12:49 2025]
+Finished jobid: 31 (Rule: screenshot_map)
+15 of 33 steps (45%) done
+Execute 1 jobs...
+[Wed May  7 21:12:49 2025]
+localrule reverse_geocode:
+    input: output/2b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_api_optimized.csv
+    output: output/4_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_with_location_optimized.csv
+    log: logs/4_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_reverse_geocode_optimized.log
+    jobid: 8
+    reason: Missing output files: output/4_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_with_location_optimized.csv; Input files updated by another job: output/2b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_api_optimized.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:18:45 2025]
+Finished jobid: 8 (Rule: reverse_geocode)
+16 of 33 steps (48%) done
+Execute 1 jobs...
+[Wed May  7 21:18:45 2025]
+localrule fetch_pois_service:
+    input: output/4_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_with_location_optimized.csv
+    output: output/5a_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_pois_service_raw.csv
+    log: logs/5a_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_fetch_pois_service.log
+    jobid: 13
+    reason: Missing output files: output/5a_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_pois_service_raw.csv; Input files updated by another job: output/4_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_with_location_optimized.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:28:35 2025]
+Finished jobid: 13 (Rule: fetch_pois_service)
+17 of 33 steps (52%) done
+Execute 1 jobs...
+[Wed May  7 21:28:35 2025]
+localrule merge_and_filter_pois:
+    input: output/5a_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_pois_service_raw.csv, output/5b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peaks_viewpoints_bbox.json, output/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full_with_elevation.csv
+    output: output/5c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_pois_relevant.csv
+    log: logs/5c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_merge_filter_pois.log
+    jobid: 12
+    reason: Missing output files: output/5c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_pois_relevant.csv; Input files updated by another job: output/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full_with_elevation.csv, output/5b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peaks_viewpoints_bbox.json, output/5a_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_pois_service_raw.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:28:53 2025]
+Finished jobid: 12 (Rule: merge_and_filter_pois)
+18 of 33 steps (55%) done
+Execute 1 jobs...
+[Wed May  7 21:28:53 2025]
+localrule generate_map:
+    input: output/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full.csv, output/5c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_pois_relevant.csv
+    output: output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.html
+    log: logs/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_generate_map_full.log
+    jobid: 11
+    reason: Missing output files: output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.html; Input files updated by another job: output/5c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_pois_relevant.csv, output/2_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:28:55 2025]
+Finished jobid: 11 (Rule: generate_map)
+19 of 33 steps (58%) done
+Execute 1 jobs...
+[Wed May  7 21:28:55 2025]
+localrule screenshot_map:
+    input: output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.html
+    output: output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.png
+    log: logs/10_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_screenshot_full.log
+    jobid: 15
+    reason: Missing output files: output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.png; Input files updated by another job: output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.html
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:29:05 2025]
+Finished jobid: 15 (Rule: screenshot_map)
+20 of 33 steps (61%) done
+Execute 1 jobs...
+[Wed May  7 21:29:05 2025]
+localrule extract_significant_places:
+    input: output/4_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_with_location_optimized.csv
+    output: output/7_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_summary_optimized.csv
+    log: logs/7_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_extract_places_optimized.log
+    jobid: 10
+    reason: Missing output files: output/7_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_summary_optimized.csv; Input files updated by another job: output/4_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_with_location_optimized.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:29:06 2025]
+Finished jobid: 10 (Rule: extract_significant_places)
+21 of 33 steps (64%) done
+Execute 1 jobs...
+[Wed May  7 21:29:06 2025]
+localrule sort_places_by_route:
+    input: output/4_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_with_location_optimized.csv, output/7_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_summary_optimized.csv
+    output: output/8_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_sorted_optimized.csv
+    log: logs/8_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_sort_places_optimized.log
+    jobid: 7
+    reason: Missing output files: output/8_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_sorted_optimized.csv; Input files updated by another job: output/4_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_with_location_optimized.csv, output/7_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_summary_optimized.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:29:07 2025]
+Finished jobid: 7 (Rule: sort_places_by_route)
+22 of 33 steps (67%) done
+Execute 1 jobs...
+[Wed May  7 21:29:07 2025]
+localrule geocode_places:
+    input: output/8_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_sorted_optimized.csv
+    output: output/8b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_with_coords.csv
+    log: logs/8b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_geocode_places.log
+    jobid: 6
+    reason: Missing output files: output/8b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_with_coords.csv; Input files updated by another job: output/8_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_sorted_optimized.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:29:47 2025]
+Finished jobid: 6 (Rule: geocode_places)
+23 of 33 steps (70%) done
+Execute 1 jobs...
+[Wed May  7 21:29:47 2025]
+localrule enrich_and_filter_places:
+    input: output/8b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_with_coords.csv, output/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full_with_elevation.csv
+    output: output/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_relevant_enriched.csv
+    log: logs/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_enrich_filter_places.log
+    jobid: 5
+    reason: Missing output files: output/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_relevant_enriched.csv; Input files updated by another job: output/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full_with_elevation.csv, output/8b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_with_coords.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:29:49 2025]
+Finished jobid: 5 (Rule: enrich_and_filter_places)
+24 of 33 steps (73%) done
+Execute 1 jobs...
+[Wed May  7 21:29:49 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full_with_elevation.csv, output/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_relevant_enriched.csv
+    output: output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peak_analysis_profile.png, output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peak_segment_data.csv, output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_overall_stats.csv
+    log: logs/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_analyze_peaks_plot.log
+    jobid: 2
+    reason: Missing output files: output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peak_analysis_profile.png, output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_overall_stats.csv, output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peak_segment_data.csv; Input files updated by another job: output/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full_with_elevation.csv, output/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_relevant_enriched.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:29:54 2025]
+Finished jobid: 2 (Rule: analyze_peaks_and_plot)
+25 of 33 steps (76%) done
+Execute 1 jobs...
+[Wed May  7 21:29:54 2025]
+localrule query_gemini_places:
+    input: output/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_relevant_enriched.csv
+    output: output/9_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_day_preview_places.md
+    log: logs/9_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_query_gemini_places.log
+    jobid: 16
+    reason: Missing output files: output/9_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_day_preview_places.md; Input files updated by another job: output/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_relevant_enriched.csv
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:31:37 2025]
+Finished jobid: 16 (Rule: query_gemini_places)
+26 of 33 steps (79%) done
+Execute 1 jobs...
+[Wed May  7 21:31:37 2025]
+localrule generate_stage_summary:
+    input: output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_overall_stats.csv, output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peak_analysis_profile.png, output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peak_segment_data.csv, output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.html, output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.png, output/9_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_day_preview_places.md, output/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_relevant_enriched.csv
+    output: output/11_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_stage_summary_final.html, output/11_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_stage_summary_final.pdf
+    log: logs/11_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_generate_stage_summary_final.log
+    jobid: 1
+    reason: Missing output files: output/11_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_stage_summary_final.pdf, output/11_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_stage_summary_final.html; Input files updated by another job: output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peak_analysis_profile.png, output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.png, output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_overall_stats.csv, output/6_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_map_full.html, output/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_relevant_enriched.csv, output/3_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_peak_segment_data.csv, output/9_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_day_preview_places.md
+    wildcards: basename=Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:31:41 2025]
+Finished jobid: 1 (Rule: generate_stage_summary)
+27 of 33 steps (82%) done
+Execute 1 jobs...
+[Wed May  7 21:31:41 2025]
+localrule geocode_places:
+    input: output/8_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_sorted_optimized.csv
+    output: output/8b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_with_coords.csv
+    log: logs/8b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_geocode_places.log
+    jobid: 22
+    reason: Missing output files: output/8b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_with_coords.csv; Input files updated by another job: output/8_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_sorted_optimized.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Wed May  7 21:32:05 2025]
+Finished jobid: 22 (Rule: geocode_places)
+28 of 33 steps (85%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed May  7 21:32:05 2025]
+localrule enrich_and_filter_places:
+    input: output/8b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_with_coords.csv, output/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full_with_elevation.csv
+    output: output/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_relevant_enriched.csv
+    log: logs/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_enrich_filter_places.log
+    jobid: 21
+    reason: Missing output files: output/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_relevant_enriched.csv; Input files updated by another job: output/8b_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_with_coords.csv, output/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full_with_elevation.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Wed May  7 21:32:07 2025]
+Finished jobid: 21 (Rule: enrich_and_filter_places)
+29 of 33 steps (88%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed May  7 21:32:07 2025]
+localrule analyze_peaks_and_plot:
+    input: output/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full_with_elevation.csv, output/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_relevant_enriched.csv
+    output: output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_analysis_profile.png, output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_segment_data.csv, output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_overall_stats.csv
+    log: logs/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_analyze_peaks_plot.log
+    jobid: 18
+    reason: Missing output files: output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_analysis_profile.png, output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_overall_stats.csv, output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_segment_data.csv; Input files updated by another job: output/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_relevant_enriched.csv, output/2c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_track_data_full_with_elevation.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+Select jobs to execute...
+[Wed May  7 21:32:11 2025]
+Finished jobid: 18 (Rule: analyze_peaks_and_plot)
+30 of 33 steps (91%) done
+Execute 1 jobs...
+[Wed May  7 21:32:11 2025]
+localrule query_gemini_places:
+    input: output/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_relevant_enriched.csv
+    output: output/9_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_day_preview_places.md
+    log: logs/9_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_query_gemini_places.log
+    jobid: 32
+    reason: Missing output files: output/9_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_day_preview_places.md; Input files updated by another job: output/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_relevant_enriched.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Wed May  7 21:33:23 2025]
+Finished jobid: 32 (Rule: query_gemini_places)
+31 of 33 steps (94%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed May  7 21:33:23 2025]
+localrule generate_stage_summary:
+    input: output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_overall_stats.csv, output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_analysis_profile.png, output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_segment_data.csv, output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.html, output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.png, output/9_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_day_preview_places.md, output/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_relevant_enriched.csv
+    output: output/11_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_stage_summary_final.html, output/11_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_stage_summary_final.pdf
+    log: logs/11_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_generate_stage_summary_final.log
+    jobid: 17
+    reason: Missing output files: output/11_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_stage_summary_final.pdf, output/11_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_stage_summary_final.html; Input files updated by another job: output/8c_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_places_relevant_enriched.csv, output/9_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_day_preview_places.md, output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_segment_data.csv, output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.html, output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_peak_analysis_profile.png, output/6_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_map_full.png, output/3_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_overall_stats.csv
+    wildcards: basename=Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Wed May  7 21:33:26 2025]
+Finished jobid: 17 (Rule: generate_stage_summary)
+32 of 33 steps (97%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Wed May  7 21:33:26 2025]
+localrule all:
+    input: output/11_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_stage_summary_final.html, output/11_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_stage_summary_final.html, output/11_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_stage_summary_final.pdf, output/11_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_stage_summary_final.pdf
+    jobid: 0
+    reason: Input files updated by another job: output/11_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_stage_summary_final.pdf, output/11_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_stage_summary_final.html, output/11_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_stage_summary_final.html, output/11_Tour_No_4_Bozen_Meran_Jaufenpass_Penserjoch_Bozen_stage_summary_final.pdf
+    resources: tmpdir=C:\Users\marku\AppData\Local\Temp
+
+[Wed May  7 21:33:26 2025]
+Finished jobid: 0 (Rule: all)
+33 of 33 steps (100%) done
+Complete log(s): C:\Users\marku\gpx_workflow_GEMINI\.snakemake\log\2025-05-07T210014.282855.snakemake.log

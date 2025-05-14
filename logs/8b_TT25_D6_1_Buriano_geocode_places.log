@@ -1,0 +1,15 @@
+[Info] Geocoding places from: output/8_TT25_D6_1_Buriano_places_sorted_optimized.csv
+[Info] 9 eindeutige Orte zum Geocodieren gefunden.
+[Info] Starte Forward Geocoding (beachte API Limits!)...
+Geocoding Places:   0%|          | 0/9 [00:00<?, ?it/s]Geocoding Places:  11%|#1        | 1/9 [00:00<00:04,  1.83it/s]Geocoding Places:  22%|##2       | 2/9 [00:01<00:05,  1.22it/s]Geocoding Places:  33%|###3      | 3/9 [00:02<00:05,  1.12it/s]Geocoding Places:  44%|####4     | 4/9 [00:03<00:04,  1.06it/s]Geocoding Places:  56%|#####5    | 5/9 [00:04<00:03,  1.04it/s]Geocoding Places:  67%|######6   | 6/9 [00:05<00:02,  1.03it/s]Geocoding Places:  78%|#######7  | 7/9 [00:06<00:01,  1.02it/s]Geocoding Places:  89%|########8 | 8/9 [00:07<00:00,  1.01it/s]Geocoding Places: 100%|##########| 9/9 [00:08<00:00,  1.01s/it]Geocoding Places: 100%|##########| 9/9 [00:08<00:00,  1.05it/s]
+  -> Gefunden: Campiglia Marittima -> (43.0606, 10.6155)
+  -> Gefunden: Suvereto -> (43.0790, 10.6787)
+  -> Gefunden: Follonica -> (42.9263, 10.7616)
+  -> Gefunden: Piombino -> (42.9232, 10.5268)
+  -> Gefunden: Scarlino -> (42.9074, 10.8520)
+  -> Gefunden: Puntone di Scarlino -> (42.8893, 10.7908)
+  -> Gefunden: Castiglione della Pescaia -> (42.7639, 10.8791)
+  -> Gefunden: Vetulonia -> (42.8586, 10.9722)
+  -> Gefunden: Buriano -> (42.8452, 10.9886)
+
+[OK] Geocoding-Ergebnisse gespeichert (9 Einträge): output/8b_TT25_D6_1_Buriano_places_with_coords.csv

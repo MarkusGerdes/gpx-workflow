@@ -1,0 +1,9 @@
+[Info] Gemini Model 'gemini-2.0-flash-001' initialisiert.
+[Info] Verwende Wikipedia-Sprache: de
+[Info] Lese Input CSV: output/8c_TT25_D6_1_Buriano_places_relevant_enriched.csv
+[Info] Verwende Spalte 'Ort' für Ortsnamen.
+[Info] Verarbeite 5 Orte...
+Generiere Beschreibungen:   0%|          | 0/5 [00:00<?, ?it/s]Generiere Beschreibungen:  20%|##        | 1/5 [00:04<00:16,  4.13s/it]Generiere Beschreibungen:  40%|####      | 2/5 [00:07<00:11,  3.88s/it]Generiere Beschreibungen:  60%|######    | 3/5 [00:11<00:07,  3.81s/it]Generiere Beschreibungen:  80%|########  | 4/5 [00:15<00:03,  3.96s/it]Generiere Beschreibungen: 100%|##########| 5/5 [00:19<00:00,  3.97s/it]Generiere Beschreibungen: 100%|##########| 5/5 [00:19<00:00,  3.95s/it]
+
+[OK] Markdown gespeichert nach output/9_TT25_D6_1_Buriano_day_preview_places.md
+     Erfolgreich verarbeitet: 5
