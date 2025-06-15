@@ -1,0 +1,19 @@
+Ich arbeite am GPX Workflow Strukturierungsprojekt. 
+
+Bitte lese folgende Dateien um den aktuellen Stand zu verstehen:
+1. C:\Users\marku\gpx_workflow_GEMINI\project_management\PROJECT_STATUS.md
+2. C:\Users\marku\gpx_workflow_GEMINI\project_management\PROJECT_TODO.md  
+3. C:\Users\marku\gpx_workflow_GEMINI\project_management\PROGRESS_LOG.md
+
+Bitte warte auf weitere Anweisungen. Starte keine Aktion.
+
+
+
+
+---------------------
+
+" Bitte mach direkt ein Update der folgenden Dateien für den aktuellen Stand:
+ C:\Users\marku\gpx_workflow_GEMINI\project_management\
+- PROGRESS_LOG.md (neuer Eintrag für heute)
+- PROJECT_STATUS.md   
+- PROJECT_TODO.md (Was steht noch aus? Was wäre empfehlenswert)"

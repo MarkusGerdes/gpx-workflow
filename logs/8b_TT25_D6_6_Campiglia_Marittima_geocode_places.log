@@ -1,13 +1,0 @@
-[Info] Geocoding places from: output/8_TT25_D6_6_Campiglia_Marittima_places_sorted_optimized.csv
-[Info] 7 eindeutige Orte zum Geocodieren gefunden.
-[Info] Starte Forward Geocoding (beachte API Limits!)...
-Geocoding Places:   0%|          | 0/7 [00:00<?, ?it/s]Geocoding Places:  29%|##8       | 2/7 [00:01<00:02,  1.86it/s]Geocoding Places:  43%|####2     | 3/7 [00:02<00:02,  1.35it/s]Geocoding Places:  57%|#####7    | 4/7 [00:03<00:02,  1.19it/s]Geocoding Places:  71%|#######1  | 5/7 [00:04<00:01,  1.09it/s]Geocoding Places:  86%|########5 | 6/7 [00:05<00:00,  1.08it/s]Geocoding Places: 100%|##########| 7/7 [00:06<00:00,  1.06it/s]Geocoding Places: 100%|##########| 7/7 [00:06<00:00,  1.15it/s]
-  -> Gefunden: Montecatini Val di Cecina -> (43.3928, 10.7491)
-  -> Gefunden: Pomarance -> (43.2992, 10.8724)
-  -> Gefunden: Canneto -> (40.5470, 15.2004)
-  -> Gefunden: Monteverdi Marittimo -> (43.1773, 10.7144)
-  -> Gefunden: Monterotondo Marittimo -> (43.1456, 10.8558)
-  -> Gefunden: Suvereto -> (43.0790, 10.6787)
-  -> Gefunden: Campiglia Marittima -> (43.0606, 10.6155)
-
-[OK] Geocoding-Ergebnisse gespeichert (7 Einträge): output/8b_TT25_D6_6_Campiglia_Marittima_places_with_coords.csv

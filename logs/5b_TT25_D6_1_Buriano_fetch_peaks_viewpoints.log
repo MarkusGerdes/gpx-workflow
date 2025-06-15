@@ -1,4 +1,0 @@
-[Info] Fetching Peaks/Viewpoints for BBOX of: data/TT25_D6_1_Buriano.gpx
-[Info] Using BBOX (S,W,N,E): 42.71200800,10.55186000,43.13621100,11.02628700
-[Info] Overpass query successful, 653 elements found in BBOX.
-[OK] 653 Peaks/Viewpoints gespeichert: output/5b_TT25_D6_1_Buriano_peaks_viewpoints_bbox.json

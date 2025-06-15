@@ -1,13 +1,42 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-6_generate_map.py (V2 - Korrigiert)
+6_generate_map.py
 -----------------
 Generates an interactive Folium map displaying:
 1. The full GPX track.
 2. Relevant POIs (filtered by step 5c).
 3. Markers for the simplified track points (from step 2b).
 """
+
+# === SCRIPT METADATA ===
+SCRIPT_NAME = "6_generate_map.py"
+SCRIPT_VERSION = "3.0.0"
+SCRIPT_DESCRIPTION = "Interactive Folium map generation with POIs, surface visualization, template tracking and standardized metadata"
+LAST_UPDATED = "2025-06-07"
+AUTHOR = "Markus"
+CONFIG_COMPATIBILITY = "2.1"
+
+# === CHANGELOG ===
+CHANGELOG = """
+v1.0.0 (pre-2025): Initial version with basic map generation functionality
+v1.1.0 (2025-06-07): Standardized header, improved error handling and surface visualization
+v2.0.0 (2025-06-07): Implemented full standardized metadata system with processing history
+v3.0.0 (2025-06-07): Enhanced with map template tracking and visualization parameters
+"""
+
+# === SCRIPT CONFIGURATION ===
+DEFAULT_CONFIG_SECTION = "map_generation"
+INPUT_FILE_PATTERN = "*_track_data_full.csv"
+OUTPUT_FILE_PATTERN = "*_interactive_map.html"
+
+# === DEPENDENCIES ===
+PYTHON_VERSION_MIN = "3.8"
+REQUIRED_PACKAGES = [
+    "pandas>=1.3.0",
+    "folium>=0.12.0",
+    "numpy>=1.20.0"
+]
 
 import sys
 import os
@@ -16,7 +45,44 @@ import pandas as pd
 import folium
 from folium.plugins import MarkerCluster
 import numpy as np
-from typing import Optional # Optional importieren
+from typing import Optional
+from datetime import datetime
+from pathlib import Path
+
+# Import Metadaten-System
+sys.path.append(str(Path(__file__).parent.parent / "project_management"))
+from CSV_METADATA_TEMPLATE import write_csv_with_metadata
+
+# === FUNCTIONS ===
+
+def print_script_info():
+    """Print script metadata for logging purposes."""
+    print(f"=== {SCRIPT_NAME} v{SCRIPT_VERSION} ===")
+    print(f"Description: {SCRIPT_DESCRIPTION}")
+    print(f"Last Updated: {LAST_UPDATED}")
+    print(f"Config Compatibility: {CONFIG_COMPATIBILITY}")
+    print("=" * 50)
+
+# Farbschema für Oberflächen
+SURFACE_COLOR_MAP = {
+    "asphalt": "black",
+    "paved": "#555555", # Dunkelgrau für generisches Paved
+    "concrete": "dimgray",
+    "compacted": "#A0522D",  # Sienna (Verdichtet)
+    "fine_gravel": "#D2B48C",  # Tan (Feiner Schotter)
+    "gravel": "#BC8F8F",  # RosyBrown (Schotter)
+    "unpaved": "#8B4513",  # SaddleBrown (Unbefestigt)
+    "ground": "#556B2F",  # DarkOliveGreen (Erdboden)
+    "dirt": "#9B7653", # Helleres Braun für Dirt
+    "sand": "#F4A460",  # SandyBrown
+    "grass": "#228B22",  # ForestGreen
+    "wood": "#DEB887",  # BurlyWood
+    "paving_stones": "#483D8B", # DarkSlateBlue
+    "sett": "#6A5ACD", # SlateBlue
+    "cobblestone": "#708090", # SlateGray
+    "unknown": "lightgray", # Fallback für Unbekannt
+    "default": "red" # Fallback für nicht gemappte Oberflächen
+}
 
 # Helper function for Peak colors
 def get_color_by_elevation(elev_str):
@@ -35,10 +101,29 @@ def get_color_by_elevation(elev_str):
 
 
 def generate_map(track_csv_path: str, pois_csv_path: str,
-                 reduced_track_csv_path: Optional[str], # Optional hinzugefügt
+                 reduced_track_csv_path: Optional[str],
+                 surface_data_csv_path: Optional[str],
                  output_html_path: str):
     """Generates the Folium map."""
+    run_start_time = datetime.now()
+    print_script_info()
+    print(f"[{run_start_time.isoformat()}] Script {SCRIPT_NAME} v{SCRIPT_VERSION} started.")
     print(f"[Info] Generating map: {output_html_path}")
+    
+    # Tracking-Variablen für Map-Generierung
+    map_metadata = {
+        "map_library": "Folium",
+        "map_library_version": "0.12+",
+        "base_tile_layer": "OpenStreetMap",
+        "center_calculation": "track_midpoint",
+        "zoom_level": 12,
+        "total_track_points": 0,
+        "reduced_track_points": 0,
+        "total_pois": 0,
+        "surface_segments": 0,
+        "map_layers_added": [],
+        "color_schemes_used": list(SURFACE_COLOR_MAP.keys())
+    }
 
     # Initialize DataFrames
     track_df = pd.DataFrame()
@@ -50,16 +135,23 @@ def generate_map(track_csv_path: str, pois_csv_path: str,
         if output_dir: os.makedirs(output_dir, exist_ok=True)
 
         # Load Full Track Data
-        track_df = pd.read_csv(track_csv_path)
+        track_df = pd.read_csv(track_csv_path, comment='#')
         if not all(col in track_df.columns for col in ["Latitude", "Longitude"]):
              raise ValueError("Track CSV must contain 'Latitude' and 'Longitude'.")
         if track_df.empty: raise ValueError("Track CSV is empty.")
+        
+        map_metadata["total_track_points"] = len(track_df)
+        map_metadata["map_layers_added"].append("main_track")
 
         # Load Relevant POIs Data
         if pois_csv_path and os.path.exists(pois_csv_path):
             try:
-                pois_df = pd.read_csv(pois_csv_path)
-                if pois_df.empty: print("[Warnung] Relevante POI Datei ist leer.")
+                pois_df = pd.read_csv(pois_csv_path, comment='#')
+                if pois_df.empty: 
+                    print("[Warnung] Relevante POI Datei ist leer.")
+                else:
+                    map_metadata["total_pois"] = len(pois_df)
+                    map_metadata["map_layers_added"].append("pois")
                 # Spaltenprüfung und -ergänzung für POIs
                 required_poi_cols = ["Latitude", "Longitude", "Typ", "Name"]
                 if not all(col in pois_df.columns for col in required_poi_cols):
@@ -77,17 +169,33 @@ def generate_map(track_csv_path: str, pois_csv_path: str,
         print(f" Fehler beim Laden der Haupt-Input-Dateien: {e_main}")
         sys.exit(1)
 
+    # Lade die optimierte Route mit Oberflächeninformationen (Output von 4b)
+    df_surface_route = pd.DataFrame()
+    if surface_data_csv_path and os.path.exists(surface_data_csv_path):
+        try:
+            df_surface_route = pd.read_csv(surface_data_csv_path, comment='#')
+            if df_surface_route.empty:
+                print(f"[Warnung] Oberflächendatei {surface_data_csv_path} ist leer.")
+            elif not all(c in df_surface_route.columns for c in ['Latitude', 'Longitude', 'Surface']):
+                print(f"[Warnung] Oberflächendatei {surface_data_csv_path} fehlen Spalten Lat/Lon/Surface.")
+                df_surface_route = pd.DataFrame() # Ungültig machen
+        except Exception as e:
+            print(f"[Warnung] Fehler beim Laden der Oberflächendatei {surface_data_csv_path}: {e}")
+    else:
+        print(f"[Info] Keine Oberflächendatei für farbkodierte Route angegeben: {surface_data_csv_path}")
 
-    # --- KORREKTUR: Laden der reduzierten Punkte AUSSERHALB des ersten try-except ---
     # NEU: Load Reduced Track Points Data (optional)
     if reduced_track_csv_path and os.path.exists(reduced_track_csv_path):
         try:
-            reduced_points_df = pd.read_csv(reduced_track_csv_path)
+            reduced_points_df = pd.read_csv(reduced_track_csv_path, comment='#')
             if not all(col in reduced_points_df.columns for col in ["Latitude", "Longitude"]):
                 print("[Warnung] Reduzierte Track-CSV hat nicht Lat/Lon. Marker werden nicht gezeichnet.")
                 reduced_points_df = pd.DataFrame()
             elif reduced_points_df.empty:
                 print("[Info] Reduzierte Track-CSV ist leer.")
+            else:
+                map_metadata["reduced_track_points"] = len(reduced_points_df)
+                map_metadata["map_layers_added"].append("reduced_track_markers")
         except Exception as e_reduced:
              print(f"[Warnung] Fehler beim Laden der reduzierten Track-CSV '{reduced_track_csv_path}': {e_reduced}")
              reduced_points_df = pd.DataFrame() # Sicherstellen, dass es ein leerer DF ist
@@ -113,6 +221,54 @@ def generate_map(track_csv_path: str, pois_csv_path: str,
     # Add Track PolyLine
     track_coords = track_df[['Latitude', 'Longitude']].values.tolist()
     folium.PolyLine(locations=track_coords, color='blue', weight=3, opacity=0.7, tooltip="Route").add_to(m)
+
+    # --- NEU: Farbkodierte OPTIMIERTE Route basierend auf Oberfläche ---
+    if not df_surface_route.empty:
+        surface_route_group = folium.FeatureGroup(name="Route nach Oberfläche (optimiert)", show=True).add_to(m)
+        
+        current_segment_coords = []
+        last_surface_val = None
+        # Wichtig: df_surface_route muss nach 'original_index' oder einer anderen Sequenz sortiert sein!
+        # Der Output von 4b sollte bereits in der korrekten Reihenfolge der optimierten Route sein.
+        
+        # Bereinige NaN in Surface, falls vorhanden
+        df_surface_route['Surface'].fillna('unknown', inplace=True)
+
+        for _, row in df_surface_route.iterrows():
+            current_latlon = [row["Latitude"], row["Longitude"]]
+            current_surface_val = str(row.get("Surface", "unknown")).lower()
+
+            if last_surface_val is None: # Erster Punkt des Tracks
+                last_surface_val = current_surface_val
+                current_segment_coords.append(current_latlon)
+            elif current_surface_val == last_surface_val: # Gleiche Oberfläche
+                current_segment_coords.append(current_latlon)
+            else: # Oberflächenwechsel
+                if len(current_segment_coords) >= 2:
+                    color = SURFACE_COLOR_MAP.get(last_surface_val, SURFACE_COLOR_MAP['default'])
+                    folium.PolyLine(
+                        locations=current_segment_coords,
+                        color=color,
+                        weight=5, # Etwas dicker, um sie gut zu sehen
+                        opacity=0.9,
+                        tooltip=f"Oberfläche: {last_surface_val}"
+                    ).add_to(surface_route_group)
+                
+                # Neues Segment starten
+                # Wichtig: Der letzte Punkt des alten Segments ist der erste des neuen
+                current_segment_coords = [current_segment_coords[-1], current_latlon] 
+                last_surface_val = current_surface_val
+        
+        # Das letzte Segment zeichnen
+        if len(current_segment_coords) >= 2:
+            color = SURFACE_COLOR_MAP.get(last_surface_val, SURFACE_COLOR_MAP['default'])
+            folium.PolyLine(
+                locations=current_segment_coords,
+                color=color,
+                weight=5,
+                opacity=0.9,
+                tooltip=f"Oberfläche: {last_surface_val}"
+            ).add_to(surface_route_group)
 
     # --- NEU: Add Markers for Reduced Track Points ---
     if not reduced_points_df.empty:
@@ -186,15 +342,77 @@ def generate_map(track_csv_path: str, pois_csv_path: str,
     except Exception as e_save:
         print(f" Fehler beim Speichern der Karte: {e_save}")
         sys.exit(1)
+    
+    # Speichere Metadaten in separate CSV-Datei
+    metadata_csv_path = output_html_path.replace('.html', '_metadata.csv')
+    try:
+        # Sammle Metadaten über die generierte Karte
+        processing_parameters = {
+            'map_center_lat': center_lat,
+            'map_center_lon': center_lon,
+            'track_points_count': len(track_df),
+            'pois_count': len(pois_df) if not pois_df.empty else 0,
+            'reduced_points_count': len(reduced_points_df) if not reduced_points_df.empty else 0,
+            'surface_segments_count': len(df_surface_route) if not df_surface_route.empty else 0,
+            'has_surface_visualization': not df_surface_route.empty,
+            'surface_types_count': df_surface_route['Surface'].nunique() if not df_surface_route.empty else 0
+        }
+        
+        additional_metadata = {
+            'output_html_file': os.path.basename(output_html_path),
+            'output_html_size_kb': os.path.getsize(output_html_path) / 1024 if os.path.exists(output_html_path) else 0,
+            'processing_duration_seconds': (datetime.now() - run_start_time).total_seconds(),
+            'folium_features_used': 'PolyLine, MarkerCluster, CircleMarker, LayerControl',
+            'map_tile_provider': 'OpenStreetMap',
+            'poi_clustering_enabled': True,
+            'data_quality': 'high' if not track_df.empty and len(track_df) > 10 else 'low'
+        }
+        
+        # Input-Dateien sammeln
+        input_files = [track_csv_path]
+        if pois_csv_path and os.path.exists(pois_csv_path):
+            input_files.append(pois_csv_path)
+        if reduced_track_csv_path and os.path.exists(reduced_track_csv_path):
+            input_files.append(reduced_track_csv_path)
+        if surface_data_csv_path and os.path.exists(surface_data_csv_path):
+            input_files.append(surface_data_csv_path)
+        
+        # Erstelle einen einfachen Metadaten-DataFrame
+        metadata_df = pd.DataFrame([
+            {'Parameter': 'Script', 'Value': f'{SCRIPT_NAME} v{SCRIPT_VERSION}'},
+            {'Parameter': 'Generated', 'Value': run_start_time.strftime('%Y-%m-%d %H:%M:%S')},
+            {'Parameter': 'Track Points', 'Value': len(track_df)},
+            {'Parameter': 'POIs', 'Value': len(pois_df) if not pois_df.empty else 0},
+            {'Parameter': 'Surface Visualization', 'Value': 'Yes' if not df_surface_route.empty else 'No'},
+            {'Parameter': 'HTML File Size (KB)', 'Value': f"{additional_metadata['output_html_size_kb']:.1f}"}
+        ])
+        
+        # Schreibe Metadaten-CSV
+        write_csv_with_metadata(
+            dataframe=metadata_df,
+            output_path=metadata_csv_path,
+            script_name=SCRIPT_NAME,
+            script_version=SCRIPT_VERSION,
+            input_files=input_files,
+            processing_parameters=processing_parameters,
+            additional_metadata=additional_metadata
+        )
+        
+        print(f"[OK] Karten-Metadaten gespeichert: {metadata_csv_path}")
+        
+    except Exception as e_meta:
+        print(f"[Warnung] Fehler beim Speichern der Metadaten: {e_meta}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate Folium map with full track, POIs, and optional reduced track markers.")
-    parser.add_argument("--track-csv", required=True, help="Path to the full track data CSV file.")
-    parser.add_argument("--pois-csv", required=True, help="Path to the relevant POIs CSV file.")
-    # KORREKTUR: Argument zum Parser hinzufügen
-    parser.add_argument("--reduced-track-csv", help="Optional: Path to the simplified track points CSV.")
-    parser.add_argument("--output-html", required=True, help="Path to save the output HTML map file.")
+    print_script_info()
+    
+    parser = argparse.ArgumentParser(description="Generate Folium map.")
+    parser.add_argument("--track-csv", required=True) # Voller Track (2c)
+    parser.add_argument("--pois-csv", required=True)  # Relevante POIs (5c)
+    parser.add_argument("--reduced-track-csv", help="Optional: Simplified track points (2b).") # Für separate Marker
+    parser.add_argument("--surface-data-csv", help="Optional: Track with surface data (4b) for colored line.") # NEU
+    parser.add_argument("--output-html", required=True)
     args = parser.parse_args()
 
-    # KORREKTUR: Argument an Funktion übergeben
-    generate_map(args.track_csv, args.pois_csv, args.reduced_track_csv, args.output_html)
+    generate_map(args.track_csv, args.pois_csv, args.reduced_track_csv,
+                 args.surface_data_csv, args.output_html)

@@ -1,10 +1,0 @@
-[Info] Enriching and filtering places...
-  Input Places (8b): output/8b_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_with_coords.csv
-  Input Track (2c): output/2c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_track_data_full_with_elevation.csv
-[Info] Berechne Distanzen und nächste Punkte...
-Enriching Places:   0%|          | 0/40 [00:00<?, ?it/s]Enriching Places:  48%|####7     | 19/40 [00:00<00:00, 184.25it/s]Enriching Places: 100%|##########| 40/40 [00:00<00:00, 212.32it/s]
-[Info] Filtere Orte nach Relevanz...
-  -> Nach Distanzfilter (1000.0m): 24 Orte übrig.
-  -> Nach Vorkommenfilter (>=3): 23 Orte übrig.
-[Info] Filterung abgeschlossen. 23 von 40 Orten als relevant eingestuft.
-[OK] Angereicherte und gefilterte Orte gespeichert: output/8c_Solo_Brevet_Meppen_Oldenburg_Bremen_Zeven_Buxtehude_Hamburg_places_relevant_enriched.csv

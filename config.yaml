@@ -34,30 +34,88 @@ profile_analysis:
 # --- 3. Geschwindigkeitsprofil Plotting (Schritt 3b - PLATZHALTER) ---
 speed_profile:
   # Fenstergröße für gleitenden Durchschnitt der Geschwindigkeit (optional)
-  smooth_window: 5
+  smooth_window: 20
 
 # --- 4. Reverse Geocoding (Schritt 4) ---
 geocoding:
-  # Nur jeden x-ten Kilometer einen Punkt an Nominatim senden
   sampling_distance_km: 0.5
+  # SQLite Cache Einstellungen
+  cache_db_path: "output/SQLliteDB/geocoding_cache.db"
+  cache_tolerance_km: 0.1  # Radius für Cache-Suche in km
+  force_api: false         # true = Cache ignorieren, nur API verwenden
 
 # --- 4b. Oberflächenabfrage (Schritt 4b - PLATZHALTER) ---
 surface_query:
-  # Intervall für Overpass-Abfragen entlang der Route
-  query_interval_km: 0.2
+  query_radius_m: 80
+  reference_distance_column_name: "Distanz (km)"
+  
+  # NEUE SQLITE CACHE EINSTELLUNGEN
+  cache_tolerance_km: 0.1        # Suchtoleranz im Cache (km)
+  force_api: false               # API-Calls erzwingen (Cache ignorieren)
+  
+  # VERSCHIEDENE EINSTELLUNGEN FÜR VERSCHIEDENE SZENARIEN
+  urban:
+    query_radius_m: 50           # Kleinerer Radius für städtische Gebiete
+    cache_tolerance_km: 0.05     # Höhere Präzision
+  
+  rural:
+    query_radius_m: 150          # Größerer Radius für ländliche Gebiete  
+    cache_tolerance_km: 0.2      # Größere Toleranz
+  
+  performance:
+    query_radius_m: 80
+    cache_tolerance_km: 0.15     # Mehr Cache-Hits für bessere Performance
+
+# --- Neu: Parameter für 3D Plotly Karte ---
+plotly_3d_map:
+  vertical_exaggeration: 2.0  # Wie stark soll die Höhe übertrieben dargestellt werden? 1.0 = keine.
+  line_color: "deepskyblue"     # Farbe der Tracklinie
+  line_width: 4                 # Breite der Tracklinie
+  title_prefix: "Interaktive 3D Ansicht" # Titel der Grafik
+
+
+power_estimation:
+  # Gemeinsame Parameter
+  total_mass_kg: 75
+  rider_weight_kg: 65       # Separate rider weight for W/kg calculations
+  rider_position_cda_key: 'gravel_hoods'
+  
+  # Für Simulation: Wert eintragen. 
+  # Für Analyse: Diesen Schlüssel auskommentieren oder auf `null` setzen.
+  # target_power_watts: 180 
+  target_power_watts: null
+  
+  # Legacy-Parameter (falls noch verwendet)
+  cda: 0.25                # [m^2] Luftwiderstandsfläche (Stirnfläche * Cw - Beispielwert)
+  # Optional: Rollwiderstandskoeffizienten (Crr) für verschiedene Oberflächen
+  # crr_values:
+  #   asphalt: 0.005
+  #   gravel: 0.012
+  #   unpaved: 0.020
+  #   default: 0.010
+
+# --- 10d. Detailed Power Analysis ---
+power_analysis:
+  ftp_watts: 250           # Functional Threshold Power (estimated if null)
+  # rider_weight_kg is taken from power_estimation.rider_weight_kg above
+
+# --- 10c. Power Visualization ---
+power_visualization:
+  smooth_window: 20        # Smoothing window size for power visualization (1 = no smoothing, 20 = recommended)
+  max_points: 2000         # Maximum data points for visualization (reduces file size)
 
 # --- 5. POI-Suche & Filterung ---
 poi:
   # Parameter für Service-POI-Suche (Schritt 5a)
   service_radius_m: 150        # Suchradius um API-optimierte Punkte
-  service_sampling_distance_km: 0.5 # Abfrageintervall entlang API-optimierter Route
+  service_sampling_distance_km: 0.25 # Abfrageintervall entlang API-optimierter Route
 
   # Parameter für Peak/Viewpoint BBOX-Suche (Schritt 5b)
   peak_buffer_degrees: 0.05    # Puffer um die Bounding Box der Gesamtroute
 
   # Parameter für POI-Relevanzfilterung (Schritt 5c)
-  max_dist_service_km: 0.3     # Max. Distanz Service-POI zur *vollen* Route
-  max_dist_viewpoint_km: 3.0   # Max. Distanz Viewpoint zur *vollen* Route
+  max_dist_service_km: 0.2     # Max. Distanz Service-POI zur *vollen* Route
+  max_dist_viewpoint_km: 1.5   # Max. Distanz Viewpoint zur *vollen* Route
   # Ggf. Parameter für Peak-Relevanz (Höhe vs. Distanz zur vollen Route)
   peak_relevance_filter: # Beispielstruktur
     - { max_dist_km: 1, min_elev_m: 100 }
@@ -68,7 +126,7 @@ poi:
 # --- 8c. Ortsfilterung ---
 place_filtering:
   # Orte ignorieren, deren Zentrum weiter als dieser Wert (in Metern) von der Route entfernt ist
-  max_dist_center_to_route_m: 1000
+  max_dist_center_to_route_m: 1500
   # Orte ignorieren, die weniger als diese Anzahl Punkte im Reverse Geocoding hatten
   min_occurrences: 3
   # Optional: Mindeststrecke im Ort (aus Schritt 7, Annäherung!)
@@ -90,16 +148,64 @@ gemini_wiki:
 
 
 # --- 10b. Watt-Schätzung (Schritt 10b - PLATZHALTER) ---
-power_estimation:
-  # Annahmen für die Berechnung (Pflichtfelder, wenn Schritt 10b aktiviert wird!)
-  total_mass_kg: 74.0      # [kg] Fahrer + Fahrrad + Ausrüstung (Beispielwert)
-  cda: 0.35                # [m^2] Luftwiderstandsfläche (Stirnfläche * Cw - Beispielwert)
-  # Optional: Rollwiderstandskoeffizienten (Crr) für verschiedene Oberflächen
-  # crr_values:
-  #   asphalt: 0.005
-  #   gravel: 0.012
-  #   unpaved: 0.020
-  #   default: 0.010
+# HINWEIS: power_estimation Parameter sind bereits oben definiert (Zeile ~44)
 
 # --- 11. Finale Zusammenfassung ---
-# Keine spezifischen Parameter hier, steuert sich über die Inputs der Regel.
+# Farbpalette für die Stage Summary
+# config.yaml
+design_theme:
+  font_family_sans_serif: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+  frame_base_gray: "#7A8B8B"
+  accent_green: "#689F38"
+  accent_orange: "#FFA000"
+  dark_text: "#2c3e50"
+  medium_gray_border: "#bdc3c7"
+  light_green_bg: "#e8f5e9"
+  card_bg: "#ffffff"
+  table_header_bg: "#f0f3f4"
+
+surface_colors:
+    # Befestigte Oberflächen (Grau-/Schwarztöne)
+    asphalt: "#212529"       # Sehr dunkles Grau / Fast Schwarz (Bootstrap --bs-dark)
+    paved: "#6c757d"         # Mittleres Grau (Bootstrap --bs-secondary)
+    concrete: "#adb5bd"      # Helles Grau (Bootstrap --bs-gray-500)
+    paving_stones: "#78909C" # Blau-Grau (für Pflastersteine)
+    sett: "#546E7A"          # Dunkleres Blau-Grau (für Sett)
+    cobblestone: "#A1887F"   # Ein warmes Hellbraun/Grau-Braun (für Kopfsteinpflaster)
+
+    # Gravel & Lose Oberflächen (differenzierte, kräftigere Farben)
+    gravel: "#FF8F00"        # Kräftiges Orange (Material Design Amber 700/800) - Haupt-Gravel
+    fine_gravel: "#FFCA28"   # Helles, sattes Gelb (Material Design Amber 400/500) - Feiner Schotter
+    compacted: "#795548"     # Mittelbraun (Material Design Brown 500) - Fester Schotter/Erde
+    dirt: "#8D6E63"          # Helleres, leicht rötliches Braun (Material Design Brown 300/400) - Feldweg/Erde
+    ground: "#689F38"        # Sattes Grün (Material Design Light Green 700) - Naturboden, Waldwege
+    unpaved: "#4E342E"       # Sehr dunkles Braun (Material Design Brown 800/900) - Generisch Unbefestigt, Kontrast
+    sand: "#FFF176"          # Helles, blasses Gelb (Material Design Yellow 300) - Sand
+    
+    # Andere
+    grass: "#7CB342"         # Helles, frisches Grün (Material Design Light Green 500/600)
+    wood: "#BCAAA4"          # Helles Grau-Braun (Material Design Brown 200) - Holz
+
+    unknown: "#E0E0E0"       # Sehr helles Grau für Unbekannt
+    default: "#D32F2F"       # Auffälliges, aber nicht zu grelles Rot als Fallback
+
+# --- PIPELINE MONITORING ---
+pipeline_monitoring:
+  # Dashboard-Konfiguration
+  dashboard:
+    auto_refresh_seconds: 30     # Live-Dashboard Auto-Refresh
+    performance_threshold_slow: 60.0  # Scripts über 60s gelten als langsam
+    quality_threshold_warning: 75.0   # Quality-Scores unter 75 sind warnenswert
+    
+  # Alerting & Notifications
+  alerts:
+    enable_bottleneck_detection: true
+    bottleneck_threshold_factor: 2.0  # Scripts 2x langsamer als Median = Bottleneck
+    enable_quality_alerts: true
+    min_quality_score: 70.0
+    
+  # Performance-Tracking
+  tracking:
+    save_historical_data: true       # Historische Performance-Daten speichern
+    trend_analysis_window: 10        # Anzahl Läufe für Trend-Analyse
+    export_metrics_csv: true         # Zentrale Metriken-CSV exportieren

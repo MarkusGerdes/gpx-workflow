@@ -1,6 +1,0 @@
-item_type,peak_rank,peak_dist_km,peak_elev_m,segment_direction,segment_start_km,segment_end_km,segment_length_m,segment_gain_m,notes
-Peak,1,211.301,141.344,,,,,,
-Peak,2,19.990,73.386,,,,,,
-Valid Segment,1,,,backward,178.747,187.121,8374.446,13.097,
-Valid Segment,1,,,backward,97.229,100.203,2973.206,14.428,
-Valid Segment,2,,,forward,190.650,198.458,7808.222,30.917,

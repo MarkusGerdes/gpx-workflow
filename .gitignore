@@ -1,1 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+PIPFILE.lock
+
+# Environments
 .env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# GPX Workflow specific
+output/
+logs/
+data/*.gpx
+.snakemake/
+snakemake-env/
+test-env/
+Lib/
+share/
+TRASH/
+
+# Cache files
+*.db
+*.cache
+
+# Generated files
+*.html
+*.png
+*.pdf
+*.csv
+*.json
+export_with_geocoding.csv
+geocoding.log
+surface_processing.log
+report.html

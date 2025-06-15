@@ -1,11 +1,0 @@
-[Info] Geocoding places from: output/8_TT25_D6_4_SanGimignano_places_sorted_optimized.csv
-[Info] 5 eindeutige Orte zum Geocodieren gefunden.
-[Info] Starte Forward Geocoding (beachte API Limits!)...
-Geocoding Places:   0%|          | 0/5 [00:00<?, ?it/s]Geocoding Places:  20%|##        | 1/5 [00:00<00:01,  2.16it/s]Geocoding Places:  40%|####      | 2/5 [00:01<00:01,  1.78it/s]Geocoding Places:  60%|######    | 3/5 [00:02<00:01,  1.30it/s]Geocoding Places:  80%|########  | 4/5 [00:03<00:00,  1.14it/s]Geocoding Places: 100%|##########| 5/5 [00:04<00:00,  1.10it/s]Geocoding Places: 100%|##########| 5/5 [00:04<00:00,  1.20it/s]
-  -> Gefunden: Siena -> (43.1672, 11.4676)
-  -> Gefunden: Monteriggioni -> (43.3900, 11.2236)
-  -> Gefunden: Strove -> (43.3796, 11.1722)
-  -> Gefunden: Colle di Val d'Elsa -> (43.4226, 11.1264)
-  -> Gefunden: San Gimignano -> (43.4678, 11.0432)
-
-[OK] Geocoding-Ergebnisse gespeichert (5 Einträge): output/8b_TT25_D6_4_SanGimignano_places_with_coords.csv

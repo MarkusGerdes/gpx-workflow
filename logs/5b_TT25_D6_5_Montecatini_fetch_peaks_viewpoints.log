@@ -1,4 +1,0 @@
-[Info] Fetching Peaks/Viewpoints for BBOX of: data/TT25_D6_5_Montecatini.gpx
-[Info] Using BBOX (S,W,N,E): 43.34195200,10.69787500,43.53795500,11.08918500
-[Info] Overpass query successful, 932 elements found in BBOX.
-[OK] 932 Peaks/Viewpoints gespeichert: output/5b_TT25_D6_5_Montecatini_peaks_viewpoints_bbox.json

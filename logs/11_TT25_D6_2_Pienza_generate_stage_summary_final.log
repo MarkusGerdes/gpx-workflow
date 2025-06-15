@@ -1,12 +1,0 @@
-[Info] Generating final summary for: TT25_D6_2_Pienza
-[Info] Lade Daten...
-[Info] Verarbeite geocodierte Route für Straßenliste...
-[Info] Analysiere Straßenverlauf für 16 potentielle Ortsabschnitte...
-Processing Cities for Street List:   0%|          | 0/16 [00:00<?, ?it/s]Processing Cities for Street List:  38%|###7      | 6/16 [00:00<00:00, 47.85it/s]Processing Cities for Street List:  69%|######8   | 11/16 [00:00<00:00, 46.80it/s]Processing Cities for Street List: 100%|##########| 16/16 [00:00<00:00, 26.92it/s]Processing Cities for Street List: 100%|##########| 16/16 [00:00<00:00, 30.59it/s]
-[Info] Bereite Assets vor (Base64-Einbettung für PDF)...
-[Info] Erstelle HTML-Inhalt...
-[Warnung] bootstrap.min.css nicht gefunden. Verwende CDN Fallback (nur für HTML-Ansicht).
-[Info] Speichere HTML: output/11_TT25_D6_2_Pienza_stage_summary_final.html
-[OK] HTML-Datei gespeichert: output/11_TT25_D6_2_Pienza_stage_summary_final.html
-[Info] Generiere PDF: output/11_TT25_D6_2_Pienza_stage_summary_final.pdf
-[OK] PDF-Datei gespeichert: output/11_TT25_D6_2_Pienza_stage_summary_final.pdf

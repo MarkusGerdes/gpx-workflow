@@ -1,15 +1,0 @@
-[Info] Geocoding places from: output/8_TT25_D6_3_Siena_places_sorted_optimized.csv
-[Info] 9 eindeutige Orte zum Geocodieren gefunden.
-[Info] Starte Forward Geocoding (beachte API Limits!)...
-Geocoding Places:   0%|          | 0/9 [00:00<?, ?it/s]Geocoding Places:  11%|#1        | 1/9 [00:00<00:00,  8.55it/s]Geocoding Places:  22%|##2       | 2/9 [00:01<00:04,  1.58it/s]Geocoding Places:  33%|###3      | 3/9 [00:02<00:04,  1.25it/s]Geocoding Places:  44%|####4     | 4/9 [00:03<00:04,  1.14it/s]Geocoding Places:  56%|#####5    | 5/9 [00:04<00:03,  1.08it/s]Geocoding Places:  67%|######6   | 6/9 [00:05<00:02,  1.04it/s]Geocoding Places:  78%|#######7  | 7/9 [00:06<00:01,  1.05it/s]Geocoding Places:  89%|########8 | 8/9 [00:07<00:00,  1.02it/s]Geocoding Places: 100%|##########| 9/9 [00:08<00:00,  1.08s/it]Geocoding Places: 100%|##########| 9/9 [00:08<00:00,  1.07it/s]
-  -> Gefunden: Pienza -> (43.0765, 11.6789)
-  -> Gefunden: Trequanda -> (43.1889, 11.6674)
-  -> Gefunden: San Quirico d'Orcia -> (43.0604, 11.6036)
-  -> Gefunden: Montalcino -> (43.0576, 11.4903)
-  -> Gefunden: Buonconvento -> (43.1382, 11.4821)
-  -> Gefunden: Monteroni d'Arbia -> (43.2311, 11.4215)
-  -> Gefunden: Asciano -> (43.2348, 11.5594)
-  -> Gefunden: Arbia -> (43.2944, 11.4098)
-  -> Gefunden: Siena -> (43.1672, 11.4676)
-
-[OK] Geocoding-Ergebnisse gespeichert (9 Einträge): output/8b_TT25_D6_3_Siena_places_with_coords.csv

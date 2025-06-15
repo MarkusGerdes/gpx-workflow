@@ -1,10 +1,0 @@
-[Info] Enriching and filtering places...
-  Input Places (8b): output/8b_TT25_D6_5_Montecatini_places_with_coords.csv
-  Input Track (2c): output/2c_TT25_D6_5_Montecatini_track_data_full_with_elevation.csv
-[Info] Berechne Distanzen und nächste Punkte...
-Enriching Places:   0%|          | 0/4 [00:00<?, ?it/s]Enriching Places: 100%|##########| 4/4 [00:00<00:00, 528.40it/s]
-[Info] Filtere Orte nach Relevanz...
-  -> Nach Distanzfilter (1000.0m): 2 Orte übrig.
-  -> Nach Vorkommenfilter (>=3): 2 Orte übrig.
-[Info] Filterung abgeschlossen. 2 von 4 Orten als relevant eingestuft.
-[OK] Angereicherte und gefilterte Orte gespeichert: output/8c_TT25_D6_5_Montecatini_places_relevant_enriched.csv

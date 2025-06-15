@@ -1,4 +1,0 @@
-[Info] Checking/Adding elevation for: output/2_TT25_D6_3_Siena_track_data_full.csv
-[Info] Using API Batch Size: 100
-[Info] Vorhandene Höhendaten scheinen valide zu sein. Überspringe API-Abfrage.
-[OK] Trackdaten mit Höhen gespeichert: output/2c_TT25_D6_3_Siena_track_data_full_with_elevation.csv

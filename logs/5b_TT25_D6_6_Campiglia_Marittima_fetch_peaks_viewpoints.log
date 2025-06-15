@@ -1,4 +1,0 @@
-[Info] Fetching Peaks/Viewpoints for BBOX of: data/TT25_D6_6_Campiglia_Marittima.gpx
-[Info] Using BBOX (S,W,N,E): 42.97846300,10.55465800,43.44219700,10.84722400
-[Info] Overpass query successful, 573 elements found in BBOX.
-[OK] 573 Peaks/Viewpoints gespeichert: output/5b_TT25_D6_6_Campiglia_Marittima_peaks_viewpoints_bbox.json

@@ -1,0 +1,15 @@
+folium
+numpy
+matplotlib
+snakemake
+geopy
+google-generativeai
+pandas
+plotly
+rpd
+requests
+shapely
+scipy
+selenium
+tqdm
+overpy

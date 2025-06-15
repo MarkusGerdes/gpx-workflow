@@ -9,10 +9,43 @@ If needed, fetches elevation data for track coordinates from the
 Open Topo Data API (https://www.opentopodata.org/).
 Recalculates ascent based on the new elevation data.
 Saves the updated track data to a new CSV file.
-
-Requires: pandas, requests, numpy
 """
 
+# === SCRIPT METADATA ===
+SCRIPT_NAME = "2c_add_elevation.py"
+SCRIPT_VERSION = "2.0.0" # v2.0.0 (2025-06-08): Vollständiges Performance-Tracking System für Elevation-API-Integration
+SCRIPT_DESCRIPTION = "Elevation data validation and enrichment using Open Topo Data API with performance tracking"
+LAST_UPDATED = "2025-06-08"
+AUTHOR = "Markus"
+CONFIG_COMPATIBILITY = "2.1"
+
+# === CHANGELOG ===
+CHANGELOG = """
+v1.1.0 (pre-2025): Enhanced API integration with batch processing and retry logic
+v2.0.0 (2025-06-08): Vollständiges Performance-Tracking System für Elevation-API-Integration
+- 40+ Performance-Metriken für umfassende OpenTopoData-API-Analyse
+- Behält komplette Original-API-Funktionalität bei
+- Batch-Processing-Efficiency + API-Request-Performance-Tracking
+- Data-Quality-Assessment + Elevation-Data-Validation-Metrics
+- Error-Handling + Retry-Logic-Performance + Network-Statistics
+- Compatible mit universellem v2.0.0 Metadaten-Template-System
+"""
+
+# === SCRIPT CONFIGURATION ===
+DEFAULT_CONFIG_SECTION = "elevation_api"
+INPUT_FILE_PATTERN = "*_track_data_full.csv"
+OUTPUT_FILE_PATTERN = "*_track_data_full_with_elevation.csv"
+
+# === DEPENDENCIES ===
+PYTHON_VERSION_MIN = "3.8"
+REQUIRED_PACKAGES = [
+    "pandas>=1.3.0",
+    "requests>=2.25.0",
+    "numpy>=1.20.0",
+    "tqdm>=4.60.0"
+]
+
+# === IMPORTS ===
 import sys
 import os
 import argparse
@@ -21,7 +54,95 @@ import numpy as np
 import requests
 import time
 import math
+import csv
+from pathlib import Path
+from datetime import datetime
 from tqdm import tqdm
+
+# === FUNCTIONS ===
+
+def print_script_info():
+    """Print script metadata for logging purposes."""
+    print(f"=== {SCRIPT_NAME} v{SCRIPT_VERSION} ===")
+    print(f"Description: {SCRIPT_DESCRIPTION}")
+    print(f"Last Updated: {LAST_UPDATED}")
+    print(f"Config Compatibility: {CONFIG_COMPATIBILITY}")
+    print("=" * 50)
+
+def save_performance_metadata_to_csv_header(df: pd.DataFrame, output_csv_path: str, performance_data: dict, metadata_lines: list):
+    """Save elevation API performance metadata as CSV header comments."""
+    
+    # Berechne finale Performance-Metriken
+    total_time = performance_data['processing_phases'].get('total_processing_time', 0)
+    api_success_rate = performance_data['api_processing'].get('api_success_rate', 100)
+    points_retrieved = performance_data['api_processing'].get('api_points_retrieved', 0)
+    data_quality_score = performance_data['data_quality'].get('data_quality_score', 0)
+    
+    # Erstelle erweiterte Metadaten-Header
+    extended_metadata_lines = [
+        "# Elevation Data Enhancement Performance Metadata",
+        f"# Script: {SCRIPT_NAME} v{SCRIPT_VERSION}",
+        f"# Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        f"# Description: {SCRIPT_DESCRIPTION}",
+        f"# Category: OpenTopoData API + Elevation Enhancement + Batch Processing",
+        "#",
+        f"# Processing Performance:",
+        f"# - Total Processing Time: {total_time:.3f} seconds",
+        f"# - Input Loading Time: {performance_data['processing_phases'].get('input_loading_time', 0):.3f} seconds",
+        f"# - Elevation Validation Time: {performance_data['processing_phases'].get('elevation_validation_time', 0):.3f} seconds",
+        f"# - API Batch Processing Time: {performance_data['processing_phases'].get('api_batch_processing_time', 0):.3f} seconds",
+        f"# - Data Interpolation Time: {performance_data['processing_phases'].get('data_interpolation_time', 0):.3f} seconds",
+        f"# - Output Writing Time: {performance_data['processing_phases'].get('output_writing_time', 0):.3f} seconds",
+        "#",
+        f"# Data Analysis:",
+        f"# - Original Points Count: {performance_data['data_quality'].get('original_points_count', 0)}",
+        f"# - Points Needing Elevation: {performance_data['data_quality'].get('points_needing_elevation', 0)}",
+        f"# - Elevation Range: {performance_data['data_quality'].get('elevation_range_min', 0):.1f}m to {performance_data['data_quality'].get('elevation_range_max', 0):.1f}m",
+        f"# - Total Ascent Calculated: {performance_data['data_quality'].get('total_ascent_calculated', 0):.1f}m",
+        f"# - Data Quality Score: {data_quality_score}/100",
+        "#",
+        f"# API Processing Details:",
+        f"# - API Provider: {performance_data['api_processing'].get('api_provider_info', 'OpenTopoData API')}",
+        f"# - Total Batches: {performance_data['api_processing'].get('api_batches_total', 0)}",
+        f"# - Successful Batches: {performance_data['api_processing'].get('api_batches_successful', 0)}",
+        f"# - Failed Batches: {performance_data['api_processing'].get('api_batches_failed', 0)}",
+        f"# - API Success Rate: {api_success_rate}%",
+        f"# - Points Retrieved: {points_retrieved}",
+        f"# - Points Failed: {performance_data['api_processing'].get('api_points_failed', 0)}",
+        f"# - Batch Size Used: {performance_data['api_processing'].get('batch_size_used', 0)}",
+        f"# - Network Timeout: {performance_data['api_processing'].get('network_timeout_seconds', 0)} seconds",
+        f"# - Max Retries Per Batch: {performance_data['api_processing'].get('max_retries_per_batch', 0)}",
+        "#",
+        f"# Data Interpolation:",
+        f"# - Interpolation Points Filled: {performance_data['data_interpolation'].get('interpolation_points_filled', 0)}",
+        f"# - Needs API Fetch: {performance_data['elevation_validation'].get('needs_api_fetch', False)}",
+        f"# - Existing Data Valid: {performance_data['elevation_validation'].get('existing_data_valid', False)}",
+        "#",
+        f"# Input File Analysis:",
+        f"# - Input Columns Count: {performance_data['data_quality'].get('input_columns_count', 0)}",
+        f"# - Output File Size: {performance_data['output_generation'].get('output_file_size_mb', 0)} MB",
+        "#"
+    ]
+    
+    # Füge ursprüngliche Metadaten hinzu (für Kompatibilität)
+    extended_metadata_lines.extend(metadata_lines)
+    
+    # Schreibe CSV mit Metadaten-Header
+    try:
+        with open(output_csv_path, 'w', encoding='utf-8') as f:
+            # Schreibe Metadaten als Kommentare
+            for line in extended_metadata_lines:
+                f.write(line + '\n')
+            
+            # Schreibe CSV-Daten
+            df.to_csv(f, index=False, float_format='%.6f')
+            
+        print(f"[Metadata] Elevation enhancement metadata embedded in CSV header: {output_csv_path}")
+        
+    except Exception as e:
+        print(f"[Error] Could not write CSV with metadata header: {e}")
+        # Fallback: save without metadata
+        df.to_csv(output_csv_path, index=False, encoding='utf-8', float_format='%.6f')
 
 # --- Konfiguration ---
 OPENTOPO_API_URL = "https://api.opentopodata.org/v1/lookup"
@@ -31,63 +152,159 @@ SLEEP_BETWEEN_REQUESTS = 1.1 # Be nice to the API (max 1 req/sec)
 RETRY_DELAY = 5       # Wait time between retries
 MAX_RETRIES = 3       # Max retries per batch
 
-def add_elevation(input_csv_path: str, output_csv_path: str, batch_size: int): # batch_size hier hinzufügen
+def add_elevation(input_csv_path: str, output_csv_path: str, batch_size: int):
     """Checks and adds elevation data using Open Topo Data API."""
+    # === PERFORMANCE-TRACKING INITIALISIERUNG ===
+    run_start_time = datetime.now()
+    performance_data = {
+        'processing_phases': {},
+        'input_analysis': {},
+        'elevation_validation': {},
+        'api_processing': {},
+        'data_interpolation': {},
+        'output_generation': {},
+        'data_quality': {},
+        'error_handling': {}
+    }
+    
+    start_total_time = time.time()
+    performance_data['api_processing']['batch_size_used'] = batch_size
+    performance_data['api_processing']['network_timeout_seconds'] = REQUEST_TIMEOUT
+    performance_data['api_processing']['max_retries_per_batch'] = MAX_RETRIES
+    performance_data['api_processing']['sleep_between_requests'] = SLEEP_BETWEEN_REQUESTS
+    
+    print(f"[{run_start_time.isoformat()}] Script {SCRIPT_NAME} v{SCRIPT_VERSION} started.")
     print(f"[Info] Checking/Adding elevation for: {input_csv_path}")
-    print(f"[Info] Using API Batch Size: {batch_size}") # Info ausgeben
+    print(f"[Info] Using API Batch Size: {batch_size}")
 
+    # Metadaten-Sammlung für Original-Format (Header-Kommentare)
+    metadata_lines = [
+        f"# Processed by: {SCRIPT_NAME} v{SCRIPT_VERSION}",
+        f"# Processing Timestamp: {run_start_time.isoformat()}",
+        f"# Input CSV: {os.path.basename(input_csv_path)}",
+    ]
+    api_metadata = {
+        "api_provider": "OpenTopoData API (https://www.opentopodata.org/)",
+        "api_endpoint": OPENTOPO_API_URL,
+        "api_query_start_time": None,
+        "api_query_end_time": None,
+        "api_total_queries": 0,
+        "api_successful_queries": 0,
+        "api_failed_queries": 0,
+        "api_data_source_info": "Primarily SRTM GL1 (Global 30m), ASTER GDEM, GMTED2010, ETOPO1"
+    }
 
     # --- Lade Input-CSV ---
     try:
-        df = pd.read_csv(input_csv_path, parse_dates=['Time'], encoding='utf-8')
+        input_loading_start = time.time()
+        
+        # Lade CSV - robuste Behandlung von Metadaten-Headern und Time-Spalte
+        try:
+            # Prüfe zunächst Header ohne parse_dates und mit comment-Handling
+            header_df = pd.read_csv(input_csv_path, nrows=0, comment='#')
+            
+            if 'Time' in header_df.columns:
+                # Time-Spalte existiert - parse sie mit comment-Handling
+                df = pd.read_csv(input_csv_path, parse_dates=['Time'], encoding='utf-8', comment='#')
+            else:
+                # Time-Spalte existiert nicht - lade ohne parse_dates mit comment-Handling
+                df = pd.read_csv(input_csv_path, encoding='utf-8', comment='#')
+                # Füge eine dummy Time-Spalte hinzu
+                df['Time'] = pd.NaT
+        except Exception as csv_load_error:
+            # Fallback: Versuche ohne comment-Parameter
+            try:
+                header_df = pd.read_csv(input_csv_path, nrows=0)
+                
+                if 'Time' in header_df.columns:
+                    df = pd.read_csv(input_csv_path, parse_dates=['Time'], encoding='utf-8')
+                else:
+                    df = pd.read_csv(input_csv_path, encoding='utf-8')
+                    df['Time'] = pd.NaT
+            except Exception as final_error:
+                raise final_error
+        
+        performance_data['processing_phases']['input_loading_time'] = time.time() - input_loading_start
+        performance_data['data_quality']['original_points_count'] = len(df)
+        performance_data['data_quality']['input_columns_count'] = len(df.columns) if not df.empty else 0
+        
         if df.empty:
+            performance_data['error_handling']['empty_input_data'] = True
             print(f"[Warnung] Input CSV ist leer: {input_csv_path}")
-            df.to_csv(output_csv_path, index=False, encoding='utf-8') # Save empty
+            
+            # Speichere leere CSV mit Metadaten-Header
+            save_performance_metadata_to_csv_header(df, output_csv_path, performance_data, metadata_lines)
             print(f"[OK] Leere Elevation-CSV gespeichert: {output_csv_path}")
-            sys.exit(0)
+            return
 
         # Überprüfe notwendige Spalten
-        if not all(col in df.columns for col in ['Latitude', 'Longitude']):
-            raise ValueError("Input CSV benötigt 'Latitude' und 'Longitude'.")
+        required_columns = ['Latitude', 'Longitude']
+        missing_columns = [col for col in required_columns if col not in df.columns]
+        if missing_columns:
+            performance_data['error_handling']['missing_required_columns'] = missing_columns
+            raise ValueError(f"Input CSV benötigt {required_columns}")
 
-        # Standardmäßig davon ausgehen, dass Höhe hinzugefügt werden muss
+        # === ELEVATION VALIDATION PHASE (Original-Logik) ===
+        elevation_validation_start = time.time()
+        
         needs_elevation_fetch = True
         if 'Elevation (m)' in df.columns and df['Elevation (m)'].notna().all():
-            # Prüfen, ob die Werte sinnvoll sind (nicht alle gleich, nicht alle 0)
             unique_elevations = df['Elevation (m)'].nunique()
             if unique_elevations > 1:
-                 # Wenn mehr als ein eindeutiger, nicht-NaN Wert existiert,
-                 # gehen wir davon aus, dass die Daten valide sind.
-                 # Eine Prüfung auf "alle 0" könnte hier noch sinnvoll sein.
-                 min_el, max_el = df['Elevation (m)'].min(), df['Elevation (m)'].max()
-                 if not (unique_elevations == 1 and min_el == 0.0): # Nicht alle 0
-                      print("[Info] Vorhandene Höhendaten scheinen valide zu sein. Überspringe API-Abfrage.")
-                      needs_elevation_fetch = False
+                min_el, max_el = df['Elevation (m)'].min(), df['Elevation (m)'].max()
+                if not (unique_elevations == 1 and min_el == 0.0):
+                    print("[Info] Vorhandene Höhendaten scheinen valide zu sein. Überspringe API-Abfrage.")
+                    needs_elevation_fetch = False
+                    performance_data['elevation_validation']['existing_data_valid'] = True
+                    performance_data['data_quality']['elevation_range_min'] = min_el
+                    performance_data['data_quality']['elevation_range_max'] = max_el
+
+        performance_data['processing_phases']['elevation_validation_time'] = time.time() - elevation_validation_start
+        performance_data['elevation_validation']['needs_api_fetch'] = needs_elevation_fetch
+        performance_data['data_quality']['points_needing_elevation'] = len(df) if needs_elevation_fetch else 0
 
     except FileNotFoundError:
+        performance_data['error_handling']['file_not_found'] = True
         print(f"[Fehler] Eingabedatei nicht gefunden: {input_csv_path}")
+        performance_data['processing_phases']['total_processing_time'] = time.time() - start_total_time
+        
+        # Erstelle leere CSV mit Error-Metadaten
+        empty_df = pd.DataFrame()
+        save_performance_metadata_to_csv_header(empty_df, output_csv_path, performance_data, [])
         sys.exit(1)
     except Exception as e:
+        performance_data['error_handling']['csv_reading_error'] = str(e)
         print(f"[Fehler] Fehler beim Lesen der Input-CSV '{input_csv_path}': {e}")
+        performance_data['processing_phases']['total_processing_time'] = time.time() - start_total_time
+        
+        # Erstelle leere CSV mit Error-Metadaten
+        empty_df = pd.DataFrame()
+        save_performance_metadata_to_csv_header(empty_df, output_csv_path, performance_data, [])
         sys.exit(1)
 
-    # --- API-Abfrage, falls nötig ---
+    # --- API-Abfrage, falls nötig (Original-Implementierung) ---
     if needs_elevation_fetch:
+        api_batch_processing_start = time.time()
+        api_metadata["api_query_start_time"] = datetime.now().isoformat()
+        
         print("[Info] Höhendaten fehlen oder sind ungültig. Versuche Abfrage von Open Topo Data API...")
         coordinates = list(zip(df['Latitude'], df['Longitude']))
         num_points = len(coordinates)
-        # --- Verwende übergebenen Parameter ---
         num_batches = math.ceil(num_points / batch_size)
-        # ------------------------------------
-        fetched_elevations = [None] * num_points # Liste für Ergebnisse
+        fetched_elevations = [None] * num_points
 
+        performance_data['api_processing']['api_batches_total'] = num_batches
+        performance_data['api_processing']['api_provider_info'] = 'OpenTopoData API (https://www.opentopodata.org/)'
+        performance_data['api_processing']['data_source_info'] = 'SRTM GL1, ASTER GDEM, GMTED2010, ETOPO1'
+        
         api_errors = 0
+        api_points_retrieved = 0
+        api_points_failed = 0
+        
         with tqdm(total=num_batches, desc="Fetching Elevation Batches") as pbar:
             for i in range(num_batches):
-                # --- Verwende übergebenen Parameter ---
                 start_idx = i * batch_size
                 end_idx = min((i + 1) * batch_size, num_points)
-                # ------------------------------------
                 batch_coords = coordinates[start_idx:end_idx]
 
                 # Erstelle Location-String für API
@@ -99,108 +316,179 @@ def add_elevation(input_csv_path: str, output_csv_path: str, batch_size: int): #
                 for attempt in range(MAX_RETRIES):
                     try:
                         response = requests.get(api_url_batch, timeout=REQUEST_TIMEOUT)
-                        response.raise_for_status() # Fehler bei 4xx/5xx
+                        response.raise_for_status()
                         data = response.json()
 
                         if data.get('status') == 'OK':
                             results = data.get('results', [])
                             if len(results) == len(batch_coords):
                                 for j, res in enumerate(results):
-                                     # Speichere Höhe oder None, falls nicht gefunden
-                                     fetched_elevations[start_idx + j] = res.get('elevation')
+                                    elevation = res.get('elevation')
+                                    fetched_elevations[start_idx + j] = elevation
+                                    if elevation is not None:
+                                        api_points_retrieved += 1
+                                    else:
+                                        api_points_failed += 1
                                 success = True
-                                break # Erfolg für diesen Batch
+                                break
                             else:
                                 print(f"[Warnung] API gab unerwartete Anzahl Ergebnisse für Batch {i+1} zurück.")
-                                # Hier könnten komplexere Fehlerbehandlungen nötig sein
                         else:
                             print(f"[Warnung] API-Status nicht OK für Batch {i+1}: {data.get('status')}")
-                            # Versuche es erneut nach kurzer Pause
 
                     except requests.exceptions.Timeout:
-                         print(f"  -> Timeout Batch {i+1} (Versuch {attempt+1}/{MAX_RETRIES}). Warte {RETRY_DELAY}s...")
+                        print(f"  -> Timeout Batch {i+1} (Versuch {attempt+1}/{MAX_RETRIES}). Warte {RETRY_DELAY}s...")
                     except requests.exceptions.HTTPError as e:
-                         print(f"  -> HTTP Fehler {e.response.status_code} Batch {i+1} (Versuch {attempt+1}/{MAX_RETRIES}). Warte {RETRY_DELAY}s...")
-                         if e.response.status_code == 429: # Too many requests
-                              time.sleep(RETRY_DELAY * 2) # Länger warten
+                        print(f"  -> HTTP Fehler {e.response.status_code} Batch {i+1} (Versuch {attempt+1}/{MAX_RETRIES}).")
+                        if e.response.status_code == 429:
+                            time.sleep(RETRY_DELAY * 2)
                     except requests.exceptions.RequestException as e:
-                         print(f"  -> Request Fehler Batch {i+1} (Versuch {attempt+1}/{MAX_RETRIES}): {e}. Warte {RETRY_DELAY}s...")
+                        print(f"  -> Request Fehler Batch {i+1} (Versuch {attempt+1}/{MAX_RETRIES}): {e}")
                     except Exception as e:
-                         print(f"  -> Unerwarteter Fehler Batch {i+1} (Versuch {attempt+1}/{MAX_RETRIES}): {e}. Warte {RETRY_DELAY}s...")
+                        print(f"  -> Unerwarteter Fehler Batch {i+1} (Versuch {attempt+1}/{MAX_RETRIES}): {e}")
 
-                    # Warte vor dem nächsten Versuch
                     if attempt < MAX_RETRIES - 1:
                         time.sleep(RETRY_DELAY)
 
                 if not success:
-                     print(f" Fehler: Konnte Batch {i+1} nach {MAX_RETRIES} Versuchen nicht abrufen.")
-                     api_errors += 1
-                     # Setze Höhen für diesen Batch auf None oder 0? Besser None lassen.
+                    print(f"[Fehler] Konnte Batch {i+1} nach {MAX_RETRIES} Versuchen nicht abrufen.")
+                    api_errors += 1
+                    api_points_failed += len(batch_coords)
 
                 # Pause zwischen den Batches
                 if i < num_batches - 1:
                     time.sleep(SLEEP_BETWEEN_REQUESTS)
-                pbar.update(1) # Aktualisiere Fortschrittsbalken
+                pbar.update(1)
 
-        # --- Aktualisiere DataFrame ---
+        api_metadata["api_query_end_time"] = datetime.now().isoformat()
+        api_metadata["api_failed_queries"] = api_errors
+        api_metadata["api_total_queries"] = num_batches
+        api_metadata["api_successful_queries"] = num_batches - api_errors
+        
+        performance_data['processing_phases']['api_batch_processing_time'] = time.time() - api_batch_processing_start
+        performance_data['api_processing']['api_batches_successful'] = num_batches - api_errors
+        performance_data['api_processing']['api_batches_failed'] = api_errors
+        performance_data['api_processing']['api_success_rate'] = round(((num_batches - api_errors) / max(1, num_batches)) * 100, 1)
+        performance_data['api_processing']['api_points_retrieved'] = api_points_retrieved
+        performance_data['api_processing']['api_points_failed'] = api_points_failed
+
+        # Füge API Metadaten zu den Hauptmetadaten hinzu
+        for key, value in api_metadata.items():
+            if value is not None:
+                metadata_lines.append(f"# API_METADATA_{key.upper()}: {value}")
+
+        # --- Aktualisiere DataFrame (Original-Interpolation-Logik) ---
+        data_interpolation_start = time.time()
+        
         print("[Info] Aktualisiere DataFrame mit abgerufenen Höhen...")
-        # Konvertiere None zu NaN für Pandas und float
         df['Elevation_API'] = [float(e) if e is not None else np.nan for e in fetched_elevations]
 
-        # Fülle verbleibende NaNs (falls API-Aufrufe fehlschlugen oder API None lieferte)
+        interpolation_points_filled = 0
         if df['Elevation_API'].isnull().any():
             num_null_before = df['Elevation_API'].isnull().sum()
             print(f"[Warnung] {num_null_before} Höhenwerte konnten nicht von API abgerufen werden. Fülle Lücken...")
-            # Optionen: Interpolieren oder ffill/bfill
+            
+            # Original-Interpolation
             df['Elevation_API'].interpolate(method='linear', limit_direction='both', inplace=True)
-            # Fallback: Mit 0 füllen, wenn alles NaN ist
             if df['Elevation_API'].isnull().all():
-                 df['Elevation_API'] = 0.0
+                df['Elevation_API'] = 0.0
             num_null_after = df['Elevation_API'].isnull().sum()
             if num_null_after > 0:
                 print(f"[Warnung] {num_null_after} Höhenwerte konnten nicht gefüllt werden. Setze auf 0.")
                 df['Elevation_API'].fillna(0.0, inplace=True)
+            
+            interpolation_points_filled = num_null_before - num_null_after
 
+        performance_data['processing_phases']['data_interpolation_time'] = time.time() - data_interpolation_start
+        performance_data['data_interpolation']['interpolation_points_filled'] = interpolation_points_filled
 
         # Überschreibe die ursprüngliche Elevation-Spalte
         df['Elevation (m)'] = df['Elevation_API']
         df.drop(columns=['Elevation_API'], inplace=True)
 
-        # --- Berechne Aufstieg NEU ---
+        # Berechne Aufstieg NEU
         print("[Info] Berechne 'Aufstieg (m)' neu basierend auf API-Höhen...")
         elevation_diff = df['Elevation (m)'].diff().fillna(0)
         df['Aufstieg (m)'] = elevation_diff.clip(lower=0)
 
     else:
-        # Wenn keine API-Abfrage nötig war, stelle sicher, dass 'Aufstieg (m)' trotzdem existiert
+        # Wenn keine API-Abfrage nötig war
         if 'Aufstieg (m)' not in df.columns:
             print("[Info] Berechne 'Aufstieg (m)' aus vorhandenen Höhendaten...")
             elevation_diff = df['Elevation (m)'].diff().fillna(0)
             df['Aufstieg (m)'] = elevation_diff.clip(lower=0)
 
-
-    # --- Speichere finale CSV ---
+    # --- Speichere finale CSV mit Metadaten-Header (Original-Format) ---
     try:
-        # Sicherstellen, dass der Output-Ordner existiert
+        output_writing_start = time.time()
+        
         output_dir = os.path.dirname(output_csv_path)
         if output_dir:
             os.makedirs(output_dir, exist_ok=True)
-        # Stelle sicher, dass alle erwarteten Spalten da sind
+        
         final_cols = ['Latitude', 'Longitude', 'Elevation (m)', 'Time', 'Strecke Delta (km)', 'Distanz (km)', 'Aufstieg (m)']
         for col in final_cols:
             if col not in df.columns:
-                 # Füge leere Spalte hinzu, falls sie aus irgendeinem Grund fehlt
-                 if col == 'Time': df[col] = pd.NaT
-                 else: df[col] = 0.0
+                if col == 'Time':
+                    df[col] = pd.NaT
+                else:
+                    df[col] = 0.0 if col != 'Elevation (m)' else np.nan
+
+        if 'Elevation (m)' not in df.columns:
+            df['Elevation (m)'] = np.nan
+
         df_final = df[final_cols]
-        df_final.to_csv(output_csv_path, index=False, encoding='utf-8', float_format='%.6f')
-        print(f"[OK] Trackdaten mit Höhen gespeichert: {output_csv_path}")
+
+        # === FINALES PERFORMANCE-TRACKING ===
+        total_processing_time = time.time() - start_total_time
+        performance_data['processing_phases']['total_processing_time'] = total_processing_time
+
+        # Qualitätsbewertung
+        if not df_final['Elevation (m)'].isnull().all():
+            performance_data['data_quality']['elevation_range_min'] = float(df_final['Elevation (m)'].min())
+            performance_data['data_quality']['elevation_range_max'] = float(df_final['Elevation (m)'].max())
+            performance_data['data_quality']['total_ascent_calculated'] = float(df_final['Aufstieg (m)'].sum())
+            
+            # Quality Score berechnen
+            quality_score = 100
+            if needs_elevation_fetch:
+                if performance_data['api_processing']['api_success_rate'] < 100:
+                    quality_score -= (100 - performance_data['api_processing']['api_success_rate']) * 0.5
+                if performance_data['data_interpolation'].get('interpolation_points_filled', 0) > 0:
+                    interpolation_ratio = performance_data['data_interpolation']['interpolation_points_filled'] / len(df_final)
+                    quality_score -= interpolation_ratio * 20
+            
+            performance_data['data_quality']['data_quality_score'] = round(max(0, quality_score), 1)
+        else:
+            performance_data['data_quality']['data_quality_score'] = 0
+
+        # Speichere CSV mit eingebetteten Metadaten
+        save_performance_metadata_to_csv_header(df_final, output_csv_path, performance_data, metadata_lines)
+        
+        performance_data['processing_phases']['output_writing_time'] = time.time() - output_writing_start
+        
+        if os.path.exists(output_csv_path):
+            output_file_size = os.path.getsize(output_csv_path)
+            performance_data['output_generation']['output_file_size_mb'] = round(output_file_size / (1024 * 1024), 3)
+        
+        print(f"[OK] Trackdaten mit Höhen und Metadaten gespeichert: {output_csv_path}")
+
     except Exception as e:
+        performance_data['error_handling']['output_writing_error'] = str(e)
         print(f"[Fehler] Konnte finale CSV nicht schreiben: {output_csv_path} - {e}")
+        performance_data['processing_phases']['total_processing_time'] = time.time() - start_total_time
+        
+        # Erstelle leere CSV mit Error-Metadaten
+        empty_df = pd.DataFrame()
+        save_performance_metadata_to_csv_header(empty_df, output_csv_path, performance_data, metadata_lines)
         sys.exit(1)
 
+    run_end_time = datetime.now()
+    print(f"[{run_end_time.isoformat()}] Script {SCRIPT_NAME} v{SCRIPT_VERSION} finished. Duration: {run_end_time - run_start_time}")
 
 if __name__ == "__main__":
+    print_script_info()
+    
     parser = argparse.ArgumentParser(description="Check and add elevation data to track CSV using Open Topo Data API.")
     parser.add_argument("--input-csv", required=True, help="Path to the input track data CSV file (output of step 2).")
     parser.add_argument("--output-csv", required=True, help="Path to save the output CSV file with potentially added elevation.")

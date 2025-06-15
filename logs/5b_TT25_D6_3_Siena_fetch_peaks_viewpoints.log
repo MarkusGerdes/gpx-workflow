@@ -1,4 +1,0 @@
-[Info] Fetching Peaks/Viewpoints for BBOX of: data/TT25_D6_3_Siena.gpx
-[Info] Using BBOX (S,W,N,E): 43.02662200,11.28095500,43.36922300,11.72944900
-[Info] Overpass query successful, 870 elements found in BBOX.
-[OK] 870 Peaks/Viewpoints gespeichert: output/5b_TT25_D6_3_Siena_peaks_viewpoints_bbox.json

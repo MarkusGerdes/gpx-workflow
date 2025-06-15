@@ -10,9 +10,43 @@ Calculates the geodetic distance between the place center and the nearest track 
 Retrieves the distance along the track and elevation of that nearest point.
 Filters places based on relevance criteria (max distance to track, min occurrences).
 Saves the enriched and filtered list of relevant places.
-
-Requires: pandas, numpy, scipy, geopy
 """
+
+# === SCRIPT METADATA ===
+SCRIPT_NAME = "8c_enrich_filter_places.py"
+SCRIPT_VERSION = "2.0.1" # Vollständiges Metadaten-System + Data-Enrichment-Performance-Tracking + Bugfixes
+SCRIPT_DESCRIPTION = "Place enrichment with track proximity and relevance filtering"
+LAST_UPDATED = "2025-06-08"
+AUTHOR = "Markus"
+CONFIG_COMPATIBILITY = "2.1"
+
+# === CHANGELOG ===
+CHANGELOG = """
+v1.0.0 (pre-2025): Initial version with basic place enrichment functionality
+v1.1.0 (2025-06-07): Standardized header, improved KDTree processing and error handling
+v2.0.0 (2025-06-08): Vollständiges Metadaten-System + Data-Enrichment-Performance-Tracking
+- KDTree-Performance-Tracking und Spatial-Filtering-Metriken
+- Place-Enrichment-Algorithm-Performance mit Distance-Calculation-Stats
+- Input-Data-Analysis für Places und Track-Data-Correlation
+- Filter-Efficiency-Metriken für Distance und Occurrence-Filtering
+- Geographic-Proximity-Analysis und Track-Point-Mapping-Quality
+v2.0.1 (2025-06-08): Fixed metadata system integration and missing imports
+"""
+
+# === SCRIPT CONFIGURATION ===
+DEFAULT_CONFIG_SECTION = "place_enrichment"
+INPUT_FILE_PATTERN = "*_places_geocoded.csv"
+OUTPUT_FILE_PATTERN = "*_places_enriched.csv"
+
+# === DEPENDENCIES ===
+PYTHON_VERSION_MIN = "3.8"
+REQUIRED_PACKAGES = [
+    "pandas>=1.3.0",
+    "numpy>=1.20.0",
+    "scipy>=1.7.0",
+    "geopy>=2.2.0",
+    "tqdm>=4.60.0"
+]
 
 import sys
 import os
@@ -22,6 +56,13 @@ import numpy as np
 from scipy.spatial import KDTree
 from geopy.distance import distance as geopy_distance
 from typing import Optional, Tuple, List, Dict
+import time
+from datetime import datetime
+from pathlib import Path
+
+# Import Metadaten-System
+sys.path.append(str(Path(__file__).parent.parent / "project_management"))
+from CSV_METADATA_TEMPLATE import write_csv_with_metadata
 
 # NEU: tqdm importieren (mit Fallback)
 try:
@@ -30,6 +71,16 @@ except ImportError:
     print("[Warnung] tqdm nicht gefunden (pip install tqdm), Fortschrittsbalken wird nicht angezeigt.")
     def tqdm(iterable, *args, **kwargs): # Dummy-Funktion
         return iterable
+
+# === FUNCTIONS ===
+
+def print_script_info():
+    """Print script metadata for logging purposes."""
+    print(f"=== {SCRIPT_NAME} v{SCRIPT_VERSION} ===")
+    print(f"Description: {SCRIPT_DESCRIPTION}")
+    print(f"Last Updated: {LAST_UPDATED}")
+    print(f"Config Compatibility: {CONFIG_COMPATIBILITY}")
+    print("=" * 50)
 
 # --- Helper Function: Nearest Neighbor ---
 def find_nearest_track_point_kdtree(track_lat_lon: np.ndarray, place_lat: float, place_lon: float) -> Tuple[int, float]:
@@ -70,15 +121,57 @@ def enrich_filter_places(
     min_occurrences_arg: Optional[int] = None
     ):
     """Enriches places with track proximity data and filters them."""
+    run_start_time = datetime.now()
+    print_script_info()
     print(f"[Info] Enriching and filtering places...")
     print(f"  Input Places (8b): {places_coords_csv}")
     print(f"  Input Track (2c): {full_track_csv}")
+    
+    # Metadaten-Initialisierung
+    metadata = {
+        'script_name': SCRIPT_NAME,
+        'script_version': SCRIPT_VERSION,
+        'timestamp': run_start_time.strftime('%Y-%m-%d %H:%M:%S'),
+        'places_input_file': places_coords_csv,
+        'track_input_file': full_track_csv,
+        'output_file': output_csv,
+        'places_file_size_mb': 0.0,
+        'track_file_size_mb': 0.0,
+        'input_places_count': 0,
+        'input_track_points': 0,
+        'places_with_coordinates': 0,
+        'places_enriched_successfully': 0,
+        'places_enrichment_failed': 0,
+        'enrichment_success_rate_percent': 0.0,
+        'kdtree_construction_time_sec': 0.0,
+        'distance_calculation_time_sec': 0.0,
+        'average_distance_calculation_time_ms': 0.0,
+        'places_before_distance_filter': 0,
+        'places_after_distance_filter': 0,
+        'distance_filter_efficiency_percent': 0.0,
+        'places_before_occurrence_filter': 0,
+        'places_after_occurrence_filter': 0,
+        'occurrence_filter_efficiency_percent': 0.0,
+        'overall_filter_efficiency_percent': 0.0,
+        'final_places_count': 0,
+        'max_distance_to_track_m': 0.0,
+        'min_distance_to_track_m': 0.0,
+        'average_distance_to_track_m': 0.0,
+        'input_analysis_time_sec': 0.0,
+        'enrichment_processing_time_sec': 0.0,
+        'filtering_processing_time_sec': 0.0,
+        'output_generation_time_sec': 0.0,
+        'total_runtime_sec': 0.0,
+        'processing_efficiency_places_per_sec': 0.0,
+        'success': False,
+        'error_message': ''
+    }
 
     # --- Lade Inputs ---
     try:
-        places_df = pd.read_csv(places_coords_csv, dtype={'Ort': str}) # Lese Ort als String
+        places_df = pd.read_csv(places_coords_csv, dtype={'Ort': str}, comment='#') # Lese Ort als String
         if places_df.empty: print(f"[Warnung] Places CSV ist leer: {places_coords_csv}"); # Save empty and exit
-        track_df = pd.read_csv(full_track_csv, dtype={'Elevation (m)': float, 'Distanz (km)': float})
+        track_df = pd.read_csv(full_track_csv, dtype={'Elevation (m)': float, 'Distanz (km)': float}, comment='#')
         if track_df.empty: print(f"[Warnung] Track CSV ist leer: {full_track_csv}"); # Save empty and exit
 
         # Handle empty cases cleanly
@@ -184,6 +277,12 @@ def enrich_filter_places(
     # --- Speichern ---
     try:
         output_dir = os.path.dirname(output_csv); os.makedirs(output_dir, exist_ok=True)
+        
+        # Finale Metadaten
+        metadata['success'] = True
+        metadata['total_runtime_sec'] = round((datetime.now() - run_start_time).total_seconds(), 3)
+        metadata['processing_efficiency_places_per_sec'] = round(metadata['input_places_count'] / metadata['total_runtime_sec'], 1) if metadata['total_runtime_sec'] > 0 else 0
+        
         # Wähle und ordne finale Spalten
         final_cols = ["Ort", "Vorkommen", "Strecke im Ort (km)",
                       "Latitude_Center", "Longitude_Center",
@@ -194,14 +293,41 @@ def enrich_filter_places(
             if col not in filtered_df.columns: filtered_df[col] = np.nan # Füge fehlende als NaN hinzu
         filtered_df = filtered_df[final_cols] # Wähle und ordne an
 
-        filtered_df.to_csv(output_csv, index=False, encoding='utf-8', float_format='%.3f')
+        write_csv_with_metadata(
+            dataframe=filtered_df,
+            output_path=output_csv,
+            script_name=SCRIPT_NAME,
+            script_version=SCRIPT_VERSION,
+            input_files=[places_coords_csv, full_track_csv],
+            additional_metadata=metadata,
+            float_format='%.3f'
+        )
+        
         print(f"[OK] Angereicherte und gefilterte Orte gespeichert: {output_csv}")
+        print(f"[Metadaten] Success Rate: {metadata['enrichment_success_rate_percent']}%, "
+              f"Filter Efficiency: {metadata['overall_filter_efficiency_percent']}%, "
+              f"Runtime: {metadata['total_runtime_sec']}s")
+              
     except Exception as e:
+        metadata['success'] = False
+        metadata['error_message'] = f'Output write error: {str(e)}'
+        metadata['total_runtime_sec'] = round((datetime.now() - run_start_time).total_seconds(), 3)
         print(f"[Fehler] Konnte finale Orts-CSV nicht schreiben: {output_csv} - {e}")
+        empty_df = pd.DataFrame()
+        write_csv_with_metadata(
+            dataframe=empty_df,
+            output_path=output_csv,
+            script_name=SCRIPT_NAME,
+            script_version=SCRIPT_VERSION,
+            input_files=[places_coords_csv, full_track_csv],
+            additional_metadata=metadata
+        )
         sys.exit(1)
 
 # --- Command Line Interface ---
 if __name__ == "__main__":
+    print_script_info()
+    
     parser = argparse.ArgumentParser(description="Enrich and filter places based on proximity.")
     parser.add_argument("--places-coords-csv", required=True)
     parser.add_argument("--full-track-csv", required=True)

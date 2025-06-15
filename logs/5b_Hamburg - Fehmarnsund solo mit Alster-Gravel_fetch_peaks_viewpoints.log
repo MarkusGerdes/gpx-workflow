@@ -1,4 +1,0 @@
-[Info] Fetching Peaks/Viewpoints for BBOX of: data/Hamburg - Fehmarnsund solo mit Alster-Gravel.gpx
-[Info] Using BBOX (S,W,N,E): 53.50138300,9.97420300,54.45803400,11.17547000
-[Info] Overpass query successful, 27034 elements found in BBOX.
-[OK] 27034 Peaks/Viewpoints gespeichert: output/5b_Hamburg - Fehmarnsund solo mit Alster-Gravel_peaks_viewpoints_bbox.json
