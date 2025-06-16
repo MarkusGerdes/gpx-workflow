@@ -124,7 +124,7 @@ def main():
 
     # Input-Daten laden
     try:
-        df = pd.read_csv(input_csv_path)
+        df = pd.read_csv(input_csv_path, comment='#')  # Skip metadata header lines
         if df.empty:
             logger.warning(f"Input CSV is empty: {input_csv_path}")
             empty_cols = ['Latitude', 'Longitude', 'original_index', 'Street', 'City', 'PostalCode']

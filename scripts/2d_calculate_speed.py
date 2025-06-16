@@ -10,9 +10,9 @@ detailed algorithm performance tracking and optimization metrics.
 
 # === SCRIPT METADATA ===
 SCRIPT_NAME = "2d_calculate_speed.py"
-SCRIPT_VERSION = "2.0.0"
-SCRIPT_DESCRIPTION = "Speed calculation from time and distance deltas with smoothing options and performance tracking"
-LAST_UPDATED = "2025-06-07"
+SCRIPT_VERSION = "2.1.0"
+SCRIPT_DESCRIPTION = "Speed calculation with integrated metadata system"
+LAST_UPDATED = "2025-06-15"
 AUTHOR = "Markus"
 CONFIG_COMPATIBILITY = "2.1"
 
@@ -21,6 +21,10 @@ CHANGELOG = """
 v1.1.0 (pre-2025): Enhanced datetime parsing and error handling
 v1.2.0 (2025-06-07): Standardized header, improved debug logging and speed calculation
 v2.0.0 (2025-06-07): Enhanced metadata system with algorithm performance tracking and calculation optimization metrics
+v2.1.0 (2025-06-15): Integrated unified metadata system with CSV_METADATA_TEMPLATE
+- Removed custom metadata header generation
+- Integrated with standardized CSV_METADATA_TEMPLATE system
+- Streamlined performance tracking and metadata collection
 """
 
 # === SCRIPT CONFIGURATION ===
@@ -54,6 +58,10 @@ import sys
 from pathlib import Path
 from datetime import datetime
 import time
+
+# Import Metadaten-System
+sys.path.append(str(Path(__file__).parent.parent / "project_management"))
+from CSV_METADATA_TEMPLATE import write_csv_with_metadata
 
 # === PERFORMANCE TRACKING GLOBALS ===
 calculation_stats = {
@@ -89,75 +97,7 @@ def log_stage(stage_name: str, duration: float = None, details: dict = None):
         'details': details or {}
     }
 
-def save_performance_metadata_to_csv_header(df: pd.DataFrame, output_csv_path: str, metadata: dict):
-    """Save speed calculation performance metadata as CSV header comments."""
-    if not TRACK_ALGORITHM_PERFORMANCE:
-        return df
-    
-    # Calculate total processing time
-    total_time = time.time() - calculation_stats['start_time'] if calculation_stats['start_time'] else 0
-    
-    # Calculate performance metrics
-    points_per_second = round(calculation_stats['data_points_processed'] / max(total_time, 0.001), 1)
-    data_quality_score = round((1 - calculation_stats['data_quality_issues'] / max(calculation_stats['data_points_processed'], 1)) * 100, 1)
-    
-    # Create metadata header as comments
-    metadata_lines = [
-        "# Speed Calculation Performance Metadata",
-        f"# Script: {SCRIPT_NAME} v{SCRIPT_VERSION}",
-        f"# Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-        f"# Description: {SCRIPT_DESCRIPTION}",
-        f"# Category: Speed Calculation + Time Delta Analysis + Smoothing",
-        "#",
-        f"# Processing Performance:",
-        f"# - Total Processing Time: {total_time:.3f} seconds",
-        f"# - Data Points Processed: {calculation_stats['data_points_processed']}",
-        f"# - Processing Rate: {points_per_second} points/second",
-        f"# - Data Quality Score: {data_quality_score}%",
-        "#",
-        f"# Algorithm Details:",
-        f"# - Time Parsing Method: {calculation_stats['time_parsing_method']}",
-        f"# - Speed Calculation Duration: {calculation_stats['speed_calculation_duration']:.3f}s",
-        f"# - Smoothing Duration: {calculation_stats['smoothing_duration']:.3f}s",
-        f"# - Rolling Window Size: {metadata.get('rolling_window', 0)}",
-        f"# - Max Speed Threshold: {MAX_SPEED_THRESHOLD_KMH} km/h",
-        "#",
-        f"# Data Quality Issues:",
-        f"# - Zero Time Deltas: {calculation_stats['zero_time_deltas']}",
-        f"# - Extreme Speeds Clipped: {calculation_stats['extreme_speeds_clipped']}",
-        f"# - Total Quality Issues: {calculation_stats['data_quality_issues']}",
-        "#",
-        f"# Speed Statistics:",
-        f"# - Min Speed: {metadata.get('min_speed', 0)} km/h",
-        f"# - Max Speed: {metadata.get('max_speed', 0)} km/h",
-        f"# - Average Speed: {metadata.get('avg_speed', 0)} km/h",
-        f"# - Speed Variance: {metadata.get('speed_variance', 0)}",
-        "#",
-        f"# Input Analysis:",
-        f"# - Input File: {metadata.get('input_file', '')}",
-        f"# - Required Columns Present: {metadata.get('required_columns_present', False)}",
-        f"# - Input Columns: {len(metadata.get('input_columns', []))}",
-        "#"
-    ]
-    
-    # Write CSV with metadata header
-    try:
-        with open(output_csv_path, 'w', encoding='utf-8') as f:
-            # Write metadata as comments
-            for line in metadata_lines:
-                f.write(line + '\n')
-            
-            # Write CSV data
-            df.to_csv(f, index=False, float_format='%.3f')
-            
-        print(f"[Metadata] Speed calculation metadata embedded in CSV header: {output_csv_path}")
-        
-    except Exception as e:
-        print(f"[Error] Could not write CSV with metadata header: {e}")
-        # Fallback: save without metadata
-        df.to_csv(output_csv_path, index=False, encoding='utf-8', float_format='%.3f')
-    
-    return df
+
 
 def calculate_speed(input_csv_path: str, output_csv_path: str, rolling_window: int = 0):
     calculation_stats['start_time'] = time.time()
@@ -176,9 +116,18 @@ def calculate_speed(input_csv_path: str, output_csv_path: str, rolling_window: i
         df = pd.read_csv(input_csv_path, comment='#')
         
         if df.empty:
-            print(f"[Warnung] Input CSV ist leer: {input_csv_path}")
-            save_performance_metadata_to_csv_header(df, output_csv_path, metadata)
-            print(f"[OK] Leere Geschwindigkeits-CSV gespeichert: {output_csv_path}")
+            print(f"[Warning] Input CSV is empty: {input_csv_path}")
+            # Create empty CSV with metadata
+            write_csv_with_metadata(
+                dataframe=df,
+                output_path=output_csv_path,
+                script_name=SCRIPT_NAME,
+                script_version=SCRIPT_VERSION,
+                input_files=[input_csv_path],
+                processing_parameters={'error': 'empty_input'},
+                additional_metadata={'processing_error': 'Input CSV is empty', 'data_points_processed': 0}
+            )
+            print(f"[OK] Empty speed CSV with metadata saved: {output_csv_path}")
             sys.exit(0)
 
         calculation_stats['data_points_processed'] = len(df)
@@ -189,10 +138,19 @@ def calculate_speed(input_csv_path: str, output_csv_path: str, rolling_window: i
         print(f"[Debug] Datenpunkte: {len(df)}")
         
         if 'Time' not in df.columns or 'Strecke Delta (km)' not in df.columns:
-            print("[Fehler] Benötigte Spalten 'Time' oder 'Strecke Delta (km)' nicht im Input CSV gefunden.")
-            print(f"[Debug] Vorhandene Spalten: {list(df.columns)}")
-            save_performance_metadata_to_csv_header(df, output_csv_path, metadata)
-            print(f"[Warnung] Input wurde nach Output kopiert, da Geschwindigkeitsberechnung nicht möglich: {output_csv_path}")
+            print("[Error] Required columns 'Time' or 'Strecke Delta (km)' not found in input CSV.")
+            print(f"[Debug] Available columns: {list(df.columns)}")
+            # Create CSV with error metadata
+            write_csv_with_metadata(
+                dataframe=df,
+                output_path=output_csv_path,
+                script_name=SCRIPT_NAME,
+                script_version=SCRIPT_VERSION,
+                input_files=[input_csv_path],
+                processing_parameters={'error': 'missing_columns'},
+                additional_metadata={'processing_error': 'Required columns missing', 'available_columns': list(df.columns)}
+            )
+            print(f"[Warning] Input copied to output as speed calculation not possible: {output_csv_path}")
             sys.exit(0)
 
         metadata['required_columns_present'] = True
@@ -334,13 +292,60 @@ def calculate_speed(input_csv_path: str, output_csv_path: str, rolling_window: i
         if output_dir:
             os.makedirs(output_dir, exist_ok=True)
         
-        # Save CSV with embedded metadata
-        save_performance_metadata_to_csv_header(df, output_csv_path, metadata)
-        print(f"[OK] CSV mit Geschwindigkeitsdaten gespeichert: {output_csv_path}")
-        print(f"[Info] Zeilen verarbeitet: {len(df)}")
+        # Calculate total processing time
+        total_time = time.time() - calculation_stats['start_time'] if calculation_stats['start_time'] else 0
+        
+        # Calculate performance metrics
+        points_per_second = round(calculation_stats['data_points_processed'] / max(total_time, 0.001), 1)
+        data_quality_score = round((1 - calculation_stats['data_quality_issues'] / max(calculation_stats['data_points_processed'], 1)) * 100, 1)
+        
+        # Prepare processing parameters
+        processing_parameters = {
+            'rolling_window_size': rolling_window,
+            'max_speed_threshold_kmh': MAX_SPEED_THRESHOLD_KMH,
+            'time_parsing_method': calculation_stats['time_parsing_method'],
+            'smoothing_enabled': rolling_window > 1
+        }
+        
+        # Prepare additional metadata
+        additional_metadata = {
+            'total_processing_time_sec': round(total_time, 3),
+            'data_points_processed': calculation_stats['data_points_processed'],
+            'processing_rate_points_per_sec': points_per_second,
+            'data_quality_score': data_quality_score,
+            'speed_calculation_duration_sec': round(calculation_stats['speed_calculation_duration'], 3),
+            'smoothing_duration_sec': round(calculation_stats['smoothing_duration'], 3),
+            'zero_time_deltas_count': calculation_stats['zero_time_deltas'],
+            'extreme_speeds_clipped_count': calculation_stats['extreme_speeds_clipped'],
+            'total_quality_issues': calculation_stats['data_quality_issues'],
+            'min_speed_kmh': metadata['min_speed'],
+            'max_speed_kmh': metadata['max_speed'],
+            'avg_speed_kmh': metadata['avg_speed'],
+            'speed_variance': metadata['speed_variance'],
+            'required_columns_present': metadata['required_columns_present'],
+            'input_columns_count': len(metadata['input_columns']),
+            'algorithm_performance_tracking': TRACK_ALGORITHM_PERFORMANCE
+        }
+        
+        # Save CSV with integrated metadata
+        write_csv_with_metadata(
+            dataframe=df,
+            output_path=output_csv_path,
+            script_name=SCRIPT_NAME,
+            script_version=SCRIPT_VERSION,
+            input_files=[input_csv_path],
+            processing_parameters=processing_parameters,
+            api_metadata=None,
+            additional_metadata=additional_metadata,
+            float_format='%.3f'
+        )
+        
+        print(f"[OK] CSV with speed data and metadata saved: {output_csv_path}")
+        print(f"[Info] Rows processed: {len(df)}")
+        print(f"[Performance] Processing time: {total_time:.3f}s, Quality score: {data_quality_score}%")
 
     except Exception as e:
-        print(f"[Fehler] Konnte Output-CSV nicht schreiben: {output_csv_path} - {e}")
+        print(f"[Error] Could not write output CSV: {output_csv_path} - {e}")
         sys.exit(1)
 
     log_stage("output_saving", time.time() - output_start, {

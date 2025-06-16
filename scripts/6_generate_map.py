@@ -11,9 +11,9 @@ Generates an interactive Folium map displaying:
 
 # === SCRIPT METADATA ===
 SCRIPT_NAME = "6_generate_map.py"
-SCRIPT_VERSION = "3.0.0"
-SCRIPT_DESCRIPTION = "Interactive Folium map generation with POIs, surface visualization, template tracking and standardized metadata"
-LAST_UPDATED = "2025-06-07"
+SCRIPT_VERSION = "3.1.0"
+SCRIPT_DESCRIPTION = "Interactive Folium map generation with integrated metadata system"
+LAST_UPDATED = "2025-06-15"
 AUTHOR = "Markus"
 CONFIG_COMPATIBILITY = "2.1"
 
@@ -23,6 +23,10 @@ v1.0.0 (pre-2025): Initial version with basic map generation functionality
 v1.1.0 (2025-06-07): Standardized header, improved error handling and surface visualization
 v2.0.0 (2025-06-07): Implemented full standardized metadata system with processing history
 v3.0.0 (2025-06-07): Enhanced with map template tracking and visualization parameters
+v3.1.0 (2025-06-15): Integrated unified metadata system - no more external metadata files
+- Removed separate metadata CSV file creation
+- Unified with CSV_METADATA_TEMPLATE system
+- Embedded metadata directly into HTML as comments
 """
 
 # === SCRIPT CONFIGURATION ===
@@ -83,6 +87,72 @@ SURFACE_COLOR_MAP = {
     "unknown": "lightgray", # Fallback für Unbekannt
     "default": "red" # Fallback für nicht gemappte Oberflächen
 }
+
+def save_metadata_to_html(html_path: str, metadata: dict, input_files: list):
+    """Embed metadata as HTML comments in the generated map file."""
+    try:
+        # Read the existing HTML file
+        with open(html_path, 'r', encoding='utf-8') as f:
+            html_content = f.read()
+        
+        # Create metadata comment block
+        metadata_comment = f"""<!--
+=== GPX WORKFLOW MAP GENERATION METADATA ===
+Processed_By: {SCRIPT_NAME} v{SCRIPT_VERSION}
+Processing_Timestamp: {datetime.now().isoformat()}
+Processing_Date: {datetime.now().strftime('%Y-%m-%d')}
+Processing_Time: {datetime.now().strftime('%H:%M:%S')}
+Description: {SCRIPT_DESCRIPTION}
+
+=== INPUT FILES ===
+"""
+        
+        for i, input_file in enumerate(input_files, 1):
+            if os.path.exists(input_file):
+                file_stats = os.stat(input_file)
+                file_size_kb = file_stats.st_size / 1024
+                file_modified = datetime.fromtimestamp(file_stats.st_mtime).strftime('%Y-%m-%d %H:%M:%S')
+                metadata_comment += f"Input_File_{i}: {os.path.basename(input_file)}\n"
+                metadata_comment += f"Input_File_{i}_Path: {input_file}\n"
+                metadata_comment += f"Input_File_{i}_Size_KB: {file_size_kb:.1f}\n"
+                metadata_comment += f"Input_File_{i}_Modified: {file_modified}\n"
+            else:
+                metadata_comment += f"Input_File_{i}: {input_file} (NOT FOUND)\n"
+        
+        metadata_comment += "\n=== MAP GENERATION PARAMETERS ===\n"
+        for key, value in metadata.items():
+            if isinstance(value, dict):
+                metadata_comment += f"{key.upper()}:\n"
+                for sub_key, sub_value in value.items():
+                    metadata_comment += f"  {sub_key}: {sub_value}\n"
+            else:
+                metadata_comment += f"{key}: {value}\n"
+        
+        metadata_comment += "\n=== END METADATA ===\n-->"
+        
+        # Insert metadata comment after the <html> tag
+        if '<html' in html_content:
+            html_parts = html_content.split('<html', 1)
+            if len(html_parts) == 2:
+                # Find the end of the <html> tag
+                html_tag_end = html_parts[1].find('>')
+                if html_tag_end != -1:
+                    html_content = (html_parts[0] + '<html' + 
+                                  html_parts[1][:html_tag_end + 1] + 
+                                  '\n' + metadata_comment + '\n' + 
+                                  html_parts[1][html_tag_end + 1:])
+        else:
+            # Fallback: add at the beginning
+            html_content = metadata_comment + '\n' + html_content
+        
+        # Write the modified HTML back
+        with open(html_path, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+        
+        print(f"[Info] Metadata embedded in HTML: {html_path}")
+        
+    except Exception as e:
+        print(f"[Warning] Could not embed metadata in HTML: {e}")
 
 # Helper function for Peak colors
 def get_color_by_elevation(elev_str):
@@ -343,11 +413,10 @@ def generate_map(track_csv_path: str, pois_csv_path: str,
         print(f" Fehler beim Speichern der Karte: {e_save}")
         sys.exit(1)
     
-    # Speichere Metadaten in separate CSV-Datei
-    metadata_csv_path = output_html_path.replace('.html', '_metadata.csv')
+    # Embed metadata directly into the HTML file
     try:
-        # Sammle Metadaten über die generierte Karte
-        processing_parameters = {
+        # Collect metadata about the generated map
+        metadata = {
             'map_center_lat': center_lat,
             'map_center_lon': center_lon,
             'track_points_count': len(track_df),
@@ -355,10 +424,7 @@ def generate_map(track_csv_path: str, pois_csv_path: str,
             'reduced_points_count': len(reduced_points_df) if not reduced_points_df.empty else 0,
             'surface_segments_count': len(df_surface_route) if not df_surface_route.empty else 0,
             'has_surface_visualization': not df_surface_route.empty,
-            'surface_types_count': df_surface_route['Surface'].nunique() if not df_surface_route.empty else 0
-        }
-        
-        additional_metadata = {
+            'surface_types_count': df_surface_route['Surface'].nunique() if not df_surface_route.empty else 0,
             'output_html_file': os.path.basename(output_html_path),
             'output_html_size_kb': os.path.getsize(output_html_path) / 1024 if os.path.exists(output_html_path) else 0,
             'processing_duration_seconds': (datetime.now() - run_start_time).total_seconds(),
@@ -368,7 +434,7 @@ def generate_map(track_csv_path: str, pois_csv_path: str,
             'data_quality': 'high' if not track_df.empty and len(track_df) > 10 else 'low'
         }
         
-        # Input-Dateien sammeln
+        # Input files list
         input_files = [track_csv_path]
         if pois_csv_path and os.path.exists(pois_csv_path):
             input_files.append(pois_csv_path)
@@ -377,31 +443,11 @@ def generate_map(track_csv_path: str, pois_csv_path: str,
         if surface_data_csv_path and os.path.exists(surface_data_csv_path):
             input_files.append(surface_data_csv_path)
         
-        # Erstelle einen einfachen Metadaten-DataFrame
-        metadata_df = pd.DataFrame([
-            {'Parameter': 'Script', 'Value': f'{SCRIPT_NAME} v{SCRIPT_VERSION}'},
-            {'Parameter': 'Generated', 'Value': run_start_time.strftime('%Y-%m-%d %H:%M:%S')},
-            {'Parameter': 'Track Points', 'Value': len(track_df)},
-            {'Parameter': 'POIs', 'Value': len(pois_df) if not pois_df.empty else 0},
-            {'Parameter': 'Surface Visualization', 'Value': 'Yes' if not df_surface_route.empty else 'No'},
-            {'Parameter': 'HTML File Size (KB)', 'Value': f"{additional_metadata['output_html_size_kb']:.1f}"}
-        ])
-        
-        # Schreibe Metadaten-CSV
-        write_csv_with_metadata(
-            dataframe=metadata_df,
-            output_path=metadata_csv_path,
-            script_name=SCRIPT_NAME,
-            script_version=SCRIPT_VERSION,
-            input_files=input_files,
-            processing_parameters=processing_parameters,
-            additional_metadata=additional_metadata
-        )
-        
-        print(f"[OK] Karten-Metadaten gespeichert: {metadata_csv_path}")
+        # Embed metadata into HTML
+        save_metadata_to_html(output_html_path, metadata, input_files)
         
     except Exception as e_meta:
-        print(f"[Warnung] Fehler beim Speichern der Metadaten: {e_meta}")
+        print(f"[Warning] Failed to embed metadata: {e_meta}")
 
 if __name__ == "__main__":
     print_script_info()

@@ -1,8 +1,8 @@
 # 📋 GPX Workflow - ToDo & Arbeitsplan
 
-> **Stand:** 2025-06-12 Abend - 🔍 POWER-PHYSIK-DEBUGGING VOLLSTÄNDIG  
-> **PROJEKT PRODUCTION-READY:** Power-Komponenten einzeln + physikalische Korrektheit validiert  
-> **STATUS:** Vollständig analysiert - alle Physik-Fragen geklärt
+> **Stand:** 2025-06-15 Nachmittag - 🔧 METADATEN-INTEGRATION FORTSCHRITT  
+> **PROJEKT PRODUCTION-READY:** Power-Komponenten + Metadaten-System-Integration läuft  
+> **STATUS:** 2c_add_elevation.py erfolgreich auf einheitliches Metadaten-System umgestellt
 
 ---
 
@@ -76,7 +76,7 @@ ls output/*power*
 ## 🔴 OPTIONAL - NUR BEI BEDARF
 
 ### 🔵 **Metadaten-Integration (Niedrigste Priorität)**
-**Status:** 6/22 Scripts (27%) - **NUR für Übersichtlichkeit**
+**Status:** 7/22 Scripts (32%) - **NUR für Übersichtlichkeit** - **+1 HEUTE**
 
 **Was ist das?**
 - Metadaten direkt in Output-Dateien statt separate Files
@@ -85,8 +85,9 @@ ls output/*power*
 
 **Empfehlung:** ⛔ **NICHT PRIORITÄT** - Pipeline funktioniert perfekt wie sie ist
 
-**Falls gewünscht (Aufwand: ~8-12h):**
-- **Nächste Scripts:** `10c_power_visualization.py`, `10b_power_processing.py` etc.
+**Falls gewünscht (Aufwand: ~7-11h):**
+- **HEUTE ERLEDIGT:** `2c_add_elevation.py` ✅ (OpenTopoData API + Performance-Tracking)
+- **Nächste Scripts:** `10c_power_visualization.py`, `10b_power_processing.py`, `4_surface_analysis.py` etc.
 - **Muster:** CSV-Header-Kommentare, HTML-Header-Kommentare
 - **Nutzen:** Kosmetische Verbesserung der Dateistruktur
 
@@ -166,7 +167,7 @@ ls output/*power*
 - ✅ **Performance-Optimierung:** Web-ready mit 90% Dateigröße-Reduktion (100%) 🆕
 
 ### 🔄 **OPTIONAL (Niedrigste Priorität):**
-- 🔄 **Metadaten-Integration:** Übersichtlichkeit (27% - 6/22 Scripts)
+- 🔄 **Metadaten-Integration:** Übersichtlichkeit (32% - 7/22 Scripts) - **+1 HEUTE**
 - 🔄 **Power-Erweiterungen:** Wind, Power-Meter, Multi-Track (0%)
 - 🔄 **Dashboard-System:** Performance-Monitoring (0%)
 - 🔄 **Config-Editor v3.0:** Power-Visualisierung-Preview (0%)
@@ -236,7 +237,8 @@ python debug_air_resistance.py output\*power_data.csv --km-start 7 --km-end 9
    - Performance-Entwicklung über Zeit
    - Empfehlung: Für Training-Monitoring wertvoll
 
-4. **Metadaten-Integration vollenden** (16 Scripts, ~8-12h)
+4. **Metadaten-Integration vollenden** (15 Scripts, ~7-11h)
+   - **HEUTE ERLEDIGT:** `2c_add_elevation.py` ✅
    - Rein kosmetische Verbesserung
    - Funktionalität unverändert
    - Empfehlung: Niedrigste Priorität

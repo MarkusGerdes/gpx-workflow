@@ -1,8 +1,8 @@
 # 🚴‍♂️ GPX Workflow - Status Dashboard
 
-> **Status:** 🔍 POWER-PHYSIK-ANALYSE VOLLSTÄNDIG + SURFACE-GRANULARITÄT VERSTANDEN  
-> **Stand:** 2025-06-12 Abend  
-> **Aktuell:** Rollwiderstand-Zacken physikalisch validiert, Debug-Tools erstellt
+> **Status:** 🔧 METADATEN-SYSTEM INTEGRATION FORTSCHRITT + ELEVATION-SCRIPT AKTUALISIERT  
+> **Stand:** 2025-06-15 Nachmittag  
+> **Aktuell:** 2c_add_elevation.py vollständig auf einheitliches Metadaten-System umgestellt
 
 ---
 
@@ -20,7 +20,26 @@
 
 ---
 
-## 🚀 NEUESTE HIGHLIGHTS: Power-Komponenten-Visualisierung
+## 🚀 NEUESTE HIGHLIGHTS: Metadaten-System Integration Fortschritt
+
+### 🔧 Elevation-Script Integration (HEUTE NEU!)
+```
+✅ 2c_add_elevation.py v2.1.0 - Vollständig auf einheitliches Metadaten-System umgestellt
+✅ OpenTopoData API-Funktionalität - 100% erhalten mit umfassendem Performance-Tracking
+✅ Batch-Processing-Metriken - API-Erfolgsrate, Request-Zeiten, Retry-Statistiken
+✅ Datenqualitäts-Assessment - Elevation-Ranges, Quality-Score, Interpolation-Points
+✅ Error-Handling robustifiziert - Metadaten auch bei Fehlern verfügbar
+```
+
+### 📊 Metadaten-Integration Status (AKTUALISIERT)
+```
+AKTUELL: 7/22 Scripts (32%) mit eingebetteten Metadaten
+NEU: 2c_add_elevation.py erfolgreich integriert
+FORTSCHRITT: +5% seit letztem Update
+KOMPATIBILITÄT: CSV_METADATA_TEMPLATE vollständig funktional
+```
+
+## 🚀 ETABLIERTE HIGHLIGHTS: Power-Komponenten-Visualisierung
 
 ### ⚡ Einzelkomponenten-Darstellung (NEU!)
 ```
@@ -178,7 +197,7 @@ power_estimation:
 - ✅ **Power-Komponenten:** Einzelkomponenten + Physik-Korrekturen (100%) - ⚡ **KOMPLETT**
 - ✅ **Power-Physik-Debugging:** Surface-Granularität + Rollwiderstand-Validierung (100%) - 🔍 **NEU**
 - ✅ **Dokumentation:** README + Troubleshooting (100%) - 📖 **BENUTZERFERTIG**
-- 🔄 **Integration:** Eingebettete Metadaten (27%) - 🎯 **OPTIONAL**
+- 🔄 **Integration:** Eingebettete Metadaten (32%) - 🎯 **FORTSCHRITT +1**
 
 **🎯 PRODUCTION-READY:** Power-Analyse wie in professionellen Tools!  
 **📖 USER-READY:** Vollständige Dokumentation für neue Nutzer!  

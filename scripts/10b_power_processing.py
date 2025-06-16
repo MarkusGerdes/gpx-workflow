@@ -26,6 +26,12 @@ import sys
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
+from datetime import datetime
+from pathlib import Path
+
+# Import Metadaten-System
+sys.path.append(str(Path(__file__).parent.parent / "project_management"))
+from CSV_METADATA_TEMPLATE import write_csv_with_metadata
 
 # === PHYSICAL CONSTANTS & MODEL PARAMETERS ===
 G = 9.81  # Gravity in m/s^2
@@ -110,9 +116,22 @@ def solve_for_speed_from_power(target_power_w, gradient, Cr, mass_kg, cda_value,
             
     return (v_low + v_high) / 2.0
 
+# === HELPER FUNCTIONS ===
+
+# Metadata system availability - now properly available
+METADATA_SYSTEM_AVAILABLE = True
+
+def print_script_info():
+    """Print script information header."""
+    print(f"=== {SCRIPT_NAME} v{SCRIPT_VERSION} ===")
+    print(f"Description: {SCRIPT_DESCRIPTION}")
+    print(f"Last Updated: {LAST_UPDATED}")
+    print(f"Config Compatibility: {CONFIG_COMPATIBILITY}")
+    print("=" * 50)
+
 # === DATA PROCESSING & WORKFLOW LOGIC ===
 
-def load_and_merge_data(track_csv, surface_csv):
+def load_and_merge_data(track_csv, surface_csv, metadata=None):
     """Loads and merges track and surface data."""
     print(f"Loading track data from: {track_csv}")
     df_track = pd.read_csv(track_csv, comment='#')
@@ -164,7 +183,7 @@ def load_and_merge_data(track_csv, surface_csv):
     
     return df_merged
 
-def calculate_gradient(df):
+def calculate_gradient(df, metadata=None):
     """Calculates point-to-point gradient."""
     print("Calculating gradient for each track segment...")
     elevation_diff = df['Elevation (m)'].diff()
@@ -173,9 +192,13 @@ def calculate_gradient(df):
     df['Gradient'] = (elevation_diff / distance_diff.where(distance_diff != 0)).fillna(0)
     return df
 
-def run_power_analysis(df, mass_kg, cda_value):
+def run_power_analysis(df, mass_kg, cda_value, metadata=None):
     """Mode 1: Analyzes power based on existing speed data with GPS validation."""
     print("Running in 'analysis' mode...")
+    
+    # Set processing mode in metadata
+    if metadata is not None:
+        metadata['processing_mode'] = 'analysis'
 
     if 'Geschwindigkeit (km/h)' not in df.columns:
         raise ValueError("Input CSV for 'analysis' mode must contain 'Geschwindigkeit (km/h)' column.")
@@ -289,9 +312,13 @@ def run_power_analysis(df, mass_kg, cda_value):
     
     return pd.concat([df, df_power], axis=1)
 
-def run_speed_simulation(df, mass_kg, cda_value, target_power):
-    """Mode 2: Simulates speed based on a target power."""
+def run_speed_simulation(df, mass_kg, cda_value, target_power, metadata):
+    """Mode 2: Simulates speed based on a target power with metadata tracking."""
     print(f"Running in 'simulation' mode with target power: {target_power}W...")
+    
+    simulation_start_time = datetime.now()
+    metadata['processing_mode'] = 'simulation'
+    metadata['target_power_w'] = target_power
 
     simulated_speeds_ms = []
     for _, row in tqdm(df.iterrows(), total=len(df), desc="Simulating Speed"):
@@ -311,12 +338,32 @@ def run_speed_simulation(df, mass_kg, cda_value, target_power):
     df['Simulated_Time_s'] = segment_time_s.cumsum().fillna(0)
     
     df['Target_Power_W'] = target_power
+    
+    # Simulation statistics for metadata
+    simulation_stats = {
+        'min_simulated_speed_kmh': round(df['Simulated_Speed_kmh'].min(), 1),
+        'max_simulated_speed_kmh': round(df['Simulated_Speed_kmh'].max(), 1),
+        'mean_simulated_speed_kmh': round(df['Simulated_Speed_kmh'].mean(), 1),
+        'total_simulated_time_hours': round(df['Simulated_Time_s'].iloc[-1] / 3600, 2),
+        'total_distance_km': round(df['Distanz (km)'].iloc[-1], 2)
+    }
+    
+    metadata['simulation_analysis'] = simulation_stats
+    
+    # Processing time
+    simulation_time = (datetime.now() - simulation_start_time).total_seconds()
+    metadata['simulation_processing_time_sec'] = round(simulation_time, 3)
+    
     return df
 
 # === MAIN EXECUTION BLOCK ===
 
 def main():
-    """Main function to orchestrate the power processing workflow."""
+    """Main function to orchestrate the power processing workflow with comprehensive metadata tracking."""
+    run_start_time = datetime.now()
+    
+    print_script_info()
+    
     parser = argparse.ArgumentParser(
         description=SCRIPT_DESCRIPTION,
         formatter_class=argparse.RawTextHelpFormatter
@@ -342,21 +389,44 @@ def main():
     
     args = parser.parse_args()
 
+    # Initialize comprehensive metadata tracking
+    metadata = {
+        'script_name': SCRIPT_NAME,
+        'script_version': SCRIPT_VERSION,
+        'timestamp': run_start_time.strftime('%Y-%m-%d %H:%M:%S'),
+        'processing_mode': None,
+        'success': False,
+        'error_message': None,
+        'total_runtime_sec': 0.0,
+        'data_quality_score': 0.0
+    }
+
     # --- Determine Mode and Validate ---
     is_simulation_mode = args.target_power is not None
     
     print(f"--- {SCRIPT_NAME} v{SCRIPT_VERSION} ---")
     
     try:
+        # Processing parameters for metadata
+        processing_parameters = {
+            'rider_mass_kg': args.mass,
+            'aerodynamic_position': args.position,
+            'cda_value_m2': CDA_PARAMS[args.position],
+            'target_power_w': args.target_power if is_simulation_mode else None,
+            'physics_model': 'advanced_cycling_power_model',
+            'air_density_kg_m3': RHO,
+            'gravity_ms2': G
+        }
+        
         # Load and prepare data
-        df = load_and_merge_data(args.track_csv, args.surface_csv)
-        df = calculate_gradient(df)
+        df = load_and_merge_data(args.track_csv, args.surface_csv, metadata)
+        df = calculate_gradient(df, metadata)
         
         cda_value = CDA_PARAMS[args.position]
         
         # Execute the chosen mode
         if is_simulation_mode:
-            df_final = run_speed_simulation(df, args.mass, cda_value, args.target_power)
+            df_final = run_speed_simulation(df, args.mass, cda_value, args.target_power, metadata)
             
             # Summary for simulation
             avg_speed = df_final['Simulated_Speed_kmh'].mean()
@@ -370,7 +440,7 @@ def main():
             print(f"Total Estimated Time: {total_hours}h {total_minutes}min")
 
         else: # Analysis Mode
-            df_final = run_power_analysis(df, args.mass, cda_value)
+            df_final = run_power_analysis(df, args.mass, cda_value, metadata)
             
             # Summary for analysis
             avg_power = df_final['Power_W'].mean()
@@ -380,18 +450,135 @@ def main():
             print(f"Average Power: {avg_power:.1f} W")
             print(f"Max Power: {max_power:.1f} W")
 
-        # Save final result
+        # Calculate data quality score
+        quality_factors = []
+        
+        # Merge success contributes 30%
+        merge_success = metadata.get('merge_success_rate', 0)
+        quality_factors.append((merge_success / 100) * 30)
+        
+        # Speed correction rate (lower is better) contributes 25%
+        if 'speed_validation' in metadata:
+            correction_rate = metadata['speed_validation'].get('correction_rate_percent', 0)
+            speed_quality = max(0, (100 - correction_rate) / 100) * 25
+            quality_factors.append(speed_quality)
+        else:
+            quality_factors.append(25)  # Full points for simulation mode
+        
+        # Surface diversity contributes 20%
+        surface_diversity = min(metadata.get('unique_surfaces', 1), 5) / 5 * 20
+        quality_factors.append(surface_diversity)
+        
+        # Data completeness contributes 25%
+        completeness = min(len(df_final), metadata.get('track_points_loaded', 1)) / metadata.get('track_points_loaded', 1) * 25
+        quality_factors.append(completeness)
+        
+        metadata['data_quality_score'] = round(sum(quality_factors), 1)
+        metadata['success'] = True
+        metadata['total_runtime_sec'] = round((datetime.now() - run_start_time).total_seconds(), 3)
+
+        # Save final result with comprehensive metadata
         output_dir = os.path.dirname(args.output_csv)
         if output_dir:
             os.makedirs(output_dir, exist_ok=True)
-            
-        df_final.to_csv(args.output_csv, index=False, float_format='%.3f')
-        print(f"\n[SUCCESS] Processing complete. Output saved to: {args.output_csv}")
+        
+        # Prepare input files list
+        input_files = [args.track_csv, args.surface_csv]
+        
+        # API metadata (none used, but structure maintained)
+        api_metadata = {
+            'physics_model_used': 'cycling_power_equations',
+            'aerodynamic_model': 'fixed_cda_by_position',
+            'rolling_resistance_model': 'surface_based_coefficients',
+            'numerical_solver': 'bisection_method_30_iterations'
+        }
+        
+        # Additional metadata with all tracking info
+        additional_metadata = {
+            'total_data_points': len(df_final),
+            'processing_quality': 'high' if metadata['data_quality_score'] > 80 else 'medium' if metadata['data_quality_score'] > 60 else 'low',
+            'physics_model_version': '2.1.0',
+            'speed_validation_performed': 'speed_validation' in metadata,
+            'power_smoothing_applied': True,
+            'selective_component_smoothing': True
+        }
+        
+        # Merge all metadata sections
+        if 'speed_validation' in metadata:
+            additional_metadata.update({f'speed_{k}': v for k, v in metadata['speed_validation'].items()})
+        if 'power_analysis' in metadata:
+            additional_metadata.update({f'power_{k}': v for k, v in metadata['power_analysis'].items()})
+        if 'simulation_analysis' in metadata:
+            additional_metadata.update({f'simulation_{k}': v for k, v in metadata['simulation_analysis'].items()})
+        if 'gradient_stats' in metadata:
+            additional_metadata.update({f'gradient_{k}': v for k, v in metadata['gradient_stats'].items()})
+        
+        # Add surface distribution info
+        if 'surface_distribution' in metadata:
+            for surface, percentage in metadata['surface_distribution'].items():
+                additional_metadata[f'surface_{surface}_percent'] = percentage
+        
+        try:
+            if METADATA_SYSTEM_AVAILABLE:
+                write_csv_with_metadata(
+                    dataframe=df_final,
+                    output_path=args.output_csv,
+                    script_name=SCRIPT_NAME,
+                    script_version=SCRIPT_VERSION,
+                    input_files=input_files,
+                    processing_parameters=processing_parameters,
+                    api_metadata=api_metadata,
+                    additional_metadata=additional_metadata,
+                    float_format='%.3f'
+                )
+                print(f"\n[SUCCESS] Processing complete with metadata. Output saved to: {args.output_csv}")
+            else:
+                # Fallback to standard CSV
+                df_final.to_csv(args.output_csv, index=False, float_format='%.3f')
+                print(f"\n[SUCCESS] Processing complete (no metadata). Output saved to: {args.output_csv}")
+                
+        except Exception as e:
+            print(f"[ERROR] Failed to save with metadata: {e}")
+            # Emergency fallback
+            df_final.to_csv(args.output_csv, index=False, float_format='%.3f')
+            print(f"[FALLBACK] Basic CSV saved to: {args.output_csv}")
+        
+        # Print comprehensive summary
+        print("\n" + "="*60)
+        print("POWER PROCESSING SUMMARY")
+        print("="*60)
+        processing_mode = metadata.get('processing_mode', 'unknown')
+        print(f"Mode: {processing_mode.upper() if processing_mode else 'UNKNOWN'}")
+        print(f"Data Quality Score: {metadata['data_quality_score']}/100")
+        print(f"Total Runtime: {metadata['total_runtime_sec']}s")
+        print(f"Track Points: {metadata.get('track_points_loaded', 0)}")
+        print(f"Surface Merge Rate: {metadata.get('merge_success_rate', 0)}%")
+        
+        if is_simulation_mode:
+            sim_stats = metadata.get('simulation_analysis', {})
+            print(f"Target Power: {args.target_power}W")
+            print(f"Avg Simulated Speed: {sim_stats.get('mean_simulated_speed_kmh', 0):.1f} km/h")
+            print(f"Total Time: {sim_stats.get('total_simulated_time_hours', 0):.1f}h")
+        else:
+            power_stats = metadata.get('power_analysis', {})
+            speed_stats = metadata.get('speed_validation', {})
+            print(f"Avg Power: {power_stats.get('mean_power_w', 0):.1f}W")
+            print(f"Max Power: {power_stats.get('max_power_w', 0):.1f}W")
+            print(f"Speed Corrections: {speed_stats.get('corrections_made', 0)} ({speed_stats.get('correction_rate_percent', 0):.1f}%)")
+        
+        print(f"Surface Types: {metadata.get('unique_surfaces', 0)}")
+        print("="*60)
 
     except FileNotFoundError as e:
+        metadata['success'] = False
+        metadata['error_message'] = f"Input file not found: {e}"
+        metadata['total_runtime_sec'] = round((datetime.now() - run_start_time).total_seconds(), 3)
         print(f"[ERROR] Input file not found: {e}", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
+        metadata['success'] = False
+        metadata['error_message'] = f"Processing error: {str(e)}"
+        metadata['total_runtime_sec'] = round((datetime.now() - run_start_time).total_seconds(), 3)
         print(f"[ERROR] An unexpected error occurred: {e}", file=sys.stderr)
         import traceback
         traceback.print_exc()
